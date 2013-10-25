@@ -1,0 +1,40 @@
+@import '//fast.fonts.net/cssapi/9b84bb37-32b1-40b1-9d2c-83560b0230d8.css';
+
+@mixin arial {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+@mixin helvetica-light {
+	font-family: 'HelveticaNeueW01-45Ligh', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin helvetica-roman {
+	font-family: 'HelveticaNeueW01-55Roma', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin helvetica-bold {
+	font-family: 'HelveticaNeueW01-75Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.arial {
+	@include arial;
+}
+
+.helvetica-light {
+	@include helvetica-light;
+}
+
+.helvetica-roman {
+	@include helvetica-roman;
+}
+
+.helvetica-bold {
+	@include helvetica-bold;
+}
+

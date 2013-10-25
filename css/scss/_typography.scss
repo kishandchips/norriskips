@@ -1,0 +1,220 @@
+
+a {
+	text-decoration: none;
+	color: #002b54;
+	cursor: pointer;
+	@include transition(all 0.3s ease);
+	&:hover {
+		color: #eeb111;
+	}
+}
+
+h1 {
+	@include font-size(40);
+	line-height: 0.9;
+	margin: 0.3em 0;
+}
+
+h2 {
+	@include helvetica-bold;
+	text-transform: uppercase;
+	margin: 0.5em 0;
+	@include font-size(33);
+	line-height: 1;
+}
+
+h3 {
+	margin: 0.5em 0;
+	@include font-size(25);
+	line-height: 1;
+}
+
+h4 {
+	margin: 0.5em 0;
+	@include font-size(20);
+	line-height: 1;
+}
+
+h5 {
+	margin: 0.5em 0;
+	@include font-size(18);
+	line-height: 1;
+}
+
+h6 {
+	@include helvetica-bold;
+	margin: 0.5em 0;
+	@include font-size(16);
+	line-height: 1;
+}
+
+p {
+	margin: 0.8em 0;
+}
+
+.huge {
+	font-size: 150%;
+}
+
+.big {
+	font-size: 130%;
+}
+
+.small {
+	font-size: 90%;
+}
+
+.tiny {
+	font-size: 80%;
+}
+
+.bold,
+strong,
+b {
+	@include helvetica-bold;
+}
+
+.normal {
+	@include helvetica-roman;
+}
+
+em,
+i,
+.italic {
+	font-style: italic;
+}
+
+.align-left,
+.text-left {
+	text-align: left;
+}
+
+.align-right,
+.text-right {
+	text-align: right;
+}
+
+.align-center,
+.text-center {
+	text-align:  center;
+}
+
+.align-middle,
+.text-middle {
+	vertical-align: middle;
+}
+
+.normal-style {
+	font-style: normal;	
+}
+
+.underline {
+	text-decoration: underline;	
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.normalcase {
+	text-transform: none;
+}
+
+.black {
+	color: #000;
+}
+
+.white {
+	color: #fff;
+}
+
+a.white:hover {
+	color: #ffbbbb;
+}
+
+.grey {
+	color: #a8a8a8;	
+}
+
+a.grey:hover {
+	color: #878787;	
+}
+
+.dark-grey {
+	color: #333333;
+}
+
+a.dark-grey:hover {
+	color: #141414;
+}
+
+.light-grey {
+	color: #CCC;	
+}
+
+a.light-grey:hover {
+	color: #a8a8a8;	
+}
+
+.orange {
+	color: #e05206;	
+}
+
+a.orange:hover {
+	color: #ac4b22;
+}
+
+.pink {
+	color: #ed1375;	
+}
+
+.blue {
+	color: #061730;	
+}
+
+.dark-blue {
+	color: #0057a6;
+}
+
+.teal {
+	color: #13a89e;
+}
+
+.red {
+	color: #ed2724;
+}
+
+.green {
+	color: #c2ed00;
+}
+
+a.green:hover {
+	color: #c9f400;
+}
+
+.purple {
+	color: #9c0059;
+}
+
+a.purple:hover {
+	color: #000000;
+}
+.error {
+	color: #7e0606;
+}
+
+.brown {
+	color: #7d563b;
+}
+
+a.brown:hover {
+	color: #5c3f2b;
+}
+
+.light-brown {
+	color: #c09367;
+}
+
+a.light-brown:hover {
+	color: #977451;
+}

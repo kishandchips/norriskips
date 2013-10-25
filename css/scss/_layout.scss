@@ -1,0 +1,466 @@
+html {
+	font-size: 62.5%;
+
+	// @include device-width(9) {
+	// 	font-size: 54.5%;
+	// }
+}
+
+body {
+	color: #333333;
+	@include helvetica-roman;
+	@include font-size(14);
+	line-height: 1.5;
+	min-width: 250px;
+	background: #FFF;
+}
+
+#wrap {
+	position: relative;
+	z-index: 500;
+}
+
+#header {
+	position: relative;
+	z-index: 1000;	
+	padding: 2em 0;
+	border-bottom: 1px solid #e5e9ec;
+	@include box-shadow(0 0 0 5px rgba(#000, 0.2));
+
+	@include device-width(12) {
+		padding: 1em 0;
+	}
+
+	@media print {
+		display: none;
+	}
+
+	> .inner {
+		position: relative;
+		padding: 0 10px;
+		@include device-width(12) {
+			width: auto;
+			padding: 0 3em;
+		}
+
+		@include device-width(6) {
+			padding: 0 2em;
+		}
+	}
+
+	.logo-container {
+		margin: 0;
+		@include transition(all 0.3s ease);
+		z-index: 0;
+		position: relative;
+		display: inline-block;
+		width: 34em;
+		@include font-size(10);
+
+		@include device-width(8) {
+			width: 28em;
+		}
+
+		@include device-width(6) {
+			width: 22em;
+		}
+		&:before {
+			content: '';
+			display: block;
+			padding-top: 24.3%;
+		}
+		.logo {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 100;
+			background: url(../images/logos/norriskips.png) no-repeat;
+			@include background-size(contain);
+			text-indent: -9999px;
+			display: inline-block;
+		}
+	}
+
+	.info {
+		position: absolute;
+		top: 0;
+		right: 10px;
+		text-align: right;
+
+		@include device-width(12) {
+			right: 3em;
+		}
+
+		@include device-width(6) {
+			display: none;
+		}
+
+		.phone-number {
+			margin-right: 0.8em;
+
+			@include device-width(8) {
+				display: block;
+				margin-right: 0;
+				line-height: 1.2;
+			}
+		}
+
+			// .book-now-btn {
+				
+			// }
+	}
+
+	.mobile-navigation-btn {
+		position: absolute;
+		right: 3em;
+		top: 3.5em;
+
+		@include device-width(12) {
+			display: inline-block;
+		}
+
+		@include device-width(8) {
+			left: 28em;
+			top: 2.3em;
+			right: auto;
+		}
+
+		@include device-width(6) {
+			left: auto;
+			right: 2em;
+			top: 1em;
+		}
+	}
+
+	.main-navigation {
+		position: absolute;
+		bottom: 0;
+		right: 10px;
+		margin: 0;
+		@extend .clearfix;
+
+		@include device-width(12) {
+			position: relative;
+			margin: 1em -3em 0 -3em;
+			display: none;
+		}
+
+		@include device-width(6) {
+			margin-left: -2em;
+			margin-right: -2em;
+		}
+
+		
+		> ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			@include device-width(12) {
+				border-top: 1px solid #CCC;
+			}
+			
+			> li {
+				float: left;
+				position: relative;
+				@include transition(all 0.3s ease);
+				zoom: 0;
+				margin: 0 0 0 2em;
+
+				@include device-width(12) {
+					margin: 0;
+					float: none;
+					border-bottom: 1px solid #CCC;
+				}
+				
+			
+			 	> a {
+			 		display: inline-block;
+					padding: 0 0;
+					text-transform: uppercase;
+			 		@include font-size(12);
+				 	position: relative;
+			 		@include helvetica-bold;
+			 		line-height: 1;
+				 
+				 	// @include device-width(7) {
+				 	// 	@include font-size(11);
+				 	// }
+
+				 	@include device-width(12) {
+				 		padding: 1em 3em;
+				 		display: block;
+				 	}
+
+				 	@include device-width(12) {
+				 		padding-left: 2em;
+				 		padding-right: 2em;
+				 	}
+			 	}
+
+			 	> a:hover,
+			 	&.current_page_parent > a,
+			 	&.current-menu-item > a,
+			 	&.current-category-ancestor > a,
+			 	&.current-page-ancestor > a,
+			 	&.current-post-ancestor > a,
+			 	&.current-menu-parent > a,
+			 	&.current-post-parent > a,
+			 	&.current > a {
+			 		color: #eeb111;
+
+			 		@include device-width(12) {
+			 			background: #326ba1;
+			 			color: #FFF;
+			 		}
+			 	}
+			}
+		} 
+	}
+
+}
+		
+			
+#main {
+	position: relative;
+	z-index: 500;
+}
+		
+#sidebar {}
+	
+#footer {
+	background: #f5f5f5;
+	
+	@media print {
+		display: none;
+	}
+
+	> .inner {
+		padding: 2em 10px 0.4em 10px;
+
+		@include device-width(8) {
+			width: auto;
+			padding-left: 3em;
+			padding-right: 3em;
+		}
+
+		> .top {
+			position: relative;
+		}
+
+		> .bottom {
+			margin: 1em 0 0 0;
+		}
+	}
+
+	.logo-container {
+		margin: 0;
+		padding: 0;
+		@include transition(all 0.3s ease);
+		z-index: 0;
+		position: relative;
+		display: inline-block;
+		@include font-size(10);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: pxtoem(224);
+		z-index: 200;
+
+		@include device-width(8) {
+			position: relative;
+		}
+		&:before {
+			content: '';
+			display: block;
+			padding-top: 24.3%;
+		}
+		.logo {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 100;
+			background: url(../images/logos/norriskips.png) no-repeat;
+			@include background-size(contain);
+			text-indent: -9999px;
+			display: inline-block;
+		}
+	}
+
+	.mobile-navigation-btn {
+		position: absolute;
+		left: pxtoem(224);
+		top: 0;
+
+		@include device-width(8) {
+			display: inline-block;
+			// left: 28em;
+			// top: 2.3em;
+			// right: auto;
+		}
+
+		// @include device-width(6) {
+		// 	left: auto;
+		// 	right: 2em;
+		// 	top: 1em;
+		// }
+	}
+
+	.main-navigation {
+		position: relative;
+		z-index: 100;
+		margin: 0;
+		padding-left: pxtoem(220);
+		padding-right: pxtoem(180);
+		@extend .clearfix;
+
+		@include device-width(8) {
+			float: none;
+			padding-left: 0;
+			padding-right: 0;
+			margin: 10px -3em;
+		}
+
+		> ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			@include device-width(8) {
+				border-top: 1px solid #CCC;
+			}
+			
+			> li {
+				float: left;
+				position: relative;
+				@include transition(all 0.3s ease);
+				zoom: 0;
+				margin: 0 0 0 2em;
+
+				@include device-width(8) {
+					margin: 0;
+					float: none;
+					border-bottom: 1px solid #CCC;
+				}
+				
+			
+			 	> a {
+			 		display: inline-block;
+					padding: 0.6em 0;
+			 		@include font-size(12);
+				 	position: relative;
+			 		@include helvetica-bold;
+			 		line-height: 1;
+				 
+				 	@include device-width(8) {
+				 		padding: 1em 3em;
+				 		display: block;
+				 	}
+
+				 	// @include device-width(12) {
+				 	// 	padding-left: 2em;
+				 	// 	padding-right: 2em;
+				 	// }
+			 	}
+
+			 	> a:hover,
+			 	&.current_page_parent > a,
+			 	&.current-menu-item > a,
+			 	&.current-category-ancestor > a,
+			 	&.current-page-ancestor > a,
+			 	&.current-post-ancestor > a,
+			 	&.current-menu-parent > a,
+			 	&.current-post-parent > a,
+			 	&.current > a {
+			 		color: #eeb111;
+
+			 		@include device-width(8) {
+			 			background: #326ba1;
+			 			color: #FFF;
+			 		}
+			 	}
+			}
+		} 
+	}
+
+	.social-links {
+		text-align: right;
+		position: absolute;
+		top: 0.6em;
+		right: 0;
+	}
+
+
+	.widgets {
+		margin-left: -10px;
+		margin-right: -10px;
+
+		.widget {
+			text-align: center;
+			margin-bottom: 1em; 
+
+			@include device-width(8) {
+				width: 100%;
+				float: none;
+			}
+
+			> .inner {
+				padding: 2em 0;
+				background: #ececec;
+			}
+
+			.textwidget {
+				margin: 1em 0 0 0;
+			}
+		}
+	}
+
+	.phone-number {
+		@include font-size(30);
+		line-height: 1.14;
+	}
+}
+
+#page-header {
+	background: #326ba1;
+	padding: 2em 0 1.2em;
+	border-bottom: 8px solid #245d93;
+	.title {
+		color: #FFF;
+		margin: 0;
+		text-align: center;
+	}
+}
+
+#lightbox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 1000;
+	display: none;
+
+	> .overlay {
+		display: none;
+	}
+
+	> .content {
+		z-index: 1000;
+		position: absolute;
+		width: 100%;
+	}
+}
+
+/* =============================================================================
+   Pages
+   ========================================================================== */
+
+#index {
+	
+}
+

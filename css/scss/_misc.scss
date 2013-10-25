@@ -1,0 +1,459 @@
+/* =============================================================================
+   Misc
+   ========================================================================== */
+
+
+.ir {
+	border:0;
+	font: 0/0 a;
+	text-shadow: none;
+	color: transparent;
+	background-color: transparent;
+}
+
+.hide {
+	display: none;
+}
+
+
+.hide-on-tablet {
+	@include device-width(8) {
+		display: none !important;
+	}
+}
+
+.hide-on-mobile {
+	@include device-width(4) {
+		display: none !important;
+	}
+}
+
+.show,
+.block {
+	display: block;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.inline {
+	display: inline;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.no-border {
+	border: none;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.relative {
+	position: relative;
+}
+
+.fixed {
+	position: fixed;
+}
+
+.valign-middle {
+	vertical-align: middle;	
+}
+
+.valign-center {
+	position: absolute;
+	top: 50%;
+	@include translateY(-50%)
+}
+.dropshadow {
+	@include box-shadow(3px 3px 4px #666 );
+}
+
+.text-shadow {
+	text-shadow: 0px 2px 2px white;
+}
+
+hr {
+	background-color: #999;
+	border: 0;
+    height: 1px;
+	margin: 1em auto;
+
+	&.thick {
+		height: 4px;	
+	}
+}
+
+
+.border {
+	border: 1px solid #ececec;
+}
+
+.border-bottom {
+	border-bottom: 1px solid #ececec;	
+}
+
+.border-top {
+	border-top: 1px solid #ececec;	
+}
+
+.border-left {
+	border-left: 1px solid #ececec;	
+}
+
+.border-right {
+	border-right: 1px solid #ececec;	
+}
+
+.thick-border-top {
+	border-top: 2px solid #FFF;
+}
+
+.thick-border-bottom {
+	border-bottom: 2px solid #FFF;
+}
+
+.scroller {
+	position: relative;
+	min-height: 100px;
+	
+	.scroller-mask {
+		position: relative;
+		overflow: hidden;
+		height: 100%;
+		
+		.scroll-items-container {	
+			width: 20000px;
+			left: 0;
+			height: 100%;
+			position: relative;
+		}
+
+		.scroll-item {
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 100%;
+			display: none;
+
+			&.current {
+				display: block;
+
+				.description {
+					opacity: 1;
+				}
+			}
+
+			.description {
+				@include transition(opacity 1s ease-in-out);
+				opacity: 0;
+			}
+		}
+	}
+	
+	.scroller-pagination {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		@include translateX(-50%);
+		@extend .clearfix;
+		li {
+			float: left;
+			list-style: none;
+			margin: 0.5em 0.3em;
+			.btn {
+				display: block;
+				background: #e4e4e4;
+				width: 12px;
+				height: 12px;
+				@include border-radius(2px);
+				padding: 0;
+				@include box-shadow(inset 0px 1px 2px 0px rgba(#000, 0.4));
+			}
+
+			&.current .btn,
+			.btn:hover {
+				background: #7daef1;
+			}
+		}
+	}
+
+	.scroller-navigation {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		height: 0;
+		width: 100%;
+		z-index: 2000;
+		margin-top: -4em;
+		
+		.prev-btn,
+		.next-btn {
+			width: 5em;
+			height: 5em;
+			padding: 0;
+			position: absolute;
+			display: inline-block;
+			background: none;
+			&:hover,
+			&.hover {
+				background: none;
+
+				&:before {
+					color: #e05206;
+				}
+			}	
+
+			&:before {
+				color: #FFF;
+				@include transition(all 0.3s ease);
+				font-size: 2.5em;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -0.4em;
+				margin-top: -0.5em;
+				@extend [data-icon]:before;
+			}
+
+			
+		}
+
+
+		.prev-btn {
+			left: 1.5em;
+			&:before {
+				@extend .icon-arrow-left-large:before;
+			}
+		}
+
+
+		.next-btn {
+			right: 1.5em;
+			&:before {
+				@extend .icon-arrow-right-large:before;
+			}
+		}
+	}
+}
+
+.overlay {
+	// width:100%;
+	// height: 100%;
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(#000, 0.4);
+	@include transition(all 0.6s ease);
+
+	.no-rgba & {
+		@include opacity(0.4);
+		background: #000;
+	}
+}
+
+.lightbox {
+	left: 50%;
+    margin-left: -550px;
+    padding: 0;
+    position: absolute;
+    top: 50px;
+    width: 1100px;
+    z-index: 200;
+	
+	> .loader {
+		padding: 280px 0 0 0;
+	}
+}
+	
+.vertical-line {
+	width: 1px;
+	height: 100%;
+	display: inline-block;
+	background: #BEBEBE;
+	vertical-align: middle;
+}
+
+.scale {
+	width: 100%;
+	height: auto !important;
+	max-height: 100%;
+	max-width: 100%;
+	display: block;
+}
+
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; 
+    height: 0;
+    overflow: hidden;
+	iframe,
+	object,
+	embed {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	}
+
+}
+
+.shadow-3d {
+	position: relative;
+	z-index: 100;
+
+	&:before {
+		content: '';
+		z-index: 0;
+		display: none;
+		.loaded & {
+			display: block;
+		
+			@include device-width(5){
+				display: none;
+			}
+		}
+		position: absolute;
+		width: 80%;
+		height: 0;
+		bottom: -1%;
+		left: 10%;
+		z-index: 0;
+		@include box-shadow(0px 0px 25px 8px #000);
+		@include transform(perspective(200) rotateX(50deg));
+	}
+
+	> * {
+		z-index: 200;
+		position: relative;
+	}
+}
+
+.decimal-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	ol {
+		list-style: none;
+		padding-left: 2em;
+	}
+
+	li {
+		margin: 0.5em 0;
+		position: relative;
+		&:before {
+			position: absolute;
+			font-weight: bold;
+			left: 0;
+		}
+	}
+
+	> li {
+		counter-increment: firstcounter;
+		padding-left: 2em;
+		&:before {
+			content: counter(firstcounter) ".";
+		}
+
+		> ol {
+			> li {
+				counter-increment: secondcounter;
+				padding-left: 2em;
+				&:before {
+					content: counter(firstcounter) "." counter(secondcounter);
+				}
+				> ol {
+					> li {
+						counter-increment: thirdcounter;
+						padding-left: 3em;
+						&:before {
+							content: counter(firstcounter) "." counter(secondcounter) "." counter(thirdcounter);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.phone-number {
+	@include font-size(33);
+	color: #333333;
+	vertical-align: middle;
+	display: inline-block;
+	line-height: 1;
+	.icon-phone {
+		color: #012c55;
+		font-size: 0.7em;
+	}
+
+	@include device-width(8) {
+		@include font-size(30);
+	}
+}
+
+
+.circle {
+	border: 2px solid #eeb111;
+	@include border-radius(50%);
+	position: relative;
+	display: inline-block;
+	width: 1.3em;
+	height: 1.3em;
+	line-height: 1.4em;
+	text-align: center;
+	background: #FFF;
+}
+
+
+
+/* =============================================================================
+   Widgets
+   ========================================================================== */
+
+
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+
+.red-list {
+	list-style: none;
+	margin: 10px 0;
+	padding: 0;
+
+	li {
+		list-style: none;
+		padding: 2px 0 2px 14px;
+	}
+}
+
+.unstyled-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+		margin: 8px 0;
+	}
+}
+
+

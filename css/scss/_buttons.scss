@@ -1,0 +1,89 @@
+/* =============================================================================
+   Buttons
+   ========================================================================== */
+
+
+//  {
+// 	@include transition(background-color 0.3s ease);
+// 	background: #eeb111;
+// 	border: 0;
+// 	line-height: 1;
+// 	@include border-radius(2px);
+// 	&:hover {
+// 		background: #d9a110;
+// 	}
+// }
+
+button,
+.orange-btn {
+	display: inline-block;
+	border: 1px solid #af820e;
+	background: #eeb111; 
+	padding: 0.6em 2em;
+	@include font-size(15);
+	@include border-radius(2px);
+	@include box-shadow(0 4px 0 0 rgba(#d8d8d8, 0.75), 0 0 0 5px #f6f6f6);
+	color: #FFF;
+	@include helvetica-bold;
+	text-transform: uppercase;
+	vertical-align: middle;
+	line-height: 1;
+
+	&:hover {
+		color: #FFF;
+		background: #d9a110;
+	}
+
+	&:active {
+		position: relative;
+		top: 4px;
+		@include box-shadow(0 0 0 5px #f6f6f6);
+		outline: none;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.mobile-navigation-btn {
+	display: none;
+	text-transform: uppercase;
+	@include helvetica-bold;
+	@include font-size(13);
+	padding: 1em;
+	&:before {
+		line-height: 0;
+		@include font-size(20);
+		vertical-align: middle;
+		@extend [class*="icon-"];
+		@extend .icon-align-justify:before;
+	}
+}
+
+
+.facebook-btn,
+.twitter-btn {
+	@include helvetica-bold;
+	@include font-size(13);
+	&:before {
+		@extend [class*="icon-"];
+		@include font-size(30);
+		margin-right: 0.2em;
+		vertical-align: middle;
+	}
+}
+
+.facebook-btn {
+	&:before {
+		color: #3b5998;
+		@extend .icon-facebook:before;
+	}
+}
+
+.twitter-btn {
+	&:before {
+		color: #2caae1;
+		@extend .icon-twitter:before;
+	}
+}
