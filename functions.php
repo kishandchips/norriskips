@@ -43,6 +43,8 @@ function custom_setup_theme() {
 
 	add_theme_support('woocommerce');
 
+	add_theme_support('editor_style');
+
 	//add_theme_support( 'post-formats', array( 'gallery' ) );
 
 
@@ -53,7 +55,7 @@ function custom_setup_theme() {
 
 	//add_image_size( 'custom_medium', 706, 400, true);
 	
-	add_editor_style('css/editor-styles.css');
+	add_editor_style('/css/editor-styles.css');
 
 }
 
@@ -63,20 +65,20 @@ function custom_setup_theme() {
 function custom_set_post_types(){
 	require( get_template_directory() . '/inc/classes/custom-post-type.php' );
 	if(function_exists('get_field')) {
-		// $episodes_page = get_field('episodes_page', 'options');
-		// $episode = new Custom_Post_Type( 'Episode', 
-	 // 		array(
-	 // 			'rewrite' => array( 'with_front' => false, 'slug' => get_page_uri($episodes_page->ID) ),
-	 // 			'capability_type' => 'post',
-	 // 		 	'publicly_queryable' => true,
-	 //   			'has_archive' => true, 
-	 //    		'hierarchical' => false,
-	 //    		'exclude_from_search' => true,
-	 //    		'menu_position' => null,
-	 //    		'supports' => array('title', 'thumbnail', 'editor', 'page-attributes'),
-	 //    		'plural' => 'Episodes'
-	 //   		)
-	 //   	);
+		$testimonials_page = get_field('testimonials_page', 'options');
+		$testimonial = new Custom_Post_Type( 'Testimonial', 
+	 		array(
+	 			'rewrite' => array( 'with_front' => false, 'slug' => get_page_uri($testimonials_page->ID) ),
+	 			'capability_type' => 'post',
+	 		 	'publicly_queryable' => true,
+	   			'has_archive' => true, 
+	    		'hierarchical' => false,
+	    		'exclude_from_search' => true,
+	    		'menu_position' => null,
+	    		'supports' => array('title', 'editor', 'page-attributes'),
+	    		'plural' => 'Testimonials'
+	   		)
+	   	);
 	}
 }
 
@@ -92,6 +94,15 @@ function custom_widgets_init() {
 	// 		'before_title' => '<h4 class="widget-title">',
 	// 		'after_title' => '</h4>',
 	// 	) );
+
+	register_sidebar( array(
+		'name' => __( 'Default', THEME_NAME ),
+		'id' => 'default',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h6 class="widget-title">',
+		'after_title' => '</h6>',
+	) );
 
 	register_sidebar( array(
 		'name' => __( 'Footer', THEME_NAME ),

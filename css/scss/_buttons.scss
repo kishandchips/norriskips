@@ -14,7 +14,14 @@
 // 	}
 // }
 
-button,
+button {
+	display: inline-block;
+	background: none;
+	border: none;
+	&:focus {
+		outline: none;
+	}
+}
 .orange-btn {
 	display: inline-block;
 	border: 1px solid #af820e;
@@ -22,7 +29,7 @@ button,
 	padding: 0.6em 2em;
 	@include font-size(15);
 	@include border-radius(2px);
-	@include box-shadow(0 4px 0 0 rgba(#d8d8d8, 0.75), 0 0 0 5px #f6f6f6);
+	@include box-shadow(0 4px 0 0 rgba(#d8d8d8, 0.75), 0 0 0 5px rgba(#FFF, 0.5));
 	color: #FFF;
 	@include helvetica-bold;
 	text-transform: uppercase;
@@ -37,7 +44,7 @@ button,
 	&:active {
 		position: relative;
 		top: 4px;
-		@include box-shadow(0 0 0 5px #f6f6f6);
+		@include box-shadow(0 0 0 5px rgba(#FFF, 0.5));
 		outline: none;
 	}
 
@@ -46,6 +53,7 @@ button,
 	}
 }
 
+.mobile-sidebar-btn,
 .mobile-navigation-btn {
 	display: none;
 	text-transform: uppercase;
@@ -58,6 +66,20 @@ button,
 		vertical-align: middle;
 		@extend [class*="icon-"];
 		@extend .icon-align-justify:before;
+	}
+}
+
+.arrow-down-btn {
+	display: inline-block;
+	@include helvetica-bold;
+	@include font-size(20);
+
+	&:after {
+		@extend [class*="icon-"];
+		@extend .icon-arrow-down:before;
+		color: #eeb111;
+		font-size: 1em;
+		margin-left: 1em;
 	}
 }
 

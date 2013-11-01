@@ -3,25 +3,22 @@
 	$.fn.scroller = function(options) {
 		
 		var defaults = {
-			autoScroll: false,
-			scrollAll: false,
-			easing: 'easeInOutExpo',
-			resize: false
-		};
-		options = $.extend({}, defaults, options);
-		
-		var scroller = $(this);
-		var currItem = $('.scroll-item:eq(0)', scroller);
-		if($('.scroll-item', scroller).hasClass('current')){
-			currItem = $('.scroll-item.current', scroller);
-		}
-		var speed = 800,
+				autoScroll: false,
+				scrollAll: false,
+				easing: 'easeInOutExpo',
+				resize: false
+			},
+			options = $.extend({}, defaults, options),
+			scroller = $(this),
+			currItem = $('.scroll-item:eq(0)', scroller),
+			speed = 800,
 			easing = options.easing,
 			canAutoScroll = true,
 			canScroll = true,
 			firstLoad = true,
 			totalItems = $('.scroll-item', scroller).size();
 		
+
 		function gotoItem(id, direction){
 			var nextItem = $('.scroll-item', scroller).filter('[data-id='+id+']'),
 				nextI = nextItem.index(),
@@ -93,10 +90,10 @@
 						}
 					}
 					if(!firstLoad){
-						currItem.animate({'left': -targetX}, speed, easing, function(){
+						currItem.css({position: 'absolute'}).animate({'left': -targetX}, speed, easing, function(){
 							$(this).removeClass('current');
 						});
-						nextItem.css({'left': targetX}).addClass('current').animate({'left': 0}, speed, easing, function(){
+						nextItem.css({'left': targetX, position: 'absolute'}).addClass('current').animate({'left': 0}, speed, easing, function(){
 							currItem = nextItem;
 							canScroll = false;
 						});
@@ -106,7 +103,7 @@
 						canScroll = false;
 					}
 				}
-				
+
 				$('.scroller-pagination li', scroller).removeClass('current');
 				$('.scroller-pagination li a[data-id='+nextItem.data('id')+']', scroller).parent().addClass('current');
 				if(options.resize){
@@ -136,6 +133,11 @@
 		}
 		
 		function init(){
+
+			if($('.scroll-item', scroller).hasClass('current')){
+				currItem = $('.scroll-item.current', scroller);
+			}
+			
 			if(totalItems > 1){
 
 				$('.scroll-item', scroller).hover(function(){
@@ -179,11 +181,13 @@
 			} else {
 				$('.scroller-navigation', scroller).hide();
 				//$('.scroller-pagination', scroller).hide();
+				gotoItem(currItem.data('id'));
 			}
 
 			scroller.bind('refresh', refresh);
 
-			$(window).load(function(){
+			$(window).on('load resize', function(){
+				currItem.height('auto');
 				scroller.css({height: currItem.outerHeight()}, 500, 'easeInOutQuad');
 			});
 			

@@ -5,7 +5,7 @@
 					<h1 class="logo-container">
 						<a class="logo" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					</h1>
-					<button class="mobile-navigation-btn"></button>
+					<button class="mobile-navigation-btn orange-btn"></button>
 					<nav role="navigation" class="site-navigation main-navigation">
 						<?php wp_nav_menu( array( 'theme_location' => 'primary_footer', 'menu_class' => 'menu clearfix', 'container' => false ) ); ?>
 					</nav><!-- .site-navigation .main-navigation -->
@@ -22,7 +22,9 @@
 					<div class="widgets">
 						<?php dynamic_sidebar( 'footer'); ?>
 					</div>
-					<p class="small">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?></p>
+					<div class="copyright">
+						<p class="small">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?></p>
+					</div>
 				</div>
 			</div>
 		</footer>

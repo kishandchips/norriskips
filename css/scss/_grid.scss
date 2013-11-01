@@ -25,11 +25,9 @@
 	margin-right: auto;
 	position: relative;
 
-	// @media only screen and (max-width: (860px)) {
-	//  width: auto;
-	// 	padding-left: 5%;
-	// 	padding-right: 5%;
-	// }
+	@include device-width(8) {
+		width: auto;
+	}
 }
 
 .span {
@@ -51,7 +49,7 @@
 	}
 }
  
-$columns: ((one, 10%), (two, 20%), (two-and-half, 25%), (quarter, 25%), (three, 30%), (three-three, 33.3333333%), (third, 33.3333333%), (one-third, 33.3333333%), (four, 40%), (five, 50%), (six, 60%), (seven, 70%), (seven-and-half, 75%), (eight, 80%), (nine, 90%), (ten, 100%));
+$columns: ((one, 10%), (one-sixth, 16.66666%), (two, 20%), (one-fifth, 20%), (two-and-half, 25%), (one-fourth, 25%), (quarter, 25%), (three, 30%), (three-three, 33.3333333%), (third, 33.3333333%), (one-third, 33.3333333%), (four, 40%), (five, 50%), (six, 60%), (seven, 70%), (seven-and-half, 75%), (eight, 80%), (nine, 90%), (ten, 100%));
 $total_columns: length($columns);
 
 $i: 1;

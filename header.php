@@ -35,7 +35,7 @@
 					<?php endif; ?>
 					<a href="<?php get_permalink(); ?>" class="orange-btn"><?php _e("Book Now", THEME_NAME); ?></a>
 				</div>
-				<button class="mobile-navigation-btn"></button>
+				<button class="mobile-navigation-btn orange-btn"></button>
 					
 				<nav role="navigation" class="site-navigation main-navigation">
 					<?php wp_nav_menu( array( 'theme_location' => 'primary_header', 'menu_class' => 'menu clearfix', 'container' => false ) ); ?>

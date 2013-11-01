@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <section id="index">
-	<header id="page-header" class="header">
-		<h2 class="title"><?php the_title(); ?></h2>
-	</header>
-
+	<?php get_template_part('inc/page-header') ?>
+	<div id="content">
+		<?php get_template_part('inc/default/content'); ?>
+	</div>
 </section>
 <?php get_footer(); ?>

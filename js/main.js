@@ -5,7 +5,12 @@
 		init: function(){
 
 			var header = main.vars.header = $('#header'),
-				mainNavigation = header.mainNavigation = $('.main-navigation', header);
+				footer = main.vars.footer = $('#footer'),
+				sidebar = main.vars.sidebar = $('#sidebar'),
+				templates = main.vars.templates = {},
+				sidebarTemplate = main.vars.templates.sidebar = $('#template-sidebar'),
+				headerNavigation = main.vars.header.navigation = $('.main-navigation', header),
+				footerNavigation = main.vars.footer.navigation = $('.main-navigation', footer);
 
 
 			$('.share-popup-btn').on('click', function(){
@@ -23,12 +28,34 @@
 				window.print();
 			});
 
+			$('.mobile-navigation-btn').on('click', function(){
+				$(this).parent().find('.main-navigation').slideToggle();
+			});
+
+			if(sidebar.length) {
+				$('.mobile-sidebar-btn', sidebar).on('click', function(){
+					if(sidebarTemplate.hasClass('open')){
+						sidebarTemplate.removeClass('open-complete');
+
+						setTimeout(function(){
+							sidebarTemplate.removeClass('open');
+						}, 500)
+					} else {
+						sidebarTemplate.addClass('open');
+						setTimeout(function(){
+							sidebarTemplate.addClass('open-complete');
+						}, 500);	
+					}
+					
+				});
+			}
 			
 			this.lightbox.init();
 			this.ajaxPage.init();
 			this.scroller.init();
+			this.testimonials.init();
 			
-		
+			
 
 			$(window).on('resize', this.resize).trigger('resize');
 
@@ -120,19 +147,7 @@
 				if($.fn.scroller){
 					$('.scroller').each(function(){
 						var scroller = $(this);
-						var options = {};
-
-						if(scroller.hasClass('gallery-scroller') || scroller.data('scroll-all') === true) options.scrollAll = true;
-						if(scroller.data('auto-scroll') === true ) options.autoScroll = true;
-						if(scroller.data('resize') === true ) options.resize = true;
-						if(scroller.data('callback')) {
-							scroller.bind('onChange', function(e, nextItem){
-								var func = window[scroller.data('callback')];
-								func($(this), nextItem);
-							});
-						}
-
-						scroller.scroller(options);
+						scroller.scroller(scroller.data('scroller-options'));
 					});
 				}
 			}
@@ -281,13 +296,33 @@
 
 		resize: function(){
 			var windowWidth = $(window).width(),
-				mainNavigation = main.vars.header.mainNavigation;
+				headerNavigation = main.vars.header.navigation,
+				footerNavigation = main.vars.footer.navigation,
+				sidebarTemplate = main.vars.templates.sidebar;
+
 			
-			// if(windowWidth <= 600 && mainNavigation.is(':visible')){
-			// 	mainNavigation.hide();
-			// } else if(windowWidth > 600 && !mainNavigation.is(':visible')) {
-			// 	mainNavigation.show();
-			// }
+			if(windowWidth <= 1200 && headerNavigation.is(':visible')){
+				headerNavigation.hide();
+			} else if(windowWidth > 1200 && !headerNavigation.is(':visible')) {
+				headerNavigation.show();
+			}
+
+			if(windowWidth <= 800 && footerNavigation.is(':visible')){
+				footerNavigation.hide();
+			} else if(windowWidth > 800 && !footerNavigation.is(':visible')) {
+				footerNavigation.show();
+			}
+			if(sidebarTemplate.length){
+				if(windowWidth > 1100 && sidebarTemplate.hasClass('open')){
+					sidebarTemplate.removeClass('open open-complete')
+				}
+			}
+		},
+
+		scrollTo: function(target){
+			if(target.length){
+				$('html, body').animate({scrollTop: target.offset().top});
+			}
 		},
 
 		tabs: {
@@ -310,6 +345,39 @@
 				$('.tab[data-id='+id+']', content).fadeIn();
 
 
+			}
+		},
+
+		testimonials: {
+			init: function() {
+				var container = main.testimonials.container = $('.testimonials');
+
+				if(container.length){
+					var openBtn = $('.open-testimonials-btn', container),
+						more = $('.more-testimonials', container),
+						testimonials = $('.testimonial', container),
+						isOpen = false;
+						
+					openBtn.on('click', function(){
+						var btn = $(this),
+							text = btn.text();
+							replaceText = btn.data('replace-text');
+						if(isOpen){
+							main.scrollTo(container);
+							setTimeout(function(){
+								container.toggleClass('open');
+							}, 200)
+						} else {
+							container.toggleClass('open');
+						}
+						
+						btn.text(replaceText);
+						btn.data('replace-text', text);
+						btn.toggleClass('is-open');
+						
+						isOpen = !isOpen;
+					});
+				}
 			}
 		}
 	}

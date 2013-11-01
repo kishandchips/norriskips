@@ -10,6 +10,7 @@ a {
 }
 
 h1 {
+	@include helvetica-bold;
 	@include font-size(40);
 	line-height: 0.9;
 	margin: 0.3em 0;
@@ -24,12 +25,14 @@ h2 {
 }
 
 h3 {
+	@include helvetica-bold;
 	margin: 0.5em 0;
 	@include font-size(25);
 	line-height: 1;
 }
 
 h4 {
+	@include helvetica-bold;
 	margin: 0.5em 0;
 	@include font-size(20);
 	line-height: 1;
@@ -45,7 +48,7 @@ h6 {
 	@include helvetica-bold;
 	margin: 0.5em 0;
 	@include font-size(16);
-	line-height: 1;
+	line-height: 1.2;
 }
 
 p {
@@ -169,11 +172,11 @@ a.orange:hover {
 }
 
 .blue {
-	color: #061730;	
+	color: #326ba1;	
 }
 
 .dark-blue {
-	color: #0057a6;
+	color: #012c55;
 }
 
 .teal {
