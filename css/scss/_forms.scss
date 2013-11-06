@@ -13,6 +13,7 @@ select {
 	@include box-sizing(border-box);
 	color: #666;
 	border: none;
+	@include font-size(15);
 
 	&:focus {
 		outline: none;
@@ -28,12 +29,10 @@ input[type=password],
 textarea {	
 	@include border-radius(0);
 	background: #FFF;
-	border: 1px solid #a1a1a1;
-	@include box-shadow(inset 0px 2px 5px -1px rgba(0, 0, 0, 0.3));
+	border: 1px solid #b0b0b0;
 	padding: 0.6em;
 	max-width: 100%;
-	@include arial;
-	@include font-size(12);
+	@include helvetica-roman;
 }
 
 select {
@@ -41,17 +40,14 @@ select {
 	-webkit-appearance: none;
 	display: inline-block;
 	border: 1px solid #b0b0b0;
-	@include box-shadow(0px 4px 2px -1px rgba(0, 0, 0, 0.3));
 	padding: 0.6em;
-	@include font-size(12);
-	@include arial;
+	@include font-size(15);
+	@include helvetica-roman;
 	background: #f4f4f4;
 	position: relative;
 	
 	@media screen and (-webkit-min-device-pixel-ratio:0) {
 		padding-right: 40px;
-		background: #f4f4f4 url(../images/misc/dropdown.jpg) no-repeat center right;
-		background-size: contain;
 	}
 }
 
@@ -61,7 +57,7 @@ textarea {
 
 input[type=submit],
 input[type=reset] {
-	//@extend .white-btn;
+	@extend .orange-btn;
 	// &:before {
 	// 	@extend .white-btn:before;
 	// }
@@ -83,6 +79,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 
 label {
+	@include helvetica-bold;
 	margin: 0 0 0.3em 0;
 	@include font-size(13);
 }
@@ -135,6 +132,12 @@ fieldset {
 				list-style: none;
 				@extend .clearfix;
 
+				&.top_label {
+					.gfield_label {
+						margin: 0.5em 0;
+					}
+				}
+
 	 			.gfield {
 	 				margin: 2em 0;
 					padding: 0;
@@ -154,13 +157,27 @@ fieldset {
 
 					}
 
+					&.gf_left_half,
+					&.gf_right_half {
+						margin-bottom: 0;
+
+						@include device-width(5) {
+							width: auto;
+							float: none;
+						}
+					}
+
 					.ginput_container {
 						input[type=text],
 						input[type=email],
-						input[type=password]{
-							text-align: center;
-							padding: 0.5em;
+						input[type=url],
+						input[type=tel],
+						input[type=number],
+						input[type=password], 
+						textarea,
+						select {
 							@include font-size(15);
+							padding: 0.4em;
 						}
 					}
 
@@ -176,11 +193,12 @@ fieldset {
 	 	}
 
 	 	.gform_footer {
-	 		margin: 0;
-	 		padding: 0;
+	 		margin: 1em 0;
+	 		padding: 0 1em 0 0;
+	 		@extend .clearfix;
 
 	 		.button {
-	 			@extend .white-btn;
+	 			float: right;
 	 		}
 	 	}
 	}

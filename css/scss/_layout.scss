@@ -1,8 +1,8 @@
 html {
 	font-size: 62.5%;
 
-	// @include device-width(9) {
-	// 	font-size: 54.5%;
+	// @include device-width(6) {
+	// 	font-size: 50%;
 	// }
 }
 
@@ -93,7 +93,7 @@ body {
 			right: 3em;
 		}
 
-		@include device-width(6) {
+		@include device-width(7) {
 			display: none;
 		}
 

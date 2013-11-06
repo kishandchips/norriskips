@@ -185,7 +185,6 @@ hr {
 
 .scroller {
 	position: relative;
-	min-height: pxtoem(200);
 	
 	.scroller-mask {
 		position: relative;
@@ -201,7 +200,7 @@ hr {
 
 		.scroll-item {
 			background-position: center center;
-			background-repeat: no-repeat;
+			background-repeat: repeat-x;
 			position: relative;
 			top: 0;
 			left: 0;
@@ -215,7 +214,11 @@ hr {
 				&:before {
 					content: '';
 					display: block;
-					padding-top: 35%; 
+					padding-top: 35%;
+
+					@include device-width(6) {
+						padding-top: 0;
+					}
 				}
 
 				// @include device-width(6) {
@@ -252,43 +255,78 @@ hr {
 					left: 6em;
 				}
 
-				@include device-width(5) {
+				@include device-width(6) {
 					left: 0;
 					right: 0;
 					position: relative;
 					padding-left: 6em;
 					padding-right: 6em;
+					@include translateY(0);
+				}
+
+				@include device-width(4) {
+					padding-left: 4em;
+					padding-right: 4em;
+
 				}
 			}
 		}
 	}
 	
 	.scroller-pagination {
-		list-style: none;
-		padding: 0;
-		margin: 0;
 		position: absolute;
-		bottom: 0;
+		top: 0;
+		//width: 100%;
 		left: 50%;
 		@include translateX(-50%);
+		list-style: none;
+		//margin: 0;
+		padding: 0;
+        right: 0;
+        margin: 0;
+        // margin-left: auto;
+        // margin-right: auto;
 		@extend .clearfix;
+
+
 		li {
 			float: left;
 			list-style: none;
-			margin: 0.5em 0.3em;
+			padding: 0;
+			margin: 0;
+
 			.btn {
+				color: #326ba1;
+				border: 0.2em solid #326ba1;
+				border-left: none;
 				display: block;
-				background: #e4e4e4;
-				width: 12px;
-				height: 12px;
-				@include border-radius(2px);
-				padding: 0;
-				@include box-shadow(inset 0px 1px 2px 0px rgba(#000, 0.4));
+				padding: 0.3em 4em;
+				@include font-size(16);
+				@include helvetica-bold;
+
+				@include device-width(11) {
+					font-size: 1em;
+					padding: 0.2em 2em;
+				}
+			}
+
+			&:first-child {
+				.btn {
+					border-left: 0.2em solid #326ba1;
+					@include border-radius(0.6em 0 0 0.6em);
+				}
+			}
+
+			&:last-child {
+				.btn {
+					@include border-radius( 0 0.6em 0.6em 0);
+				}
 			}
 
 			&.current .btn,
 			.btn:hover {
-				background: #7daef1;
+				color: #FFF;
+				background: #326ba1;
 			}
 		}
 	}
@@ -350,6 +388,92 @@ hr {
 			right: 1.5%;
 			&:before {
 				@extend .icon-arrow-next:before;
+			}
+		}
+	}
+
+	&.style-2 {
+		.scroller-mask {
+		
+			.scroll-item {
+				.content {
+					background: #245d93;
+					background: rgba(#245d93, 0.9);
+					color: #FFF;
+					@include text-shadow(0 4px 0 #000);
+					min-width: pxtoem(410);
+					right: auto;
+					left: 0;
+					
+					@include device-width(4) {
+						min-width: 0;
+					}
+				}
+			}
+		}
+
+		.scroller-navigation {
+			.prev-btn,
+			.next-btn {
+				&:hover,
+				&.hover {
+					background: none;
+
+					&:before {
+						color: #d9a110;
+					}
+				}	
+
+				&:before {
+					color: #FFF;
+				}
+			}
+		}
+	}
+
+	&.style-3 {
+		.scroller-mask {
+		
+			.scroll-item {
+				> .inner {
+					background: #FFF;
+					width: 60%;
+
+					@include device-width(11) {
+						width: 70%;
+					}
+
+					@include device-width(10) {
+						width: 80%;
+					}
+
+					@include device-width(5) {
+						width: auto;
+					}
+				}
+
+				.content {
+					//height: 100%;
+					width: 50%;
+					right: 0;
+				//	position: relative;
+
+					@include device-width(8) { 
+						width: 100%;
+						left: 0;
+					}
+				}
+
+				img {
+					width: 50%;
+					top: 0;
+					left: 0;
+					position: absolute;
+
+					@include device-width(8) { 
+						display: none;
+					}
+				}
 			}
 		}
 	}
@@ -527,6 +651,13 @@ hr {
 	line-height: 1.3em;
 	text-align: center;
 	background: #FFF;
+
+	&.icon-mail {
+		line-height: 1;
+		&:before {
+			font-size: 0.6em;
+		}
+	}
 }
 
 .testimonials {
@@ -664,26 +795,168 @@ hr {
 	}
 }
 
-/* =============================================================================
-   Widgets
-   ========================================================================== */
+
+.steps {
+	.step {
+		background: #ebebeb;
+		margin-bottom: 6em;
+		position: relative;
+
+		@include device-width(13) {
+			margin-bottom: 4em;
+		}
+		
+		> .inner {
+			&:before {
+				content: '';
+				position: absolute;
+				width: 48.6%;
+				height: 7px;
+				bottom: -3.1em;
+				left: 50%;
+				@include translateX(-50%);
+				background: url(../images/misc/dot.png);
+
+				@include device-width(13) {
+					display: none;
+				}
+			}
+		}
+
+		&:nth-last-child(2) {
+			> .inner {
+				&:before {
+					@include translateX(-100%);
+					width: 24%;
+				}
+			}
+		}
+
+		&.no-content {
+			margin: 0;
+			> .inner {
+				&:before {
+					top: -3.4em;
+					width: 7px;
+					height: 3.4em;
+					@include translateX(none);
+				}
+			}
+		}
+
+		img {
+			display: block;
+		}
+
+		.content-container {
+			position: relative;
+			&:before {
+				content: '';
+				position: absolute;
+				width: 7px;
+				left: 50%;
+				margin-left: -3px;
+				top: -3.4em;
+				height: 50%;
+				padding: 0;
+				background: url(../images/misc/dot.png);
+
+				@include device-width(13) {
+					display: none;
+				}
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				width: 7px;
+				left: 50%;
+				margin-left: -3px;
+				bottom: -3.7em;
+				height: 50%;
+				padding: 0;
+				background: url(../images/misc/dot.png) left bottom;
+
+				@include device-width(13) {
+					bottom: -7.6em;
+				}
+			}
+
+			@include device-width(13) {
+				float: none;
+				padding: 0;
+				width: auto;
+			}
+
+			img {
+				@include device-width(13) {
+					margin: 0 auto;
+				}
+
+				@include device-width(6) {
+					display: none;
+				}
+			}
+
+			@include device-width(6) {
+				padding: 10px;
+			}
+		}
+
+		.content {
+			z-index: 200;
+			background: #FFF;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include transform(translateX(-50%) translateY(-50%) );
+			@include box-shadow(0 0 7px rgba(#000, 0.6));
+			padding: 3em;
+			width: 75%;
+			@include box-sizing(border-box);
+			color: #6c6c6c;
 
 
+			@include device-width(6) {
+				position: relative;
+				@include transform(none);
+				left: 0;
+				top: 0;
+				margin: 0 auto;
+				width: auto;
+			}
+
+			@include device-width(4) {
+				padding: 2em;
+			}
+		}
+
+
+		.number {
+			padding: 0.3em;
+			position: absolute;
+			top: -1em;
+			left: 50%;
+			margin-left: -1em;
+			font-size: 2em;
+			border-color: #FFF;
+			border-width: 0.16em;
+			background: #326ba1;
+			color: #FFF;
+			@include helvetica-bold;
+		}
+
+		.image-container {
+			@include device-width(13) {
+				display: none;
+			}
+		}
+	}
+}
 
 /* =============================================================================
    Lists
    ========================================================================== */
-
-.red-list {
-	list-style: none;
-	margin: 10px 0;
-	padding: 0;
-
-	li {
-		list-style: none;
-		padding: 2px 0 2px 14px;
-	}
-}
 
 .unstyled-list {
 	list-style: none;
@@ -692,6 +965,63 @@ hr {
 
 	li {
 		margin: 8px 0;
+	}
+}
+
+.skip-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	li {
+		position: relative;
+		padding: 0 0 0 2.4em;
+		margin: 0.5em 0;
+		&:before {
+			@extend [class*="icon-"];
+			@extend .icon-skip:before;
+			color: #edc914;
+			position: absolute;
+			top: 0.2em;
+			left: 0;
+		}
+	}
+}
+
+.cross-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	li {
+		position: relative;
+		padding: 0 0 0 1.4em;
+		margin: 0.5em 0;
+		&:before {
+			@extend [class*="icon-"];
+			@extend .icon-cross:before;
+			color: #ac0b0b;
+			position: absolute;
+			top: 0.2em;
+			left: 0;
+		}
+	}
+}
+
+.tick-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	li {
+		position: relative;
+		padding: 0 0 0 1.6em;
+		margin: 0.5em 0;
+		&:before {
+			@extend [class*="icon-"];
+			@extend .icon-tick:before;
+			color: #326ba1;
+			position: absolute;
+			top: 0.2em;
+			left: 0;
+		}
 	}
 }
 

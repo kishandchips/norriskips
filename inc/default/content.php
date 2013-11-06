@@ -46,28 +46,42 @@
 			<?php break;
 		case 'scroller':
 			if(get_sub_field('item')):
-		?>
-			<div class="scroller">
-				<div class="scroller-mask">
-				<?php $i = 0; ?>
-				<?php while (has_sub_field('item', $id)) : ?>
-					<div class="scroll-item" data-id="<?php echo $i; ?>" style="<?php the_sub_field('css'); ?>);">
-						<div class="container inner">
-							<?php if($content = get_sub_field('content')): ?>
-							<div class="content"><?php echo $content; ?></div>
-							<?php endif; ?>
+				$style = get_sub_field('style');
+				$show_pagination = get_sub_field('show_pagination');
+			?>
+					<div class="scroller style-<?php echo $style; ?>" style="<?php the_sub_field('css'); ?>">
+						<?php if($show_pagination): ?>
+						<ul class="scroller-pagination">
+							<?php $i = 0; ?>
+							<?php while (has_sub_field('item', $id)) : ?><?php if($title = get_sub_field('title')): ?><li><a class="btn" data-id="<?php echo $i; ?>"><?php echo $title; ?></a></li><?php endif; ?><?php $i++; ?><?php endwhile; ?>
+						</ul>
+						<?php endif; ?>
+						<div class="scroller-mask">
+						<?php $i = 0; ?>
+						<?php while (has_sub_field('item', $id)) : ?>
+							<?php $image = get_sub_field('image'); ?>
+							<div class="scroll-item" data-id="<?php echo $i; ?>" style="<?php if($style != '3'): ?>background-image: url(<?php echo $image['url']; ?>);<?php endif; ?> <?php the_sub_field('css'); ?>">
+								<div class="container inner">
+									<?php if($style == 3): ?>
+									<img src="<?php  echo $image['url']; ?>" />
+									<?php endif; ?>
+									<div class="content">
+										<?php if(get_sub_field('title')): ?><h3 class="text-center"><?php the_sub_field('title'); ?></h3><?php endif; ?>
+										<?php echo (get_sub_field('content')) ? the_sub_field('content') : ''; ?>
+									</div>
+								</div>
+							</div>
+							<?php $i++; ?>
+						<?php endwhile; ?>
+						</div>
+						<div class="scroller-navigation">
+							<a class="btn prev-btn"></a>
+							<a class="btn next-btn"></a>
 						</div>
 					</div>
-					<?php $i++; ?>
-				<?php endwhile; ?>
-				</div>
-				<div class="scroller-navigation">
-					<a class="btn prev-btn"></a>
-					<a class="btn next-btn"></a>
-				</div>
-			</div>
-			<?php endif; ?>
-			<?php break;
+
+		<?php	endif;
+			break;
 		case 'testimonials':
 			$custom_query = new WP_Query(array('post_type' => 'testimonial', 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC'));
 			if($custom_query->have_posts()):
@@ -124,7 +138,56 @@
 			<?php
 			endif;
 			wp_reset_postdata();
-			wp_reset_query();		
+			wp_reset_query();	
+			break;
+		case 'steps':
+			if(get_sub_field('step')):
+		?>
+			<div class="steps">
+				<?php $i = 0; ?>
+				<?php while (has_sub_field('step', $id)) : ?>
+				<?php 
+					$content = get_sub_field('content');
+					$content_image = get_sub_field('content_image');
+					$main_image = get_sub_field('main_image');
+					$class_ary = array('content-container', 'image-container');
+				?>
+					<div class="step <?php if(!$content) echo 'no-content'; ?>">
+						<div class="inner container">
+
+							<?php if($content): ?>
+								<div class="span five omega <?php echo $class_ary[$i % 2];//echo ($i % 2 == 0) ? 'content-container' : ''; ?>">
+									<?php if($i % 2): ?>
+									<img src="<?php echo $main_image['url']; ?>" />
+									<?php else: ?>
+									<img src="<?php echo $content_image['url']; ?>" />
+									<div class="content">
+										<div class="circle number"><?php echo $i + 1; ?></div>
+										<?php echo $content; ?>
+									</div>
+									<?php endif; ?>
+								</div>
+								<div class="span five alpha <?php echo $class_ary[($i + 1) % 2]; ?>">
+									<?php if($i % 2): ?>
+									<img src="<?php echo $content_image['url']; ?>" />
+									<div class="content">
+										<div class="circle number"><?php echo $i + 1; ?></div>
+										<?php echo $content; ?>
+									</div>
+									<?php else: ?>
+									<img src="<?php echo $main_image['url']; ?>" />
+									<?php endif; ?>
+								</div>
+							<?php else: ?>
+							<div class="circle number"><?php echo $i + 1; ?></div>
+							<?php endif; ?>
+						</div>
+					</div>
+				<?php $i++; ?>
+				<?php endwhile; ?>
+			</div>
+		<?php
+			endif;
 			break; ?>
 		
 	<?php } ?>

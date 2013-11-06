@@ -8,7 +8,6 @@ require( get_template_directory() . '/inc/default/hooks.php' );
 
 require( get_template_directory() . '/inc/default/shortcodes.php' );
 
-
 // Custom Actions
 
 add_action('after_setup_theme', 'custom_setup_theme' );
@@ -25,7 +24,7 @@ add_action('wp_print_styles', 'custom_styles', 30);
 
 // Custom Filters
 
-add_filter('gform_submit_button', 'custom_submit_button', 10, 2);
+//add_filter('gform_submit_button', 'custom_submit_button', 10, 2);
 
 //Custom Shortcodes
 
