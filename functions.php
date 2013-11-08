@@ -22,9 +22,15 @@ add_action('wp_enqueue_scripts', 'custom_scripts', 30);
 
 add_action('wp_print_styles', 'custom_styles', 30);
 
+
+
 // Custom Filters
 
 //add_filter('gform_submit_button', 'custom_submit_button', 10, 2);
+
+add_filter('gform_validation_2', 'custom_validation_book');
+
+add_filter('gform_validation_message_2', 'custom_validation_message_book', 10, 2);
 
 //Custom Shortcodes
 
@@ -175,3 +181,46 @@ function custom_phone_number(){
 	return $output;
 }
 
+
+function custom_validation_book($validation_result){
+	$form = $validation_result['form'];
+
+	foreach($form['fields'] as &$field){
+		if($field['id'] == '1'){
+			if($_POST['input_'.$field['id']] == 'W104AR'){
+				$field['failed_validation'] = true;
+				$validation_result['is_valid'] = false;
+                break;
+			}		
+		}
+
+		if($field['id'] == 2) {
+			if($_POST['input_'.$field['id']] == 'On Road'){
+				$field['failed_validation'] = true;
+				$validation_result['is_valid'] = false;
+			}
+		}
+	}
+
+	$validation_result['form'] = $form;
+	return $validation_result;
+}
+
+function custom_validation_message_book($message, $form){
+	foreach($form['fields'] as &$field){
+		if($field['id'] == '2'){
+			if($field['failed_validation']){
+				$message = '<div class="validation_error">Unfortunately we do not supply skips to the post code you have entered.</div>';
+				break;
+			}
+		}
+
+		if($field['id'] == '1'){
+			if($field['failed_validation']){
+				$message = '<div class="validation_error">Unfortunately</div>';
+				break;
+			}
+		}
+	}
+	return $message;
+}

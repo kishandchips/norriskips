@@ -203,3 +203,141 @@ fieldset {
 	 	}
 	}
 }
+
+.book_wrapper {
+	.book {
+		.gform_heading {
+			text-align: center;
+		}
+
+		.validation_error {
+			background: #ececec;
+			color: #012c55;
+			padding: 2em 4em;
+			@include font-size(16);
+			@include helvetica-bold;
+			border-top: 1px solid #022d55;
+			border-bottom: 1px solid #022d55;
+		}
+
+		.gform_body {
+
+			.gform_fields {
+
+				.gfield {
+					margin: 0 0 1.5em 0;
+					padding: 0 4em;
+					text-align: center;
+
+					&.label-above {
+						.gfield_label {
+							float: none;
+							display: block;
+							text-align: center;
+							@include font-size(16);
+							margin: 0 0 0.5em 0;
+						}
+
+
+					}
+
+					&.gfield_error {
+
+						label {
+							color: #FFF;
+						}
+						
+						.gfield_label {
+							margin-top: 0;
+						}
+					}
+
+					.gfield_label {
+						@include helvetica-roman;
+					}
+
+					.gfield_checkbox li input,
+					.gfield_radio li input {
+						margin-top: 2px;
+					} 
+
+					.ginput_container {
+						margin: 0;
+
+						input[type=text],
+						input[type=email],
+						input[type=url],
+						input[type=tel],
+						input[type=number],
+						input[type=password], 
+						textarea,
+						select {
+							border: 1px solid #1e5182;
+							@include border-radius(3px);
+						}
+					}
+
+					.gfield_description {
+						width: auto;
+						text-align: center;
+						color: #012c55;
+						margin: 0.3em 0 0 0;
+
+						&.validation_message {
+							margin: 0.3em 0 0 0;
+							color: #012c55;
+						}
+					}
+				}
+
+				&.left_label,
+				&.right_label {
+
+					.gfield_label {
+						width: auto;
+						display: inline-block;
+						float: none;
+						vertical-align: top;
+					}
+
+					ul.gfield_checkbox,
+					ul.gfield_radio {
+						@extend .clearfix;
+
+						li {
+							float: left;
+							margin: 0 10px 0 0;
+							label {
+								@include helvetica-roman;
+								margin-left: 18px;
+							}
+
+						}
+					}
+
+					.ginput_container {
+						display: inline-block;
+
+						input.medium {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+
+		.gform_footer {
+			padding: 0;
+			margin: 0 0 1em 0;
+			text-align: center;
+
+			&.left_label {
+				padding: 0;
+			}
+
+			.button {
+				float: none;
+			}
+		}
+	}
+}

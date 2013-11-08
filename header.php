@@ -33,7 +33,8 @@
 						<span class="phone-number"><i class="icon-phone circle"></i> <?php echo $phone_number; ?></span> 
 						<?php endif; ?>
 					<?php endif; ?>
-					<a href="<?php get_permalink(); ?>" class="orange-btn"><?php _e("Book Now", THEME_NAME); ?></a>
+					<?php $book_page = get_field('book_page', 'options'); ?>
+					<a href="<?php echo get_permalink($book_page->ID); ?>" class="orange-btn"><?php _e("Book Now", THEME_NAME); ?></a>
 				</div>
 				<button class="mobile-navigation-btn orange-btn"></button>
 					
