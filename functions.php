@@ -217,7 +217,7 @@ function custom_validation_message_book($message, $form){
 
 		if($field['id'] == '1'){
 			if($field['failed_validation']){
-				$message = '<div class="validation_error">Unfortunately</div>';
+				$message = '<div class="validation_error">We cannot take online orders for on-road skips because this requires a local authority permit.<br />We’d be happy to help you with this, please call us on 01689 821417.</div>';
 				break;
 			}
 		}
