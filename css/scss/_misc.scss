@@ -126,15 +126,12 @@ blockquote {
 	position: fixed;
 }
 
-.valign-middle {
-	vertical-align: middle;	
-}
-
 .valign-center {
 	position: absolute;
 	top: 50%;
 	@include translateY(-50%)
 }
+
 .dropshadow {
 	@include box-shadow(3px 3px 4px #666 );
 }
@@ -479,6 +476,46 @@ hr {
 	}
 }
 
+.accordion {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border-top: 1px solid #cccccc;
+	> li {
+		> .accordion-btn {
+			display: block;
+			
+			@include font-size(25);
+			line-height: 1;
+			@include helvetica-bold;
+			border-bottom: 1px solid #cccccc;
+			padding: 0.5em 0;
+
+			@include device-width(6) {
+				@include font-size(15);
+			}
+
+			.number {
+				margin-right: 0.5em;
+				font-size: 0.9em;
+			}
+		}
+
+		> .accordion-content {
+			display: none;
+			background: #eeeeee;
+			border-bottom: 1px solid #ccc;
+			padding: 1em 1em 2em 1em;
+		}
+
+		&.current {
+			> .accordion-content {
+				display: block;
+			}
+		}
+	}
+}
+
 .overlay {
 	// width:100%;
 	// height: 100%;
@@ -630,6 +667,11 @@ hr {
 	vertical-align: middle;
 	display: inline-block;
 	line-height: 1;
+
+	&.small {
+		@include font-size(25);
+	}
+
 	.icon-phone {
 		color: #012c55;
 		font-size: 0.7em;
@@ -676,7 +718,7 @@ hr {
 		padding: 0;
 		.testimonial {
 			margin: 1em 0;
-			@include transition(all 3s ease);
+			@include transition(all 0.3s ease);
 
 			&:nth-child(n+4),
 			&.hide {
@@ -954,6 +996,87 @@ hr {
 	}
 }
 
+.downloads {
+	list-style: none;
+	margin: 2em 0 4em 0;
+	padding: 0;
+
+	.file {
+		list-style: none;
+		border-bottom: 1px solid #d7d7d7;
+		padding: 2em 0;
+
+		@include device-width(6) {
+			padding: 1em;
+		}
+
+		.arrow {
+			position: absolute;
+			top: 50%;
+			margin-top: -1em;
+			font-size: 2.5em;
+			right: 0.3em;
+			padding: 0.3em;
+			@include transition(all 0.1s ease);
+
+			@include device-width(7) {
+				font-size: 2em;
+			}
+		}
+
+		.thumbnail {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			//@include transform(translateX(-50%) translateY(-50%));
+			@include translateY(-50%);
+			width: 20%;
+			text-align: center;
+			img {
+				width: 45%;
+				max-width: none;	
+			}
+
+			@include device-width(6) {
+				display: none;
+			}
+		}
+
+		.content {
+			@include device-width(6) {
+				margin-left: 0;
+			}	
+		}
+
+		> a {
+			display: block;
+			position: relative;
+
+			&:hover {
+				.arrow {
+					right: 0;
+					color: #002b54;
+				}
+			}
+			// &:after {
+			// 	@extend [class*="icon-"];
+			// 	@extend .icon-arrow-right:before;	
+			// 	@include font-size(40);
+			// 	position: absolute;
+			// 	top: 50%;
+			// 	right: 0;
+			// 	color: #326ba1;
+			// }
+		}
+	}
+}
+
+.bin-bag-img,
+.wheel-barrow-img {
+	width: auto;
+	height: 20px;
+}
+
 /* =============================================================================
    Lists
    ========================================================================== */
@@ -964,7 +1087,7 @@ hr {
 	margin: 0;
 
 	li {
-		margin: 8px 0;
+		margin: 0.2em 0;
 	}
 }
 
@@ -1024,6 +1147,27 @@ hr {
 		}
 	}
 }
+
+
+.house-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	li {
+		position: relative;
+		padding: 0 0 0 1.6em;
+		margin: 0.6em 0;
+		&:before {
+			@extend [class*="icon-"];
+			@extend .icon-house:before;
+			color: #326ba1;
+			position: absolute;
+			top: 0.2em;
+			left: 0;
+		}
+	}
+}
+
 
 /* =============================================================================
    Backgrounds
@@ -1105,6 +1249,81 @@ hr {
 						@extend [class*="icon-"];
 						@extend .icon-arrow-right:before;
 					}
+				}
+			}
+		}
+	}
+}
+
+.widget_text {
+	padding: 0 10px;
+}
+
+
+/* =============================================================================
+   jQuery UI
+   ========================================================================== */
+
+
+.ui-widget-content {
+	border: none;
+	width: auto;
+
+	.ui-widget-header {
+		border: 0;
+		border-bottom: 1px solid #cccccc;
+	}
+
+	.ui-state-default,
+	.ui-widget-content .ui-state-default,
+	.ui-widget-header .ui-state-default,
+	.ui-state-hover,
+	.ui-widget-content .ui-state-hover,
+	.ui-widget-header .ui-state-hover,
+	.ui-state-focus,
+	.ui-widget-content .ui-state-focus,
+	.ui-widget-header .ui-state-focus {
+		border: none;
+	}
+
+
+
+
+	&.ui-datepicker {
+		padding: 0;
+		.ui-datepicker-header {
+			padding: 0.6em 0;
+		}
+
+		.ui-datepicker .ui-datepicker-next-hover {
+			right: 2px;
+		}
+
+
+		.ui-datepicker-prev, 
+		.ui-datepicker-next {
+			top: 8px;
+		}
+
+		table {
+			border-collapse: collapse;
+			th {
+				padding: 1.8em 0 0.6em 0;
+				line-height: 1;
+			}
+
+			td {
+				border: 1px solid #CCC;
+				padding: 0;
+
+				&.ui-state-disabled {
+					border: none;
+				}
+
+				span,
+				a {
+					padding: 1em 0;
+					text-align: center;
 				}
 			}
 		}

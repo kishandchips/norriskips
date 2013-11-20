@@ -1,6 +1,6 @@
 <?php if ( ! function_exists( 'get_top_level_category' )) {
 	function get_top_level_category($id, $taxonomy = 'category'){
-		$term = get_top_level($taxonomy, $id);
+		$term = get_top_level($id, $taxonomy);
 		$term_id = ($term) ? $term : $id;
 		return get_term_by( 'id', $term_id, $taxonomy);
 	}
@@ -8,7 +8,7 @@
 
 
 if ( ! function_exists( 'get_top_level' )) {
-	function get_top_level($object, $id){
+	function get_top_level($id, $object){
 		$terms = get_ancestors($id, $object);
 		return (!empty($terms)) ? $terms[count($terms) - 1] : null;
 	}
@@ -84,9 +84,17 @@ if ( ! function_exists( 'get_current_url' )) {
 }
 
 if ( ! function_exists( 'get_queried_page' )) {
-	function get_queried_page(){
+	function get_queried_page($depth = 0){
 		$curr_url = get_current_url();
+		if($depth != -1) $curr_url = strtok($curr_url, '?');
+
 		$curr_uri = str_replace(get_bloginfo('url'), '', $curr_url);
+		
+		if($depth){
+			$curr_uri_ary = array_filter(explode('/', $curr_uri));
+			$curr_uri = trailingslashit(implode('/', array_splice($curr_uri_ary, 0, $depth)));
+		}
+		
 		$page = get_page_by_path($curr_uri);
 		if($page) return $page;
 		return null;

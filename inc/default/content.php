@@ -1,4 +1,11 @@
 <?php $id = (isset($id)) ? $id : $post->ID; ?>
+<?php if($content = get_the_content()): ?>
+<div class="page-content">
+	<div class="inner container">
+		<?php the_content(); ?>
+	</div>
+</div>
+<?php endif; ?>
 <?php $i = 0; ?>
 <?php if(get_field('content', $id)): ?>
 <?php while (has_sub_field('content', $id)) : ?>
@@ -187,6 +194,35 @@
 				<?php endwhile; ?>
 			</div>
 		<?php
+			endif;
+			break; 
+		case 'downloads':
+			if(get_sub_field('file')):
+		?>
+			<ul class="downloads">
+				<?php while (has_sub_field('file', $id)) : ?>
+				<?php 
+					$file = get_sub_field('file'); 
+					$size = size_format(filesize( get_attached_file( $file['id'] ) ));
+					$file_type = wp_check_filetype($file['url']);
+				?>
+				<li class="file">
+					<a href="<?php echo $file['url']; ?>" target="_blank" class="clearfix">
+						<div class="thumbnail">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/icons/document.png" />
+						</div>
+						<div class="content span seven push-two">
+							<h4 class="title blue"><?php echo $file['title']; ?></h4>
+							<div class="meta-data">
+								<p><span class="uppercase file-type"><?php echo $file_type['ext']; ?></span>, <span class="size"><?php echo $size; ?></span></p>
+							</div>
+						</div>
+						<i class="arrow icon-download circle"></i>
+					</a>
+				</li>
+				<?php endwhile; ?>
+			</ul>
+			<?php
 			endif;
 			break; ?>
 		

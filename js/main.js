@@ -49,11 +49,25 @@
 					
 				});
 			}
+
+			if($.fn.datepicker) {
+				$('.datepicker').each(function(){
+					var datepicker = $(this),
+						altField = datepicker.find('.datepicker-input').attr('id');
+					datepicker.datepicker({
+						altField: '#'+altField,
+						altFormat: 'd-mm-yy'
+					});	
+				});
+			}
 			
 			this.lightbox.init();
 			this.ajaxPage.init();
 			this.scroller.init();
 			this.testimonials.init();
+			this.product.init();
+			this.checkout.init();
+			this.accordion.init();
 			
 			
 
@@ -378,6 +392,53 @@
 						isOpen = !isOpen;
 					});
 				}
+			}
+		},
+
+		product: {
+			init: function(){
+				var container = main.product.container = $('.product');
+				
+				if($('body').hasClass('single-product')){
+					$('.change-postcode-btn', container).on('click', function(){
+						$('.change-postcode', container).slideToggle();
+					});
+				}	
+			}
+		},
+
+		checkout: {
+			init: function(){
+				var container = main.checkout.container = $('form.checkout');
+				
+				if($('body').hasClass('woocommerce-checkout')){
+					$('.accordion-btn', container).on('click', function(){
+						$('body').trigger('update_checkout');
+					});
+				}	
+			}
+		},
+		accordion: {
+			init: function(){
+				var container = main.accordion.container = $('.accordion');
+				
+				if(container.length){
+					var items = $('li', container);
+					$('.accordion-btn', container).on('click', function(){
+						var id = $(this).data('id'),
+							currItem = items.filter('[data-id='+id+']');
+
+
+						$('.accordion-content', items).slideUp(function(){
+							items.not(currItem).removeClass('current');
+						});
+
+						$('.accordion-content', currItem).slideDown(function(){
+							currItem.addClass('current');
+						});
+
+					});
+				}	
 			}
 		}
 	}
