@@ -11,8 +11,8 @@ $checkout = $woocommerce->checkout();
 	</div>
 	<footer class="footer clearfix">
 		<p class="left">
-			<a class="accordion-btn btn" data-id="delivery-address"><?php _e("I’ll arrange a return delivery date later", THEME_NAME); ?></a>
+			<a class="accordion-btn btn" data-id="billing-address"><?php _e("I’ll arrange a return delivery date later", THEME_NAME); ?></a>
 		</p>
-		<a class="accordion-btn orange-btn right" data-id="delivery-address"><?php _e("Proceed to Step 3", THEME_NAME); ?></a>
+		<a class="accordion-btn orange-btn right" data-id="billing-address"><?php _e("Proceed to Step 3", THEME_NAME); ?></a>
 	</footer>
 </div>

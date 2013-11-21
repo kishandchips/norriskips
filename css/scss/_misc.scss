@@ -1077,6 +1077,81 @@ hr {
 	height: 20px;
 }
 
+.checkout-progress {
+	margin: 0 auto;
+	list-style: none;
+	padding: 1em 0 3em 0;
+	text-align: center;
+	@extend .clearfix;
+
+	@include device-width(8){
+		display: none;
+	}
+	li {
+		display: inline-block;
+		margin: 0 1.4em;
+		@include font-size(25);
+		padding: 0.3em;
+		border-width: 3px;
+		@include helvetica-bold;
+		border-color: #245d93;
+		color: #245d93;
+		position: relative;
+		&.current {
+			border-color: #eeb111;
+		}
+
+		&:after {
+			width: 92px;
+			height: 14px;
+			position: absolute;
+			display: block;
+			content: '';
+			top: 50%;
+			margin-top: -7px;
+			right: -220%;
+			background: url(../images/misc/dots.png) repeat-x;
+		}
+
+		// &:after {
+		// 	content: '';
+		// 	position: absolute;
+		// 	background: #dcdcdc;
+		// 	display: block;
+		// 	//border: 3px solid #FFF;
+		// 	@include border-radius(3px);
+		// 	bottom: -15px;
+		// 	left: 50%;
+		// 	margin-left: -4px;
+		// 	width: 7px;
+		// 	height: 7px;
+		// }
+
+		// &:before {
+		// 	content: '';
+		// 	background: #dcdcdc;
+		// 	width: 100%;
+		// 	height: 1px;
+		// 	position: absolute;
+		// 	bottom: -12px;
+		// 	left: 0;
+		// }
+
+		// &:first-child {
+		// 	&:before {
+		// 		width: 50%;
+		// 		left: 50%;
+		// 	}
+		// }
+
+		&:last-child {
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
+
 /* =============================================================================
    Lists
    ========================================================================== */
@@ -1275,14 +1350,8 @@ hr {
 	}
 
 	.ui-state-default,
-	.ui-widget-content .ui-state-default,
-	.ui-widget-header .ui-state-default,
 	.ui-state-hover,
-	.ui-widget-content .ui-state-hover,
-	.ui-widget-header .ui-state-hover,
-	.ui-state-focus,
-	.ui-widget-content .ui-state-focus,
-	.ui-widget-header .ui-state-focus {
+	.ui-state-focus {
 		border: none;
 	}
 
@@ -1326,6 +1395,38 @@ hr {
 					text-align: center;
 				}
 			}
+		}
+	}
+
+	&.ui-slider {
+		@include border-radius(1em);
+
+		.ui-widget-header {
+			@include border-radius(1em);
+			background: #326ba1; 
+		}
+
+		.ui-state-default {
+			outline: none;
+			background: #eeb111;
+			@include border-radius(1em);
+			@include font-size(20);
+			border: 1px solid #af820e;
+			top: -.4em;
+			@include box-shadow(0 4px 0 rgba(#000, 0.2));
+			cursor: pointer;
+
+			&.ui-state-hover,
+			&.ui-state-active,
+			&.ui-state-focus {
+				outline: none;
+				background: #d9a110;
+			}
+
+		}
+
+		.ui-slider-handle {
+			@include transition(none);
 		}
 	}
 }

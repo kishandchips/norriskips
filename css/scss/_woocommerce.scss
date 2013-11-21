@@ -612,6 +612,8 @@ p.demo_store {
 			position: relative;
 			width: 32%;
 			margin-left: 0;
+
+
 			.onsale {
 				top: 0;
 				right: 0;
@@ -662,12 +664,19 @@ p.demo_store {
 					color:fade( desaturate( $highlight, 75% ), 50% );
 				}
 			}
+
+
 		}
 		li.first {
 			clear:both;
 		}
 		li.last {
 			margin-right: 0;
+		}
+
+		li.skip-finder {
+			padding-top: 2em;
+			text-align: center;
 		}
 	}
 
@@ -1607,6 +1616,7 @@ p.demo_store {
 	-------------------------------------------------------------- */
 
 	.checkout {
+		margin: 0 0 2em 0;
 		.col-2 {
 			h3 {
 				float:left;
@@ -1751,9 +1761,10 @@ p.demo_store {
 
 	#order_review {
 		border-top: 1px solid #cccccc;
-
+		margin: 0 0 2em 0;
 		.product-thumbnail {
 			padding: 0;
+			width: 40%;
 			> a,
 			img {
 				display: block;
@@ -1761,6 +1772,8 @@ p.demo_store {
 		}
 
 		.shop_table {
+			border-bottom: 1px solid #cccccc;
+			margin-bottom: 0;
 			th {
 				text-align: center;
 				color: #FFF;

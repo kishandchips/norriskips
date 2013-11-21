@@ -61,6 +61,23 @@
 				});
 			}
 			
+			if($.fn.slider){
+				$('.slider').each(function(){
+					var slider = $(this);
+					console.log(slider);
+					slider.slider({
+						steps: 5,
+						min: 0,
+						range: 'min',
+						value: 60,
+						max: 100,
+						animate: false,
+						slide: function(e, ui){
+							console.log(ui);
+						}
+					});
+				});
+			}
 			this.lightbox.init();
 			this.ajaxPage.init();
 			this.scroller.init();
@@ -413,7 +430,10 @@
 				
 				if($('body').hasClass('woocommerce-checkout')){
 					$('.accordion-btn', container).on('click', function(){
+						var id = $(this).data('id');
 						$('body').trigger('update_checkout');
+
+						$('.checkout-progress li').removeClass('current').filter('[data-id='+id+']').addClass('current');
 					});
 				}	
 			}

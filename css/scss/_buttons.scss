@@ -56,6 +56,10 @@ button {
 	&.big {
 		@include font-size(20);
 	}
+
+	i {
+		vertical-align: -1px;
+	}
 }
 
 

@@ -587,3 +587,53 @@ body {
 		}
 	}
 }
+
+#template-skip-finder {
+	padding: 0 0 4em 0;
+
+	> .inner {
+		padding: 2em 0 0 0;
+	}
+	.calculator,
+	.results {
+		.header {
+			padding: 2em 0;
+		}
+	}
+
+	.calculator {
+		padding-right: 3em;
+		border-right: 1px solid #cccccc;
+		.bin-bags,
+		.wheel-barrows {
+			padding: 1.5em 0;
+			border-top: 1px solid #cccccc;
+
+			.images {
+				text-align: center;
+				padding-top: 2em;
+			}
+
+			.slider {
+				margin: 1em 0;
+			}
+
+			.description {
+				margin: 1.5em 0 0 0;
+				border: 1px solid #cccccc;
+				padding: 0.2em 1em;
+				@include border-radius(4px);
+			}
+		}
+
+		.footer {
+			border-top: 5px solid #326ba1;
+			margin: 1em 0 0 0;
+			padding: 1em 0;
+		}
+	}
+
+	.results {
+		padding-left: 3em;
+	}
+}

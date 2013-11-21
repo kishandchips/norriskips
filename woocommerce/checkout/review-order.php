@@ -62,7 +62,23 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 					<h6 class="no-margin">
 						<span class="date"><?php echo date('l d F', strtotime($delivery_date)); ?></span>
 						<?php if($delivery_time = $woocommerce->session->get('delivery_time')): ?>
-						<br /><span class="time normal"><?php echo $delivery_time; ?> <?php //if((int) $delivery_time > 12) ? "pm" : "am"; ?></span>
+						<br /><span class="time normal"><?php echo $delivery_time; ?> <?php echo ((int)$delivery_time > 12) ? "pm" : "am"; ?></span>
+						<?php endif; ?>
+						<p class="tiny">
+							<a class="accordion-btn" id="delivery-date"><?php _e("Change Date", THEME_NAME); ?></a>
+						</p>
+					</h6>
+				</td>
+			</tr>
+			<?php endif; ?>
+			<?php if($return_date = $woocommerce->session->get('return_date')): ?>
+			<tr>
+				<th><?php _e("Collected on", THEME_NAME); ?></th>
+				<td>
+					<h6 class="no-margin">
+						<span class="date"><?php echo date('l d F', strtotime($return_date)); ?></span>
+						<?php if($return_time = $woocommerce->session->get('return_time')): ?>
+						<br /><span class="time normal"><?php echo $return_time; ?> <?php echo ((int)$return_time > 12) ? "pm" : "am"; ?></span>
 						<?php endif; ?>
 						<p class="tiny">
 							<a class="accordion-btn" id="delivery-date"><?php _e("Change Date", THEME_NAME); ?></a>
@@ -74,19 +90,6 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 		</tbody>
 
 		<tfoot>
-			<tr class="cart-subtotal">
-				<th><?php _e( 'Cart Subtotal', 'woocommerce' ); ?></th>
-				<td><?php echo $woocommerce->cart->get_cart_subtotal(); ?></td>
-			</tr>
-
-			<?php if ( $woocommerce->cart->get_discounts_before_tax() ) : ?>
-
-			<tr class="discount">
-				<th><?php _e( 'Cart Discount', 'woocommerce' ); ?></th>
-				<td>-<?php echo $woocommerce->cart->get_discounts_before_tax(); ?></td>
-			</tr>
-
-			<?php endif; ?>
 
 			<?php if ( $woocommerce->cart->needs_shipping() && $woocommerce->cart->show_shipping() ) : ?>
 
@@ -101,64 +104,81 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 
 			<?php endif; ?>
 
-			<?php foreach ( $woocommerce->cart->get_fees() as $fee ) : ?>
-
-				<tr class="fee fee-<?php echo $fee->id ?>">
-					<th><?php echo $fee->name ?></th>
-					<td><?php
-						if ( $woocommerce->cart->tax_display_cart == 'excl' )
-							echo woocommerce_price( $fee->amount );
-						else
-							echo woocommerce_price( $fee->amount + $fee->tax );
-					?></td>
+			<?php if($available_methods): ?>
+				<tr class="cart-subtotal">
+					<th><?php _e( 'Cart Subtotal', 'woocommerce' ); ?></th>
+					<td><?php echo $woocommerce->cart->get_cart_subtotal(); ?></td>
 				</tr>
 
-			<?php endforeach; ?>
+				<?php if ( $woocommerce->cart->get_discounts_before_tax() ) : ?>
 
-			<?php
-				// Show the tax row if showing prices exlcusive of tax only
-				if ( $woocommerce->cart->tax_display_cart == 'excl' ) {
-					foreach ( $woocommerce->cart->get_tax_totals() as $code => $tax ) {
-						echo '<tr class="tax-rate tax-rate-' . $code . '">
-							<th>' . $tax->label . '</th>
-							<td>' . $tax->formatted_amount . '</td>
-						</tr>';
-					}
-				}
-			?>
+				<tr class="discount">
+					<th><?php _e( 'Cart Discount', 'woocommerce' ); ?></th>
+					<td>-<?php echo $woocommerce->cart->get_discounts_before_tax(); ?></td>
+				</tr>
 
-			<?php if ( $woocommerce->cart->get_discounts_after_tax() ) : ?>
+				<?php endif; ?>
 
-			<tr class="discount">
-				<th><?php _e( 'Order Discount', 'woocommerce' ); ?></th>
-				<td>-<?php echo $woocommerce->cart->get_discounts_after_tax(); ?></td>
-			</tr>
+				
 
-			<?php endif; ?>
+				<?php foreach ( $woocommerce->cart->get_fees() as $fee ) : ?>
 
-			<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
+					<tr class="fee fee-<?php echo $fee->id ?>">
+						<th><?php echo $fee->name ?></th>
+						<td><?php
+							if ( $woocommerce->cart->tax_display_cart == 'excl' )
+								echo woocommerce_price( $fee->amount );
+							else
+								echo woocommerce_price( $fee->amount + $fee->tax );
+						?></td>
+					</tr>
 
-			<tr class="total">
-				<th><strong><?php _e( 'Order Total', 'woocommerce' ); ?></strong></th>
-				<td>
-					<strong><?php echo $woocommerce->cart->get_total(); ?></strong>
-					<?php
-						// If prices are tax inclusive, show taxes here
-						if ( $woocommerce->cart->tax_display_cart == 'incl' ) {
-							$tax_string_array = array();
+				<?php endforeach; ?>
 
-							foreach ( $woocommerce->cart->get_tax_totals() as $code => $tax ) {
-								$tax_string_array[] = sprintf( '%s %s', $tax->formatted_amount, $tax->label );
-							}
-
-							if ( ! empty( $tax_string_array ) ) {
-								?><small class="includes_tax"><?php printf( __( '(Includes %s)', 'woocommerce' ), implode( ', ', $tax_string_array ) ); ?></small><?php
-							}
+				<?php
+					// Show the tax row if showing prices exlcusive of tax only
+					if ( $woocommerce->cart->tax_display_cart == 'excl' ) {
+						foreach ( $woocommerce->cart->get_tax_totals() as $code => $tax ) {
+							echo '<tr class="tax-rate tax-rate-' . $code . '">
+								<th>' . $tax->label . '</th>
+								<td>' . $tax->formatted_amount . '</td>
+							</tr>';
 						}
-					?>
-				</td>
-			</tr>
+					}
+				?>
 
+				<?php if ( $woocommerce->cart->get_discounts_after_tax() ) : ?>
+
+				<tr class="discount">
+					<th><?php _e( 'Order Discount', 'woocommerce' ); ?></th>
+					<td>-<?php echo $woocommerce->cart->get_discounts_after_tax(); ?></td>
+				</tr>
+
+				<?php endif; ?>
+
+				<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
+
+				<tr class="total">
+					<th><strong><?php _e( 'Order Total', 'woocommerce' ); ?></strong></th>
+					<td>
+						<strong><?php echo $woocommerce->cart->get_total(); ?></strong>
+						<?php
+							// If prices are tax inclusive, show taxes here
+							if ( $woocommerce->cart->tax_display_cart == 'incl' ) {
+								$tax_string_array = array();
+
+								foreach ( $woocommerce->cart->get_tax_totals() as $code => $tax ) {
+									$tax_string_array[] = sprintf( '%s %s', $tax->formatted_amount, $tax->label );
+								}
+
+								if ( ! empty( $tax_string_array ) ) {
+									?><small class="includes_tax"><?php printf( __( '(Includes %s)', 'woocommerce' ), implode( ', ', $tax_string_array ) ); ?></small><?php
+								}
+							}
+						?>
+					</td>
+				</tr>
+			<?php endif; ?>
 			<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
 
 		</tfoot>

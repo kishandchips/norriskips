@@ -20,9 +20,15 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 	echo apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) );
 	return;
 }
-
-// filter hook for include new pages inside the payment method
-$get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', $woocommerce->cart->get_checkout_url() ); ?>
+?>
+<ul class="checkout-progress">
+	<li class="circle current" data-id="delivery-date">1</li>
+	<li class="circle" data-id="return-date">2</li>
+	<li class="circle" data-id="billing-address">3</li>
+	<li class="circle" data-id="delivery-address">4</li>
+	<li class="circle" data-id="payment">5</li>
+</ul>
+<?php $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', $woocommerce->cart->get_checkout_url() ); ?>
 <div class="clearfix">
 	<form name="checkout" method="post" class="checkout clearfix" action="<?php echo esc_url( $get_checkout_url ); ?>">
 		<div class="span three right break-on-tablet">
