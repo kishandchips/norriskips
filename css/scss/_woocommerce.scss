@@ -181,14 +181,13 @@ p.demo_store {
 		}
 
 		.call-us {
-			padding: 0.5em 0 0 0;
-
+			
 			.phone-number-container {
 				margin-top: 0;
 			}
 			
 			.phone-number {
-				@include font-size(30);
+				@include font-size(23);
 			}
 		}
 	}
@@ -386,6 +385,17 @@ p.demo_store {
 						display: block;
 					}
 				}
+			}
+		}
+
+		.change-postcode {
+			> .content {
+				padding-left: 0;
+				padding-right: 0;
+			}
+
+			.postcode_wrapper .postcode .validation_error {
+				margin: 0 0 1em 0;
 			}
 		}
 
@@ -1778,6 +1788,14 @@ p.demo_store {
 				text-align: center;
 				color: #FFF;
 				background: #326ba1;
+			}
+
+			.delivery-date,
+			.return-date {
+				td {
+					padding-top: 12px;
+					padding-bottom: 12px;
+				}
 			}
 		}
 	}

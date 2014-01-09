@@ -109,8 +109,8 @@ fieldset {
 			margin-bottom: 0;
 			.gform_title {
 				font-weight: normal;
-				@include font-size(20);
-				margin-bottom: 10px;
+				// @include font-size(20);
+				// margin-bottom: 10px;
 			}
 		}
 
@@ -343,6 +343,134 @@ fieldset {
 
 			.button {
 				float: none;
+			}
+		}
+	}
+}
+
+
+.return-skip_wrapper {
+	.return-skip {
+		margin-bottom: 2em;
+		.gf_page_steps {
+			margin: 0 auto;
+			list-style: none;
+			padding: 2em 0;
+			text-align: center;
+			border-bottom: none;
+			@extend .clearfix;
+
+			@include device-width(8) {
+				display: none;
+			}
+			.gf_step {
+				display: inline-block;
+				margin: 0 4em;
+				height: auto;
+				position: relative;
+				
+				&:after {
+					width: 92px;
+					height: 14px;
+					position: absolute;
+					display: block;
+					content: '';
+					top: 50%;
+					margin-top: -7px;
+					right: -185%;
+					background: url(../images/misc/dots.png) repeat-x;
+				}
+
+
+				&.gf_step_last {
+					&:after {
+						display: none;
+					}
+				}
+
+				.gf_step_number {
+					position: relative;
+					@extend .circle;
+					@include font-size(25);
+					border-width: 3px;
+					padding: 0.3em;
+					@include helvetica-bold;
+					border-color: #245d93;
+					color: #245d93;
+
+					&.current {
+						border-color: #eeb111;
+					}
+				}
+
+			}
+		}
+
+		.gform_body {
+			background: #EEE;
+
+			.gform_page {
+				counter-increment: step-number;
+				.gform_page_fields {
+					padding-bottom: 2em;
+				}
+
+				.gfield {
+					padding: 1.5em 2em 0 2em;
+					margin: 0;
+					@include box-sizing(border-box);
+
+					&.gfield_error {
+						padding: 1.5em 2em 0 2em !important;
+						margin-bottom: 0 !important;
+
+						.ginput_container {
+							margin-top: 0;
+						}
+					}
+
+					&.gsection {
+						padding: 0.5em 2em; 
+						background: #FFF;
+						border-top: 1px solid #cccccc;
+						border-bottom: 1px solid #cccccc;
+
+						.gsection_title {
+							@include helvetica-bold;
+							@include font-size(25);
+							color: #002b54;
+
+							&:before {
+								content: counter(step-number);
+								@extend .circle;
+								margin-right: 0.5em; 
+							}
+						}
+					}
+
+					.gfield_label {
+						@include font-size(20);
+						@include helvetica-roman;
+					}
+				}
+
+				.gform_page_footer {
+					margin: 0;
+					padding: 1em 2em;
+					width: auto;
+					border-top: 1px solid #CCC;
+					@extend .clearfix;
+
+					.gform_next_button,
+					.gform_button {
+						@extend .orange-btn;
+						float: right;
+					}
+
+					.gform_previous_button {
+						@extend .grey-btn;
+					}
+				}
 			}
 		}
 	}

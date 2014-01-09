@@ -39,7 +39,7 @@
 
 						setTimeout(function(){
 							sidebarTemplate.removeClass('open');
-						}, 500)
+						}, 500);
 					} else {
 						sidebarTemplate.addClass('open');
 						setTimeout(function(){
@@ -50,44 +50,18 @@
 				});
 			}
 
-			if($.fn.datepicker) {
-				$('.datepicker').each(function(){
-					var datepicker = $(this),
-						altField = datepicker.find('.datepicker-input').attr('id');
-					datepicker.datepicker({
-						altField: '#'+altField,
-						altFormat: 'd-mm-yy'
-					});	
-				});
-			}
 			
-			if($.fn.slider){
-				$('.slider').each(function(){
-					var slider = $(this);
-					console.log(slider);
-					slider.slider({
-						steps: 5,
-						min: 0,
-						range: 'min',
-						value: 60,
-						max: 100,
-						animate: false,
-						slide: function(e, ui){
-							console.log(ui);
-						}
-					});
-				});
-			}
+			
 			this.lightbox.init();
 			this.ajaxPage.init();
 			this.scroller.init();
 			this.testimonials.init();
 			this.product.init();
 			this.checkout.init();
+			this.calculator.init();
 			this.accordion.init();
+			this.datepicker.init();
 			
-			
-
 			$(window).on('resize', this.resize).trigger('resize');
 
 		},
@@ -332,9 +306,9 @@
 				sidebarTemplate = main.vars.templates.sidebar;
 
 			
-			if(windowWidth <= 1200 && headerNavigation.is(':visible')){
+			if(windowWidth <= 1300 && headerNavigation.is(':visible')){
 				headerNavigation.hide();
-			} else if(windowWidth > 1200 && !headerNavigation.is(':visible')) {
+			} else if(windowWidth > 1300 && !headerNavigation.is(':visible')) {
 				headerNavigation.show();
 			}
 
@@ -424,30 +398,72 @@
 			}
 		},
 
+		calculator: {
+			init: function(){
+				var container = main.calculator.container = $('.calculator');
+				
+				if(container.length){
+					if($.fn.slider){
+						var slider = $('.slider', container),
+							results = $('.results .result', container),
+							products = $('.products .product', container),
+							currVal = 0,
+							max = slider.data('max') * 10;
+
+						console.log((slider.data('max') * 10) / 10);
+						slider.slider({
+							range: 'min',
+							animate: false,
+							max: max,
+							slide: function(e, ui){
+								var i = Math.floor(ui.value / 10),
+									percentage = (ui.value - (i * 10));
+
+								if(i != currVal){
+									results.hide();
+									results.filter('[data-index='+i+']').show();
+									currVal = i;
+								}
+
+								$('.image .mask', products).height(((10 - percentage) * 5) + '%');
+							}
+						});
+					}
+				}	
+			}
+		},
+
 		checkout: {
 			init: function(){
 				var container = main.checkout.container = $('form.checkout');
 				
 				if($('body').hasClass('woocommerce-checkout')){
-					$('.accordion-btn', container).on('click', function(){
+
+					$('.clear-return-date-btn').on('click', function(){
+						var returnDate = $('#return-date');
+						main.datepicker.clear(returnDate.find('.datepicker'));
+						returnDate.find('.input-radio').attr('checked', false);
+					});
+
+					$('.accordion-btn').on('click', function(){
 						var id = $(this).data('id');
 						$('body').trigger('update_checkout');
 
 						$('.checkout-progress li').removeClass('current').filter('[data-id='+id+']').addClass('current');
 					});
+
+					
 				}	
 			}
 		},
 		accordion: {
 			init: function(){
 				var container = main.accordion.container = $('.accordion');
-				
 				if(container.length){
 					var items = $('li', container);
-					$('.accordion-btn', container).on('click', function(){
+					$(document).on('click', '.accordion-btn', function(){
 						var id = $(this).data('id'),
 							currItem = items.filter('[data-id='+id+']');
-
 
 						$('.accordion-content', items).slideUp(function(){
 							items.not(currItem).removeClass('current');
@@ -456,9 +472,43 @@
 						$('.accordion-content', currItem).slideDown(function(){
 							currItem.addClass('current');
 						});
-
 					});
 				}	
+			}
+		},
+		datepicker: {
+			init: function(){
+				if($.fn.datepicker) {
+					$('.datepicker').each(function(){
+						var datepicker = $(this);
+
+						if(datepicker.is('input')){
+							altField = datepicker;
+							datepicker = datepicker.parent();
+							altField.addClass('datepicker-input').attr('type', 'hidden');
+						} else {
+							altField = datepicker.find('.datepicker-input');
+						}
+						datepicker.datepicker({
+							altField: '#'+altField.attr('id'),
+							altFormat: 'd-mm-yy',
+							minDate: 1
+						});
+
+						main.datepicker.clear(datepicker);
+					});
+				}
+			},
+			clear: function(datepicker){
+
+				var altField = datepicker.find('.datepicker-input'),
+					currDate = datepicker.find('.ui-datepicker-current-day'),
+					currDateBtn = currDate.find('a');
+				console.log(altField);
+				altField.val('');
+				currDate.removeClass('ui-datepicker-current-day');
+				currDateBtn.removeClass('ui-state-active ui-state-hover');
+
 			}
 		}
 	}

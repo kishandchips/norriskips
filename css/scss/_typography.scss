@@ -23,9 +23,9 @@ h2 {
 	@include font-size(33);
 	line-height: 1;
 
-	// @include device-width(5) {
-	// 	@include font-size(26);
-	// }
+	@include device-width(5) {
+		@include font-size(26);
+	}
 }
 
 h3 {
@@ -33,6 +33,10 @@ h3 {
 	margin: 0.5em 0;
 	@include font-size(25);
 	line-height: 1;
+
+	@include device-width(5) {
+		@include font-size(22);
+	}
 }
 
 h4 {

@@ -42,6 +42,7 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
 
+//gforms_datepicker
 
 add_action( 'after_setup_theme', 'custom_setup_theme' );
 
@@ -59,15 +60,13 @@ add_action( 'wp_print_styles', 'custom_styles', 30);
 
 add_action( 'woocommerce_show_page_title', 'custom_woocommerce_show_page_title');
 
-add_action( 'woocommerce_before_single_product', 'custom_woocommerce_show_product_header', 5);
+add_action( 'woocommerce_before_single_product', 'custom_woocommerce_single_product_header', 5);
 
 add_action( 'woocommerce_single_product_summary', 'custom_woocommerce_show_postcode_form', 28 );
 
 add_action( 'woocommerce_before_single_product_summary', 'custom_woocommerce_show_product_capacity', 20);
 
 add_action( 'woocommerce_before_single_product_summary', 'custom_woocommerce_show_product_dimensions', 30);
-
-add_action( 'woocommerce_after_single_product_summary', 'custom_woocommerce_show_product_upgrade');
 
 add_action( 'woocommerce_checkout_delivery_date', 'custom_woocommerce_checkout_delivery_date');
 
@@ -77,19 +76,19 @@ add_action( 'woocommerce_checkout_update_order_review', 'custom_woocommerce_chec
 
 // Custom Filters
 
-//add_filter('gform_submit_button', 'custom_submit_button', 10, 2);
+//add_filter( 'gform_submit_button', 'custom_submit_button', 10, 2);
 
-add_filter('gform_validation_2', 'custom_validation_hook');
+add_filter( 'gform_validation_2', 'custom_validation_hook_2');
 
-add_filter('gform_validation_message_2', 'custom_validation_message_book', 10, 2);
+add_filter( 'gform_validation_message_2', 'custom_validation_message_book', 10, 2);
 
-add_filter('loop_shop_columns', 'custom_woocommerce_shop_columns');
+add_filter( 'loop_shop_columns', 'custom_woocommerce_shop_columns');
 
-add_filter('single_add_to_cart_text', 'custom_woocommerce_add_to_cart_text');
+add_filter( 'single_add_to_cart_text', 'custom_woocommerce_add_to_cart_text');
 
-add_filter('woocommerce_get_price', 'custom_woocommerce_get_price');
+add_filter( 'woocommerce_get_price_html', 'custom_woocommerce_get_price_html', 10, 2);
 
-add_filter ('add_to_cart_redirect', 'custom_woocommerce_add_to_cart_redirect');
+add_filter( 'add_to_cart_redirect', 'custom_woocommerce_add_to_cart_redirect');
 
 add_filter( 'woocommerce_checkout_fields' , 'custom_woocommerce_checkout_fields' );
 
@@ -103,10 +102,15 @@ add_filter( 'woocommerce_add_message', 'custom_woocommerce_add_message');
 
 add_filter( 'woocommerce_product_thumbnails_columns', 'custom_woocommerce_product_thumbnails_columns');
 
+add_filter( 'template_include', 'custom_template_include', 99 );
 
-//Custom Shortcodes
+add_filter( 'query_vars', 'custom_query_vars');
 
-add_shortcode('phone_number', 'custom_phone_number');
+add_filter( 'woocommerce_add_to_cart_validation', 'custom_woocommerce_add_to_cart_validation', 10);
+
+//Custom shortcodes
+
+add_shortcode( 'phone_number', 'custom_phone_number');
 
 
 
@@ -129,6 +133,8 @@ function custom_setup_theme() {
 	) );
 
 	//add_image_size( 'custom_medium', 706, 400, true);
+
+	add_rewrite_rule('skip/([^/]+)/upgrade', 'index.php?product=$matches[1]&upgrade=1', 'top');
 	
 	add_editor_style('/css/editor-styles.css');
 
@@ -160,7 +166,12 @@ function custom_wp(){
 	global $woocommerce;
 	if(is_product() && $woocommerce->customer->get_shipping_postcode()){
 		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 25 );
+
 		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+
+		add_action( 'woocommerce_single_product_summary', 'custom_woocommerce_template_single_note', 20 );
+
+		add_action( 'woocommerce_after_single_product_summary', 'custom_woocommerce_show_product_upgrade');
 	}
 }
 
@@ -211,12 +222,13 @@ function custom_remove_menus () {
 }
 
 function custom_scripts() {
-	
 	// wp_dequeue_script('prettyPhoto');
 	// wp_dequeue_script('prettyPhoto-init');
 	// wp_dequeue_script('woocommerce-wishlists');
 	// wp_dequeue_script('wc-single-product');
 	wp_deregister_script('jquery');
+	//wp_deregister_script('gforms_datepicker');
+	
 	wp_register_script('jquery-ui', get_template_directory_uri().'/js/plugins/jquery-ui.custom.min.js', array( 'jquery' ));
 
 	wp_enqueue_script('modernizr', get_template_directory_uri().'/js/libs/modernizr.min.js');
@@ -228,6 +240,7 @@ function custom_scripts() {
 
 	wp_enqueue_script('jquery-ui');
 }
+
 
 function custom_styles() {
 	global $wp_styles;
@@ -258,46 +271,59 @@ function custom_phone_number($atts){
 	return $output;
 }
 
-function custom_validation_hook($validation_result){
+function custom_validation_hook_2($validation_result){
 	global $woocommerce;
 	$validation = $woocommerce->validation();
 	$form = $validation_result['form'];
+	$validation_result['is_valid'] = ($validation_result['is_valid'] == 1) ? 1 : 0;
 	$country = 'GB';
-
+	$postcode = '';
 	foreach($form['fields'] as &$field){
-
-		if($field['id'] == 2) {
-			if($_POST['input_'.$field['id']] == 'On Road'){
-				$field['failed_validation'] = true;
-				$validation_result['is_valid'] = false;
-			}
-		}
-
-		if($field['id'] == '1'){
-			
+		
+		if($field['id'] == '1' && $validation_result['is_valid']){
 			$postcode   = apply_filters( 'woocommerce_shipping_calculator_enable_postcode', true ) ? woocommerce_clean( $_POST['input_'.$field['id']] ) : '';
 			
 			if ( $postcode && ! $validation->is_postcode( $postcode, $country ) ) {
 				$postcode = '';
 				$field['failed_validation'] = true;
-				$validation_result['is_valid'] = false;
+				$validation_result['is_valid'] = 0;
 	            break;
 			} elseif ( $postcode ) {
 				$postcode = $validation->format_postcode( $postcode, $country );
-				$_POST['input_'.$field['id']] = $postcode;
+				$package = array(
+					'destination' => array(
+						'country' => $country,
+						'postcode' => $postcode,
+						'state' => ''
+					)
+				);
+
+				$zone = woocommerce_get_shipping_zone($package);
+				if($zone->zone_id != 0) {
+					$_POST['input_'.$field['id']] = $postcode;
+				} else {
+					$field['failed_validation'] = true;
+					$validation_result['is_valid'] = 0;
+				}
 			}
 
-			if ( $country && $validation_result['is_valid']) {
-				$woocommerce->customer->set_location( $country, '', $postcode, '' );
-				$woocommerce->customer->set_shipping_location( $country, '', $postcode, '' );
-				
-			} else {
-				$woocommerce->customer->set_to_base();
-				$woocommerce->customer->set_shipping_to_base();
-			}
 		}
 
-		
+		if($field['id'] == '2') {
+			if($_POST['input_'.$field['id']] == 'On Road'){
+				$field['failed_validation'] = true;
+				$validation_result['is_valid'] = 0;
+			}
+		}
+	}
+
+
+	if ( $country && $postcode && $validation_result['is_valid']) {
+		$woocommerce->customer->set_location( $country, '', $postcode, '' );
+		$woocommerce->customer->set_shipping_location( $country, '', $postcode, '' );
+	} else {
+		$woocommerce->customer->set_to_base();
+		$woocommerce->customer->set_shipping_to_base();
 	}
 
 	$validation_result['form'] = $form;
@@ -333,7 +359,7 @@ function custom_woocommerce_show_page_title(){
 	return false;
 }
 
-function custom_woocommerce_show_product_header() {
+function custom_woocommerce_single_product_header() {
 	woocommerce_get_template( 'single-product/header.php' );
 }
 
@@ -359,32 +385,50 @@ function custom_woocommerce_add_to_cart_text($text){
 	return __("Book Now", THEME_NAME);
 }
 
-function custom_get_shipping_packages() {
+function custom_get_shipping_product_package($id) {
 	global $woocommerce;
 
-	// Packages array for storing 'carts'
-	$packages = array();
+	$package = array();
 
-	$packages[0]['contents']                 = $this->get_cart();		// Items in the package
-	$packages[0]['contents_cost']            = 0;						// Cost of items in the package, set below
-	$packages[0]['applied_coupons']          = $this->applied_coupons; 	// Applied coupons - some, like free shipping, affect costs
-	$packages[0]['destination']['country']   = $woocommerce->customer->get_shipping_country();
-	$packages[0]['destination']['state']     = $woocommerce->customer->get_shipping_state();
-	$packages[0]['destination']['postcode']  = $woocommerce->customer->get_shipping_postcode();
-	$packages[0]['destination']['city']      = $woocommerce->customer->get_shipping_city();
-	$packages[0]['destination']['address']   = $woocommerce->customer->get_shipping_address();
-	$packages[0]['destination']['address_2'] = $woocommerce->customer->get_shipping_address_2();
+	$product = get_product($id);
 
-	foreach ( $this->get_cart() as $item )
-		if ( $item['data']->needs_shipping() )
-			$packages[0]['contents_cost'] += $item['line_total'];
+	$package['contents'][0]  = array(
+		'product_id' => $id,
+        'quantity' => 1,
+        'data' => $product
+	);
 
-	return apply_filters( 'woocommerce_cart_shipping_packages', $packages );
+	$package['destination'] = custom_get_shipping_destination();
+
+	return apply_filters( 'woocommerce_cart_shipping_packages', $package );
 }
 
-function custom_woocommerce_get_price($price){
-	// custom_get_shipping_packages
-	// $price = $price + 10;
+function custom_get_shipping_destination(){
+	global $woocommerce;
+	$destination = array(
+		'country'   => $woocommerce->customer->get_shipping_country(),
+		'state'     => $woocommerce->customer->get_shipping_state(),
+		'postcode'  => $woocommerce->customer->get_shipping_postcode(),
+		'city'      => $woocommerce->customer->get_shipping_city(),
+		'address'   => $woocommerce->customer->get_shipping_address(),
+		'address_2' => $woocommerce->customer->get_shipping_address_2()
+	);
+	return $destination;
+}
+
+function custom_woocommerce_get_price_html($price, $product){
+	if(!is_admin()){
+		global $woocommerce;
+		$package = custom_get_shipping_product_package($product->id);
+		$package = $woocommerce->shipping->calculate_shipping_for_package($package);
+		$shipping_cost = 0;
+		if(!empty($package['rates'])){
+			foreach($package['rates'] as $rate){
+				$shipping_cost = $rate->cost;
+			}
+		}
+		$price = woocommerce_price($product->get_price() + $shipping_cost);
+	}
 	return $price;
 }
 
@@ -416,6 +460,9 @@ function custom_woocommerce_checkout_return_date(){
 	woocommerce_get_template( 'checkout/return-date.php' );
 }
 
+function custom_woocommerce_template_single_note(){
+	woocommerce_get_template( 'single-product/note.php' );	
+}
 
 function custom_woocommerce_checkout_fields($fields){
 	$fields['delivery_date'] = array();
@@ -557,3 +604,25 @@ function custom_woocommerce_checkout_update_order_review($post_data){
 		}
 	}
 }
+
+function custom_template_include( $template ) {
+	//die(get_query_var('upgrade'));
+	if ( is_single() && get_post_type() == 'product' && get_query_var('upgrade')) {
+		$template = locate_template(array('woocommerce/upgrade-single-product.php'));
+	}
+
+	return $template;
+
+}
+
+function custom_query_vars( $query_vars ){
+	$query_vars[] = 'upgrade';
+	return $query_vars;
+}
+
+function custom_woocommerce_add_to_cart_validation($valid){
+	global $woocommerce;
+	$woocommerce->cart->empty_cart();
+	return $valid;
+}
+

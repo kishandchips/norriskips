@@ -662,7 +662,7 @@ hr {
 }
 
 .phone-number {
-	@include font-size(33);
+	@include font-size(30);
 	color: #333333;
 	vertical-align: middle;
 	display: inline-block;
@@ -1080,11 +1080,11 @@ hr {
 .checkout-progress {
 	margin: 0 auto;
 	list-style: none;
-	padding: 1em 0 3em 0;
+	padding: 1em 0 4em 0;
 	text-align: center;
 	@extend .clearfix;
 
-	@include device-width(8){
+	@include device-width(8) {
 		display: none;
 	}
 	li {
@@ -1099,6 +1099,10 @@ hr {
 		position: relative;
 		&.current {
 			border-color: #eeb111;
+
+			.label {
+				@include helvetica-bold;
+			}
 		}
 
 		&:after {
@@ -1144,6 +1148,17 @@ hr {
 		// 	}
 		// }
 
+		.label {
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			width: 8em;
+			margin: 0.6em 0 0 -4em;
+			@include font-size(13);
+			line-height: 1.2;
+			@include helvetica-light;
+		}
+
 		&:last-child {
 			&:after {
 				display: none;
@@ -1152,6 +1167,21 @@ hr {
 	}
 }
 
+
+.alert {
+	padding-left: 2em;
+	position: relative;
+
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		@extend [class*="icon-"];
+		@extend .icon-alert:before;
+		color: #326ba1;
+		font-size: 1.5em;
+	}
+}
 /* =============================================================================
    Lists
    ========================================================================== */
@@ -1244,6 +1274,44 @@ hr {
 }
 
 
+/* =============================================================================
+   Tables
+   ========================================================================== */
+
+
+table {
+	background: #f6f6f6;
+	thead {
+		td,
+		th {
+			padding: 1em;
+			text-align: center;
+			@include helvetica-bold;
+			@include font-size(12);
+			color: #FFF;
+			background: #326ba1;
+			vertical-align: bottom;
+
+			&:nth-child(2n) {
+				background: #295e91;
+			}
+		}
+	}
+
+	tbody {
+		td,
+		th {
+			padding: 1.5em 1em;
+			text-align: center;
+			border-top: 1px solid #c8c8c8;
+			@include font-size(12);
+
+			&:nth-child(2n) {
+				background: #efefef;
+			}
+		}
+	}
+}
 /* =============================================================================
    Backgrounds
    ========================================================================== */
@@ -1400,6 +1468,7 @@ hr {
 
 	&.ui-slider {
 		@include border-radius(1em);
+		//@include background-image(linear-gradient(#FFF, #F00 5px, #0C0, #00C 25px));
 
 		.ui-widget-header {
 			@include border-radius(1em);

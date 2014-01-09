@@ -43,8 +43,8 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 											<?php if($values['quantity'] > 1): ?>
 												<span class="quanity"><?php echo apply_filters( 'woocommerce_checkout_item_quantity', '<strong class="product-quantity">&times; ' . $values['quantity'] . '</strong>', $values, $cart_item_key ); ?>
 											<?php endif; ?>
-											<span class="price"><?php echo apply_filters( 'woocommerce_checkout_item_subtotal', $woocommerce->cart->get_product_subtotal( $_product, $values['quantity'] ), $values, $cart_item_key ); ?></span>
-											</p>
+											<span class="price bold"><?php echo $_product->get_price_html(); ?><?php //echo apply_filters( 'woocommerce_checkout_item_subtotal', $woocommerce->cart->get_product_subtotal( $_product, $values['quantity'] ), $values, $cart_item_key ); ?></span>
+										</p>
 										<p class="no-margin tiny"><?php echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf('<a href="%s" class="remove" title="%s">Remove</a>', esc_url( $woocommerce->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key ); ?></p>
 									</td>
 								</tr>
@@ -56,7 +56,7 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 			?>
 
 			<?php if($delivery_date = $woocommerce->session->get('delivery_date')): ?>
-			<tr>
+			<tr class="delivery-date">
 				<th><?php _e("Delivered on", THEME_NAME); ?></th>
 				<td>
 					<h6 class="no-margin">
@@ -64,15 +64,15 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 						<?php if($delivery_time = $woocommerce->session->get('delivery_time')): ?>
 						<br /><span class="time normal"><?php echo $delivery_time; ?> <?php echo ((int)$delivery_time > 12) ? "pm" : "am"; ?></span>
 						<?php endif; ?>
-						<p class="tiny">
-							<a class="accordion-btn" id="delivery-date"><?php _e("Change Date", THEME_NAME); ?></a>
+						<p class="tiny no-margin">
+							<a class="accordion-btn" data-id="delivery-date"><?php _e("Change Date", THEME_NAME); ?></a>
 						</p>
 					</h6>
 				</td>
 			</tr>
 			<?php endif; ?>
 			<?php if($return_date = $woocommerce->session->get('return_date')): ?>
-			<tr>
+			<tr class="return-date">
 				<th><?php _e("Collected on", THEME_NAME); ?></th>
 				<td>
 					<h6 class="no-margin">
@@ -80,8 +80,8 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 						<?php if($return_time = $woocommerce->session->get('return_time')): ?>
 						<br /><span class="time normal"><?php echo $return_time; ?> <?php echo ((int)$return_time > 12) ? "pm" : "am"; ?></span>
 						<?php endif; ?>
-						<p class="tiny">
-							<a class="accordion-btn" id="delivery-date"><?php _e("Change Date", THEME_NAME); ?></a>
+						<p class="tiny no-margin">
+							<a class="accordion-btn" data-id="return-date"><?php _e("Change Date", THEME_NAME); ?></a>
 						</p>
 					</h6>
 				</td>
@@ -91,7 +91,7 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 
 		<tfoot>
 
-			<?php if ( $woocommerce->cart->needs_shipping() && $woocommerce->cart->show_shipping() ) : ?>
+			<?php if (1 == 2 && $woocommerce->cart->needs_shipping() && $woocommerce->cart->show_shipping() ) : ?>
 
 				<?php do_action('woocommerce_review_order_before_shipping'); ?>
 
@@ -104,7 +104,7 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 
 			<?php endif; ?>
 
-			<?php if($available_methods): ?>
+			<?php if(1 == 1 && $available_methods): ?>
 				<tr class="cart-subtotal">
 					<th><?php _e( 'Cart Subtotal', 'woocommerce' ); ?></th>
 					<td><?php echo $woocommerce->cart->get_cart_subtotal(); ?></td>

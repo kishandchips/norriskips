@@ -35,6 +35,8 @@
 					<?php endif; ?>
 					<?php $book_page = get_field('book_page', 'options'); ?>
 					<a href="<?php echo get_permalink($book_page->ID); ?>" class="orange-btn"><?php _e("Book Now", THEME_NAME); ?></a>
+					<?php $return_skip_page = get_field('return_skip_page', 'options'); ?>
+					<a href="<?php echo get_permalink($return_skip_page->ID); ?>" class="grey-btn"><?php _e("Return Skip", THEME_NAME); ?></a>
 				</div>
 				<button class="mobile-navigation-btn orange-btn"></button>
 					

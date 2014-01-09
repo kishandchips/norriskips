@@ -22,11 +22,11 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 }
 ?>
 <ul class="checkout-progress">
-	<li class="circle current" data-id="delivery-date">1</li>
-	<li class="circle" data-id="return-date">2</li>
-	<li class="circle" data-id="billing-address">3</li>
-	<li class="circle" data-id="delivery-address">4</li>
-	<li class="circle" data-id="payment">5</li>
+	<li class="circle current" data-id="delivery-date">1<span class="label"><?php _e("Choose Delivery Date & Time", THEME_NAME); ?></span></li>
+	<li class="circle" data-id="return-date">2<span class="label"><?php _e("Choose Return Date", THEME_NAME); ?></span></li>
+	<li class="circle" data-id="billing-address">3<span class="label"><?php _e("Billing Address", THEME_NAME); ?></span></li>
+	<li class="circle" data-id="delivery-address">4<span class="label"><?php _e("Delivery Address", THEME_NAME); ?></span></li>
+	<li class="circle" data-id="payment">5<span class="label"><?php _e("Payment Details", THEME_NAME); ?></span></li>
 </ul>
 <?php $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', $woocommerce->cart->get_checkout_url() ); ?>
 <div class="clearfix">

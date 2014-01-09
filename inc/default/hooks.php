@@ -60,6 +60,8 @@ function custom_gform_standard_settings($position, $form_id){
 
 
 function custom_gform_enqueue_scripts($form, $is_ajax=false){
+    wp_dequeue_script('gforms_datepicker');
+    wp_dequeue_style('gforms_datepicker_css');
     ?>
 	<script>
     jQuery(function(){
