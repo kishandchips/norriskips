@@ -480,18 +480,20 @@
 			init: function(){
 				if($.fn.datepicker) {
 					$('.datepicker').each(function(){
-						var datepicker = $(this);
+						var datepicker = $(this),
+							gravifyform = (datepicker.is('input')) ? 1 : 0;
 
-						if(datepicker.is('input')){
+						if(gravifyform){
 							altField = datepicker;
 							datepicker = datepicker.parent();
 							altField.addClass('datepicker-input').attr('type', 'hidden');
 						} else {
 							altField = datepicker.find('.datepicker-input');
 						}
+
 						datepicker.datepicker({
 							altField: '#'+altField.attr('id'),
-							altFormat: 'd-mm-yy',
+							altFormat: 'd/mm/yy',
 							minDate: 1
 						});
 
@@ -504,7 +506,7 @@
 				var altField = datepicker.find('.datepicker-input'),
 					currDate = datepicker.find('.ui-datepicker-current-day'),
 					currDateBtn = currDate.find('a');
-				console.log(altField);
+
 				altField.val('');
 				currDate.removeClass('ui-datepicker-current-day');
 				currDateBtn.removeClass('ui-state-active ui-state-hover');

@@ -165,9 +165,9 @@ fieldset {
 					&.gf_right_half {
 						margin-bottom: 0;
 
-						@include device-width(5) {
-							width: auto;
-							float: none;
+						@include device-width(10) {
+							width: auto !important;
+							float: none !important;
 						}
 					}
 
@@ -381,7 +381,6 @@ fieldset {
 					background: url(../images/misc/dots.png) repeat-x;
 				}
 
-
 				&.gf_step_last {
 					&:after {
 						display: none;
@@ -435,6 +434,11 @@ fieldset {
 						border-top: 1px solid #cccccc;
 						border-bottom: 1px solid #cccccc;
 
+						@include device-width(5) {
+							padding-left: 0;
+							padding-right: 0;
+						}
+
 						.gsection_title {
 							@include helvetica-bold;
 							@include font-size(25);
@@ -444,6 +448,10 @@ fieldset {
 								content: counter(step-number);
 								@extend .circle;
 								margin-right: 0.5em; 
+
+								@include device-width(5) {
+									display: none;
+								}
 							}
 						}
 					}
