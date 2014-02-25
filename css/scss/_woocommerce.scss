@@ -313,36 +313,6 @@ p.demo_store {
 		}
 
 
-		.box {
-			background: #f1f1f1;
-			margin-bottom: 2em;
-			&.blue {
-				background: #326ba1;
-				color: #FFF;
-
-				> .header {
-					background: #245d93;
-					.title {
-						color: #FFF;
-					}
-				}
-			}
-
-			> .header{
-				background: #e6e6e6;
-				padding: 0.5em 1em;
-				.title {
-					margin: 0;
-					@include helvetica-bold;
-					color: #326ba1;	
-				}
-			}
-			> .content {
-				padding: 1em;
-				position: relative;
-			}
-		}
-
 
 		.dimensions {
 			border-bottom: 4px solid #326ba1;
@@ -1155,11 +1125,14 @@ p.demo_store {
 			@include helvetica-bold;
 			line-height: 18px;
 			padding: 9px 12px;
+			@include font-size(14);
 		}
 		td {
 			border-top: 1px solid rgba(0,0,0,0.1);
 			padding: 0 12px;
 			vertical-align: middle;
+			text-align: left;
+			@include font-size(14);
 			small {
 				font-weight: normal;
 			}
@@ -1564,13 +1537,21 @@ p.demo_store {
 									color: #FFF;
 								}
 							}
+							&:disabled {
+								& + label {
+									background: #FFF;
+									color: #000;
+									@include opacity(0.5);
+									cursor: default;
+								}
+							}
 						}
 
 						label {
 							display: block;
 							text-align: center;
 							background: #FFF;
-							padding: 1em 2em;
+							padding: 1em 0;
 							margin: 0;
 							font-size: .9em;
 							cursor: pointer;

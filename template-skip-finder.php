@@ -129,9 +129,9 @@ $products_query = new WP_Query(array('post_type' => 'product', 'posts_per_page' 
 
 							<img src="<?php echo get_template_directory_uri(); ?>/images/misc/trucks_color.png" />
 							<h6><?php _e("You may need a specific waste management solution for your job. Call us now to discuss your requirements:", THEME_NAME); ?></h6>
-							<h4 class="phone-number"><i class="icon-phone circle"></i> <?php the_field('phone_number', 'options'); ?></h4>
+							<h4 class="phone-number"><i class="icon-phone circle"></i> <?php the_field('phone_number_local', 'options'); ?></h4>
 							<h6><?php _e("Alternatively, get in touch with us via Live Chat", THEME_NAME); ?></h6>
-							<a href="#" class="orange-btn"><?php _e("Open Live Chat", THEME_NAME); ?></a>
+							<a class="orange-btn ClickdeskChatLink" image="false"><?php _e("Open Live Chat", THEME_NAME); ?></a>
 						</div>
 					</div>
 					<?php endif; ?>

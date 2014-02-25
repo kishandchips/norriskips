@@ -54,6 +54,6 @@ global $woocommerce;
 		<?php endif; ?>
 	</div>
 	<footer class="footer clearfix">
-		<a class="accordion-btn orange-btn right" data-id="shipping-address"><?php _e("Proceed to Step 4", THEME_NAME); ?></a>
+		<a class="accordion-btn orange-btn right" data-id="delivery-address"><?php _e("Proceed to Step 4", THEME_NAME); ?></a>
 	</footer>
 </div>

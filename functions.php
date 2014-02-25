@@ -1,3 +1,4 @@
+
 <?php
 
 define('THEME_NAME', 'norriskips');
@@ -74,6 +75,8 @@ add_action( 'woocommerce_checkout_return_date', 'custom_woocommerce_checkout_ret
 
 add_action( 'woocommerce_checkout_update_order_review', 'custom_woocommerce_checkout_update_order_review');
 
+add_action('admin_head', 'custom_admin_head');
+
 // Custom Filters
 
 //add_filter( 'gform_submit_button', 'custom_submit_button', 10, 2);
@@ -96,9 +99,9 @@ add_filter( 'woocommerce_form_field_radio', 'custom_woocommerce_form_field_radio
 
 add_filter( 'woocommerce_form_field_date', 'custom_woocommerce_form_field_date', 10, 4);
 
-add_filter( 'woocommerce_add_error', 'custom_woocommerce_add_message');
+//add_filter( 'woocommerce_add_error', 'custom_woocommerce_add_message');
 
-add_filter( 'woocommerce_add_message', 'custom_woocommerce_add_message');
+//add_filter( 'woocommerce_add_message', 'custom_woocommerce_add_message');
 
 add_filter( 'woocommerce_product_thumbnails_columns', 'custom_woocommerce_product_thumbnails_columns');
 
@@ -108,9 +111,19 @@ add_filter( 'query_vars', 'custom_query_vars');
 
 add_filter( 'woocommerce_add_to_cart_validation', 'custom_woocommerce_add_to_cart_validation', 10);
 
+add_filter( 'widget_title', 'do_shortcode');
+
+add_filter( 'woocommerce_add_to_cart_message', 'custom_woocommerce_add_to_cart_message');
+
 //Custom shortcodes
 
 add_shortcode( 'phone_number', 'custom_phone_number');
+
+add_shortcode( 'phone_number_local', 'custom_phone_number_local');
+
+add_shortcode( 'clickdesk_status', 'custom_clickdesk_status');
+
+add_shortcode( 'upgrade_price_difference', 'custom_upgrade_price_difference');
 
 
 
@@ -143,6 +156,7 @@ function custom_setup_theme() {
 }
 
 function custom_init(){
+	
 	require( get_template_directory() . '/inc/classes/custom-post-type.php' );
 	if(function_exists('get_field')) {
 		$testimonials_page = get_field('testimonials_page', 'options');
@@ -222,6 +236,7 @@ function custom_remove_menus () {
 }
 
 function custom_scripts() {
+	$get_template_directory_uri = get_template_directory_uri();
 	// wp_dequeue_script('prettyPhoto');
 	// wp_dequeue_script('prettyPhoto-init');
 	// wp_dequeue_script('woocommerce-wishlists');
@@ -229,14 +244,14 @@ function custom_scripts() {
 	wp_deregister_script('jquery');
 	//wp_deregister_script('gforms_datepicker');
 	
-	wp_register_script('jquery-ui', get_template_directory_uri().'/js/plugins/jquery-ui.custom.min.js', array( 'jquery' ));
+	wp_register_script('jquery-ui', $get_template_directory_uri.'/js/plugins/jquery-ui.custom.min.js', array( 'jquery' ));
 
-	wp_enqueue_script('modernizr', get_template_directory_uri().'/js/libs/modernizr.min.js');
-	wp_enqueue_script('jquery',  get_template_directory_uri().'/js/libs/jquery.min.js');
-	wp_enqueue_script('easing', get_template_directory_uri().'/js/plugins/jquery.easing.js', array('jquery'), '', true);
-	wp_enqueue_script('scroller', get_template_directory_uri().'/js/plugins/jquery.scroller.js', array('jquery'), '', true);
-	wp_enqueue_script('main', get_template_directory_uri().'/js/main.js', array('jquery'), '', true);
-	wp_enqueue_script('prettyphoto',  get_template_directory_uri().'/js/plugins/jquery.prettyphoto.js', array( 'jquery' ), '3.1.5', true );
+	wp_enqueue_script('modernizr', $get_template_directory_uri.'/js/libs/modernizr.min.js');
+	wp_enqueue_script('jquery',  $get_template_directory_uri.'/js/libs/jquery.min.js');
+	wp_enqueue_script('easing', $get_template_directory_uri.'/js/plugins/jquery.easing.js', array('jquery'), '', true);
+	wp_enqueue_script('scroller', $get_template_directory_uri.'/js/plugins/jquery.scroller.js', array('jquery'), '', true);
+	wp_enqueue_script('main', $get_template_directory_uri.'/js/main.js', array('jquery'), '', true);
+	wp_enqueue_script('prettyphoto',  $get_template_directory_uri.'/js/plugins/jquery.prettyphoto.js', array( 'jquery' ), '3.1.5', true );
 
 	wp_enqueue_script('jquery-ui');
 }
@@ -245,12 +260,12 @@ function custom_scripts() {
 function custom_styles() {
 	global $wp_styles;
 	//wp_deregister_style( 'woocommerce_prettyPhoto_css' );
-
-	wp_register_style( 'jquery-ui', get_template_directory_uri() . '/css/jquery-ui.css' );
+	$get_template_directory_uri = get_template_directory_uri();
+	wp_register_style( 'jquery-ui', $get_template_directory_uri . '/css/jquery-ui.css' );
 	wp_enqueue_style('jquery-ui');
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css' );
-	wp_enqueue_style( 'ie7', get_template_directory_uri() . '/css/ie7.css' );
-	//wp_enqueue_style( 'prettyphoto', get_template_directory_uri() . '/css/prettyphoto.css' );
+	wp_enqueue_style( 'style', $get_template_directory_uri . '/css/style.css' );
+	wp_enqueue_style( 'ie7', $get_template_directory_uri . '/css/ie7.css' );
+	//wp_enqueue_style( 'prettyphoto', $get_template_directory_uri . '/css/prettyphoto.css' );
 
 	$wp_styles->add_data('ie7', 'conditional', 'lt IE 8');
 }
@@ -263,11 +278,39 @@ function custom_phone_number($atts){
 	$output = '';
 	if($phone_number = get_field('phone_number', 'option')){
 		if ( wp_is_mobile() ) {
-			$output .= '<a href="tel:'.$phone_number.'" class="phone-number '.$class.'"><i class="icon-phone circle"></i> '.$phone_number.'</a>';
+			$output .= '<a href="tel:'.$phone_number.'" class="phone-number '.$class.'">';
+			$output .= '<i class="icon-phone circle"></i>';
+			$output .= $phone_number.'</a>';
 		} else {
-			$output .= '<span class="phone-number '.$class.'"><i class="icon-phone circle"></i> '.$phone_number.'</span>';
+			$output .= '<span class="phone-number '.$class.'">';
+			$output .= '<i class="icon-phone circle"></i> ';
+			$output .= $phone_number.'</span>';
 		}
 	}
+	return $output;
+}
+
+function custom_phone_number_local($atts){
+	extract( shortcode_atts( array(
+		'class' => ''
+	), $atts));
+	$output = '';
+	if($phone_number_local = get_field('phone_number_local', 'option')){
+		if ( wp_is_mobile() ) {
+			$output .= '<a href="tel:'.$phone_number_local.'" class="phone-number '.$class.'">';
+			$output .= '<i class="icon-phone circle"></i>';
+			$output .= $phone_number_local.'</a>';
+		} else {
+			$output .= '<span class="phone-number '.$class.'">';
+			$output .= '<i class="icon-phone circle"></i> ';
+			$output .= $phone_number_local.'</span>';
+		}
+	}
+	return $output;
+}
+
+function custom_clickdesk_status(){
+	$output = '<span class="clickdesk-status"></span>';
 	return $output;
 }
 
@@ -417,9 +460,17 @@ function custom_get_shipping_destination(){
 }
 
 function custom_woocommerce_get_price_html($price, $product){
-	if(!is_admin()){
-		global $woocommerce;
-		$package = custom_get_shipping_product_package($product->id);
+	if(!is_admin() || ( defined('DOING_AJAX') && DOING_AJAX ) ){
+		$price = woocommerce_price(get_product_price($product));
+	}
+	return $price;
+}
+
+function get_product_price($product){
+	global $woocommerce;
+	$price = $product->get_price();
+	$package = custom_get_shipping_product_package($product->id);
+	if($package){
 		$package = $woocommerce->shipping->calculate_shipping_for_package($package);
 		$shipping_cost = 0;
 		if(!empty($package['rates'])){
@@ -427,8 +478,9 @@ function custom_woocommerce_get_price_html($price, $product){
 				$shipping_cost = $rate->cost;
 			}
 		}
-		$price = woocommerce_price($product->get_price() + $shipping_cost);
+		$price = $price + $shipping_cost;
 	}
+
 	return $price;
 }
 
@@ -478,16 +530,8 @@ function custom_woocommerce_checkout_fields($fields){
 		'class'		=> array('radio-grid span five'),
 		'type'		=> 'radio',
 		'options'	=> array(
-			'9'			=> __("9:00"),
-			'9.30'		=> __("9:30"),
-			'10'		=> __("10:00"),
-			'10.30'		=> __("10:30"),
-			'11'		=> __("11:00"),
-			'11.30'		=> __("11:30"),
-			'12'		=> __("12:00"),
-			'12.30'		=> __("12:30"),
-			'13'		=> __("1:00"),
-			'13.30'		=> __("1:30")
+			'am'			=> __("<b>AM</b> (8:00-12:00)"),
+			'pm'		=> __("<b>PM</b> (12:00-16:00)")
 		),
 		'required'  => true
 	);
@@ -499,24 +543,16 @@ function custom_woocommerce_checkout_fields($fields){
 		'required'  => true
 	);
 
-	$fields['return_date']['return_time'] = array(
-		'label'     => __('Select your delivery time', THEME_NAME),
-		'class'		=> array('radio-grid span five'),
-		'type'		=> 'radio',
-		'options'	=> array(
-			'9'			=> __("9:00"),
-			'9.30'		=> __("9:30"),
-			'10'		=> __("10:00"),
-			'10.30'		=> __("10:30"),
-			'11'		=> __("11:00"),
-			'11.30'		=> __("11:30"),
-			'12'		=> __("12:00"),
-			'12.30'		=> __("12:30"),
-			'13'		=> __("1:00"),
-			'13.30'		=> __("1:30")
-		),
-		'required'  => true
-	);
+	// $fields['return_date']['return_time'] = array(
+	// 	'label'     => __('Select your delivery time', THEME_NAME),
+	// 	'class'		=> array('radio-grid span five'),
+	// 	'type'		=> 'radio',
+	// 	'options'	=> array(
+	// 		'am'		=> __("<b>AM</b> (8:00-12:00)"),
+	// 		'pm'		=> __("<b>PM</b> (12:00-16:00)")
+	// 	),
+	// 	'required'  => true
+	// );
 
 
 	return $fields;
@@ -528,7 +564,7 @@ function custom_woocommerce_form_field_date($field, $key, $args, $value ){
 	
 	$checked = '';
 	
-	$field  = '<div class="form-row ' . esc_attr( implode( ' ', $args['class'] ) ) .'" id="field-' . esc_attr( $key ) . '">';
+	$field  = '<div class="form-row ' . esc_attr( implode( ' ', $args['class'] ) ) .'" id="field-' . esc_attr( $key ) . '" >';
 	$field .= '<input type="hidden" class="datepicker-input" name="'. esc_attr($key).'" value="" id="input-' . esc_attr( $key ) . '"/>';
 	$field .= '</div>';
 
@@ -561,16 +597,16 @@ function custom_woocommerce_form_field_radio($field, $key, $args, $value ){
 	return $field;
 }
 
-function custom_woocommerce_add_message($text){
-	$start_pos = strpos($text, '<a ');
-	$end_pos = strpos($text, '/a>');
-	if (($start_pos != 0) && (!$start_pos || !$end_pos)) {
-		return $text;
-	}
-	$remove = substr($text, $start_pos, ($end_pos + strlen('/a>')) - $start_pos);
+// function custom_woocommerce_add_message($text){
+// 	$start_pos = strpos($text, '<a ');
+// 	$end_pos = strpos($text, '/a>');
+// 	if (($start_pos != 0) && (!$start_pos || !$end_pos)) {
+// 		return $text;
+// 	}
+// 	$remove = substr($text, $start_pos, ($end_pos + strlen('/a>')) - $start_pos);
 
-	return str_replace($remove, '', $text);
-}
+// 	return str_replace($remove, '', $text);
+// }
 
 function custom_woocommerce_product_thumbnails_columns(){
 	return 5;
@@ -585,6 +621,7 @@ function custom_woocommerce_checkout_update_order_review($post_data){
 		$value_ary = explode('=', $value);
 		$data[$value_ary[0]] = isset($value_ary[1]) ? $value_ary[1] :'';
 	}
+
 	$checkout = $woocommerce->checkout();
 	if(!empty($checkout->checkout_fields)) {
 		if(!empty($checkout->checkout_fields['delivery_date'])){
@@ -605,8 +642,7 @@ function custom_woocommerce_checkout_update_order_review($post_data){
 	}
 }
 
-function custom_template_include( $template ) {
-	//die(get_query_var('upgrade'));
+function custom_template_include( $template ){
 	if ( is_single() && get_post_type() == 'product' && get_query_var('upgrade')) {
 		$template = locate_template(array('woocommerce/upgrade-single-product.php'));
 	}
@@ -626,3 +662,40 @@ function custom_woocommerce_add_to_cart_validation($valid){
 	return $valid;
 }
 
+function the_price_difference($curr_id, $upgrade_id){
+	$price = get_price_difference($curr_id, $upgrade_id);
+	echo woocommerce_price($price);
+}
+
+function get_price_difference($curr_id, $upgrade_id){
+	$curr_product = get_product($curr_id);
+	$curr_price = get_product_price($curr_product);
+	$upgrade_product = get_product($upgrade_id);
+	$upgrade_price = get_product_price($upgrade_product);
+
+	return $upgrade_price - $curr_price;
+}
+
+function custom_admin_head() {
+  echo '<style>
+    table.acf_input tbody tr td.label {
+    	width: 10%;
+    }
+  </style>';
+}
+
+function custom_woocommerce_add_to_cart_message($text){
+	return false;
+}
+
+function custom_upgrade_price_difference(){
+	global $product;
+	if($product){
+		$upgrade_product = get_the_adjacent_fukn_post('next', array('post_type' => 'product'));
+		//print_r($product);
+		$price = get_price_difference($product->id, $upgrade_product->ID);
+		return woocommerce_price($price);
+	}
+
+	return woocommerce_price(0);
+}

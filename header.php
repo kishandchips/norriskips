@@ -4,6 +4,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2" />
+	<link href="<?php echo get_template_directory_uri(); ?>/images/misc/favicon.png" rel="shortcut icon" type="image/x-icon">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
     <script type="text/javascript">
 		var themeUrl = '<?php bloginfo( 'template_url' ); ?>';

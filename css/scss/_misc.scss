@@ -211,7 +211,7 @@ hr {
 				&:before {
 					content: '';
 					display: block;
-					padding-top: 35%;
+					padding-top: 30%;
 
 					@include device-width(6) {
 						padding-top: 0;
@@ -297,7 +297,7 @@ hr {
 				border: 0.2em solid #326ba1;
 				border-left: none;
 				display: block;
-				padding: 0.3em 4em;
+				padding: 0.3em 2em;
 				@include font-size(16);
 				@include helvetica-bold;
 
@@ -401,9 +401,21 @@ hr {
 					min-width: pxtoem(410);
 					right: auto;
 					left: 0;
+					height: 100%;
 					
 					@include device-width(4) {
 						min-width: 0;
+					}
+
+					&:after {
+						content: '';
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						background: #245d93;
+						background: rgba(#245d93, 0.9);
+						left: -100%;
+						top: 0;
 					}
 				}
 			}
@@ -662,23 +674,13 @@ hr {
 }
 
 .phone-number {
-	@include font-size(30);
-	color: #333333;
 	vertical-align: middle;
 	display: inline-block;
 	line-height: 1;
 
-	&.small {
-		@include font-size(25);
-	}
-
 	.icon-phone {
 		color: #012c55;
 		font-size: 0.7em;
-	}
-
-	@include device-width(8) {
-		@include font-size(30);
 	}
 }
 
@@ -1082,11 +1084,12 @@ hr {
 	list-style: none;
 	padding: 1em 0 4em 0;
 	text-align: center;
-	@extend .clearfix;
+	position: relative;
 
 	@include device-width(8) {
 		display: none;
 	}
+
 	li {
 		display: inline-block;
 		margin: 0 1.4em;
@@ -1161,7 +1164,17 @@ hr {
 
 		&:last-child {
 			&:after {
-				display: none;
+
+				position: absolute;
+				content: '';
+				width: 95px;
+				height: 55px;
+				display: block;
+				left: 100%;
+				bottom: 0;
+				margin-left: 2em;
+				background: url(../images/misc/truck.png) no-repeat;
+	
 			}
 		}
 	}
@@ -1182,6 +1195,43 @@ hr {
 		font-size: 1.5em;
 	}
 }
+
+
+.box {
+	background: #f1f1f1;
+	margin-bottom: 2em;
+	&.blue {
+		background: #326ba1;
+		color: #FFF;
+
+		> .header {
+			background: #245d93;
+			.title {
+				color: #FFF;
+			}
+		}
+	}
+
+	> .header{
+		background: #e6e6e6;
+		padding: 0.5em 1em;
+		.title {
+			margin: 0;
+			@include helvetica-bold;
+			color: #326ba1;	
+		}
+	}
+	> .content {
+		padding: 1em;
+		position: relative;
+	}
+}
+
+.clickdesk_bubble {
+	display: none !important;
+}
+
+
 /* =============================================================================
    Lists
    ========================================================================== */

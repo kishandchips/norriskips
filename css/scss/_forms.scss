@@ -88,6 +88,10 @@ fieldset {
 	border: none;
 	padding: 0;
 }
+
+
+
+
 /* =============================================================================
    Gravity
    ========================================================================== */
@@ -168,6 +172,68 @@ fieldset {
 						@include device-width(10) {
 							width: auto !important;
 							float: none !important;
+						}
+					}
+
+					&.radio-grid {
+
+						.gfield_radio {
+							margin: 3em 0 0 0 !important;
+							border-top: 1px solid #cccccc;
+							border-left: 1px solid #cccccc;
+							@extend .clearfix;
+							@include device-width(10) {
+								margin-left: 0;
+								margin-right: 0;
+							}
+
+							@include device-width(5) {
+								margin-top: 1em;
+							}
+
+							li {
+								margin: 0;
+								float: left;
+								@include box-sizing(border-box);
+								width: 50%;
+								border-right: 1px solid #cccccc;
+								border-bottom: 1px solid #cccccc;
+								input {
+									display: none;
+									&:checked {
+										& + label {
+											background: #266097;
+											color: #FFF;
+										}
+									}
+
+									&:disabled {
+										& + label {
+											background: #FFF;
+											color: #000;
+											@include opacity(0.5);
+											cursor: default;
+										}
+									}
+								}
+
+								label {
+									display: block;
+									text-align: center;
+									background: #FFF;
+									padding: 1em 0;
+									margin: 0;
+									font-size: .9em;
+									cursor: pointer;
+									@include helvetica-roman;
+								}
+
+								&:hover {
+									label {
+										background: #DADADA;
+									}
+								}
+							}
 						}
 					}
 
@@ -443,6 +509,7 @@ fieldset {
 							@include helvetica-bold;
 							@include font-size(25);
 							color: #002b54;
+							text-transform: none;
 
 							&:before {
 								content: counter(step-number);
@@ -451,6 +518,33 @@ fieldset {
 
 								@include device-width(5) {
 									display: none;
+								}
+							}
+						}
+					}
+
+					&.btn_label {
+						.ginput_container {
+							li {
+								overflow: visible;
+								text-align: center;
+								input {
+									visibility: hidden;
+									position: absolute;
+
+									&:checked {
+										+ label {
+											@include helvetica-bold;
+											border: 1px solid #326ba1;
+										}
+									}
+								}
+
+								label {
+									@extend .white-btn;
+									cursor: pointer;
+									text-align: center;
+									margin: 0;
 								}
 							}
 						}

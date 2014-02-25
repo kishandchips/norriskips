@@ -119,6 +119,7 @@ body {
 		}
 
 		.phone-number {
+			@include font-size(30);
 			margin-right: 0.8em;
 			
 			@include device-width(13) {
@@ -472,6 +473,7 @@ body {
 		position: absolute;
 		top: 0.4em;
 		right: 0;
+		z-index: 100;
 
 		@include device-width(4) {
 			display: none;
@@ -519,6 +521,7 @@ body {
 	}
 
 	.phone-number {
+		margin: 0.15em 0;
 		@include font-size(30);
 		line-height: 1.14;
 	}
@@ -767,7 +770,6 @@ body {
 				}
 
 				.image {
-					margin: 3em 0 0 0;
 					text-align: center;
 					position: relative;
 
@@ -781,8 +783,8 @@ body {
 						bottom: 10px;
 						margin-left: -100px;
 						left: 50%;
-						width: 51px;
-						height: 155px;
+						width: 33px;
+						height: 100px;
 						background: url(../images/misc/person.png) no-repeat;
 						z-index: 0;
 

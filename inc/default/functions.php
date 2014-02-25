@@ -47,8 +47,7 @@ if ( ! function_exists( 'get_the_adjacent_fukn_post' )) {
 			if($a_post->ID == $curr_post->ID){
 				if($adjacent == 'next'){
 					$new_i = ($i + 1 >= $total_posts) ? 0 : $i + 1;
-					
-					if($back_to_start && $new_i == 0) {
+					if(!$back_to_start && $new_i == 0) {
 						$new_post = null;
 					} else {
 						$new_post = $posts[$new_i];

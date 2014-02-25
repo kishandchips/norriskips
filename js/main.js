@@ -55,12 +55,12 @@
 			this.lightbox.init();
 			this.ajaxPage.init();
 			this.scroller.init();
+			this.datepicker.init();
 			this.testimonials.init();
 			this.product.init();
 			this.checkout.init();
 			this.calculator.init();
 			this.accordion.init();
-			this.datepicker.init();
 			
 			$(window).on('resize', this.resize).trigger('resize');
 
@@ -481,8 +481,13 @@
 				if($.fn.datepicker) {
 					$('.datepicker').each(function(){
 						var datepicker = $(this),
-							gravifyform = (datepicker.is('input')) ? 1 : 0;
-
+							gravifyform = (datepicker.is('input')) ? 1 : 0,
+							minDate = 0,
+							today = new Date();
+						if(today.getHours() > 12) {
+							minDate = 1;
+						}
+						
 						if(gravifyform){
 							altField = datepicker;
 							datepicker = datepicker.parent();
@@ -493,8 +498,33 @@
 
 						datepicker.datepicker({
 							altField: '#'+altField.attr('id'),
-							altFormat: 'd/mm/yy',
-							minDate: 1
+							altFormat: 'yy-mm-dd',
+							minDate: minDate,
+							maxDate: 60,
+							beforeShowDay: function(date){ 
+								var day = date.getDay();
+								return [(day > 0), ''];
+							},
+							onSelect: function(date, instance){
+								var date = new Date(date),
+									element = $('#'+instance.id),
+									inputs = null	
+
+								if(element.hasClass('ginput_container')) {
+									inputs = element.parent().next().find('input');
+								} else {
+									inputs = element.next().find('input');
+								}
+
+								inputs.prop('disabled', false);
+								if(today.getDate() == date.getDate() && today.getMonth() == date.getMonth()) {
+									inputs.filter('[value=am]').prop('disabled', true);
+								}
+
+								if(date.getDay() == 6) {
+									inputs.filter('[value=pm]').prop('disabled', true);
+								}
+							}
 						});
 
 						main.datepicker.clear(datepicker);

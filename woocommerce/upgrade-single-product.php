@@ -33,7 +33,7 @@
 
 						<?php if($current_bin_bags = get_field('bin_bags')): ?>
 							<div class="bin-bags">
-							<h6><?php echo $current_bin_bags.' - '. ($current_bin_bags + 5); ?> <span class="normal"><?php _e("Large Bin Bags", THEME_NAME); ?></span></h6>
+							<h6><?php the_field('bin_bags_text'); ?> <span class="normal"><?php _e("Large Bin bags", THEME_NAME); ?></span></h6>
 							<?php for($i = 0; $i < $current_bin_bags; $i++): ?>
 							<img src="<?php echo get_template_directory_uri(); ?>/images/icons/bin_bag.png" class="bin-bag-img"/>
 							<?php endfor; ?>
@@ -42,7 +42,7 @@
 
 						<?php if($current_wheel_barrows = get_field('wheel_barrows')): ?>
 							<div class="bin-bags">
-							<h6><?php echo $current_wheel_barrows.' - '. ($current_wheel_barrows + 5); ?> <span class="normal"><?php _e("Large Bin Bags", THEME_NAME); ?></span></h6>
+							<h6><?php the_field('wheel_barrows_text'); ?> <span class="normal"><?php _e("Wheelbarrow loads", THEME_NAME); ?></span></h6>
 							<?php for($i = 0; $i < $current_wheel_barrows; $i++): ?>
 							<img src="<?php echo get_template_directory_uri(); ?>/images/icons/wheel_barrow.png" class="wheel-barrow-img"/>
 							<?php endfor; ?>
@@ -70,7 +70,7 @@
 					</div>
 					<footer class="footer">
 						<h3 class="price text-center no-margin">
-							<span class="tiny">For only</span> £25 <span class="tiny">Extra</span>
+							<span class="tiny"><?php _e("For only", THEME_NAME); ?></span> <?php the_price_difference(get_the_id(), $upgrade_id); ?> <span class="tiny"><?php _e("Extra", THEME_NAME); ?></span>
 						</h3>
 					</footer>
 				</div>
@@ -82,7 +82,7 @@
 
 						<?php if($upgrade_bin_bags = get_field('bin_bags', $upgrade_id)): ?>
 							<div class="bin-bags">
-							<h6><?php echo $upgrade_bin_bags.' - '. ($upgrade_bin_bags + 5); ?> <span class="normal"><?php _e("Large Bin Bags", THEME_NAME); ?></span></h6>
+							<h6><?php the_field('bin_bags_text', $upgrade_id); ?> <span class="normal"><?php _e("Large Bin bags", THEME_NAME); ?></span></h6>
 							<?php for($i = 0; $i < $upgrade_bin_bags; $i++): ?>
 							<img src="<?php echo get_template_directory_uri(); ?>/images/icons/bin_bag.png" class="bin-bag-img <?php if($i < $current_bin_bags) echo 'fade'; ?>"/>
 							<?php endfor; ?>
@@ -91,7 +91,7 @@
 
 						<?php if($upgrade_wheel_barrows = get_field('wheel_barrows', $upgrade_id)): ?>
 							<div class="bin-bags">
-							<h6><?php echo $upgrade_wheel_barrows.' - '. ($upgrade_wheel_barrows + 5); ?> <span class="normal"><?php _e("Large Bin Bags", THEME_NAME); ?></span></h6>
+							<h6><?php the_field('wheel_barrows_text', $upgrade_id); ?> <span class="normal"><?php _e("Wheelbarrow loads", THEME_NAME); ?></span></h6>
 							<?php for($i = 0; $i < $upgrade_wheel_barrows; $i++): ?>
 							<img src="<?php echo get_template_directory_uri(); ?>/images/icons/wheel_barrow.png" class="wheel-barrow-img <?php if($i < $current_wheel_barrows) echo 'fade'; ?>"/>
 							<?php endfor; ?>
@@ -100,7 +100,7 @@
 					</div>
 					<footer class="footer">
 						<p class="text-center">
-							<a href="<?php the_permalink(); ?>" class="orange-btn"><i class="icon-tick" data-aria="hidden"></i> <?php _e("Upgrade to this Skip", THEME_NAME); ?></a>
+							<a href="<?php echo get_permalink($upgrade_id); ?>" class="orange-btn"><i class="icon-tick" data-aria="hidden"></i> <?php _e("Upgrade to this Skip", THEME_NAME); ?></a>
 						</p>
 					</footer>
 				</div>

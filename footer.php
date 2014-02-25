@@ -30,5 +30,36 @@
 		</footer>
 	</div><!--#wrap -->
 	<?php wp_footer(); ?>
+
+<!-- ClickDesk Live Chat Service for websites -->
+<script type='text/javascript'>
+var _glc =_glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyDwsSBXVzZXJzGJbt6JQBDA');
+var glcpath = (('https:' == document.location.protocol) ? 'https://my.clickdesk.com/clickdesk-ui/browser/' : 
+'http://my.clickdesk.com/clickdesk-ui/browser/');
+var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+var glcspt = document.createElement('script'); glcspt.type = 'text/javascript'; 
+glcspt.async = true; glcspt.src = glcpath + 'livechat-new.js';
+var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
+</script>
+<!-- End of ClickDesk -->
+<script>
+$CLICKDESK = (function() { 
+	CLICKDESK_Live_Chat.onStatus(function(status){
+		$('.clickdesk-status').text(status);
+	});
+});
+</script>
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38935030-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 </body>
 </html>

@@ -60,9 +60,9 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 				<th><?php _e("Delivered on", THEME_NAME); ?></th>
 				<td>
 					<h6 class="no-margin">
-						<span class="date"><?php echo date('l d F', strtotime($delivery_date)); ?></span>
+						<span class="date"><?php echo date('l d F', strtotime($delivery_date));?></span>
 						<?php if($delivery_time = $woocommerce->session->get('delivery_time')): ?>
-						<br /><span class="time normal"><?php echo $delivery_time; ?> <?php echo ((int)$delivery_time > 12) ? "pm" : "am"; ?></span>
+						<br /><span class="time normal"><?php echo ($delivery_time == 'am') ? "<b>AM</b> (8:00-12:00)" : "PM (12:00-16:00)"; ?></span>
 						<?php endif; ?>
 						<p class="tiny no-margin">
 							<a class="accordion-btn" data-id="delivery-date"><?php _e("Change Date", THEME_NAME); ?></a>
@@ -78,7 +78,7 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 					<h6 class="no-margin">
 						<span class="date"><?php echo date('l d F', strtotime($return_date)); ?></span>
 						<?php if($return_time = $woocommerce->session->get('return_time')): ?>
-						<br /><span class="time normal"><?php echo $return_time; ?> <?php echo ((int)$return_time > 12) ? "pm" : "am"; ?></span>
+						<br /><span class="time normal"><?php echo ($delivery_time == 'am') ? "<b>AM</b> (8:00-12:00)" : "PM (12:00-16:00)"; ?></span>
 						<?php endif; ?>
 						<p class="tiny no-margin">
 							<a class="accordion-btn" data-id="return-date"><?php _e("Change Date", THEME_NAME); ?></a>
@@ -104,7 +104,7 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 
 			<?php endif; ?>
 
-			<?php if(1 == 1 && $available_methods): ?>
+		<?php if(1 == 2 && $available_methods): ?>
 				<tr class="cart-subtotal">
 					<th><?php _e( 'Cart Subtotal', 'woocommerce' ); ?></th>
 					<td><?php echo $woocommerce->cart->get_cart_subtotal(); ?></td>
