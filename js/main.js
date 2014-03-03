@@ -306,9 +306,9 @@
 				sidebarTemplate = main.vars.templates.sidebar;
 
 			
-			if(windowWidth <= 1300 && headerNavigation.is(':visible')){
+			if(windowWidth <= 1200 && headerNavigation.is(':visible')){
 				headerNavigation.hide();
-			} else if(windowWidth > 1300 && !headerNavigation.is(':visible')) {
+			} else if(windowWidth > 1200 && !headerNavigation.is(':visible')) {
 				headerNavigation.show();
 			}
 

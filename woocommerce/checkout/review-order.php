@@ -20,7 +20,6 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 		<tbody>
 			<?php
 				do_action( 'woocommerce_review_order_before_cart_contents' );
-
 				if (sizeof($woocommerce->cart->get_cart())>0) :
 					foreach ($woocommerce->cart->get_cart() as $cart_item_key => $values) :
 						$_product = $values['data'];
@@ -51,7 +50,6 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 			<?php		endif;
 					endforeach;
 				endif;
-
 				do_action( 'woocommerce_review_order_after_cart_contents' );
 			?>
 
@@ -88,8 +86,9 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 			</tr>
 			<?php endif; ?>
 		</tbody>
-
+		<?php if(1 == 2): ?>
 		<tfoot>
+		<?php endif; ?>
 
 			<?php if (1 == 2 && $woocommerce->cart->needs_shipping() && $woocommerce->cart->show_shipping() ) : ?>
 
@@ -180,9 +179,20 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 				</tr>
 			<?php endif; ?>
 			<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
-
+		<?php if(1 == 2): ?>
 		</tfoot>
+		<?php endif; ?>
 		
 	</table>
+
+	<?php 
+	if ( $available_methods ) :
+		if ( 1 === count( $available_methods ) ) :
+			foreach($available_methods as $method):
+				echo '<input type="hidden" name="shipping_method" id="shipping_method" value="' . esc_attr( $method->id ) . '" />';
+			endforeach;
+		endif;
+	endif
+	?>
 
 </div>

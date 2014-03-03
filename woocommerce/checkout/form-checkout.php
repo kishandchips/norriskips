@@ -24,8 +24,8 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 <ul class="checkout-progress">
 	<li class="circle current" data-id="delivery-date">1<span class="label"><?php _e("Choose Delivery Date & Time", THEME_NAME); ?></span></li>
 	<li class="circle" data-id="return-date">2<span class="label"><?php _e("Choose Return Date", THEME_NAME); ?></span></li>
-	<li class="circle" data-id="billing-address">3<span class="label"><?php _e("Billing Address", THEME_NAME); ?></span></li>
-	<li class="circle" data-id="delivery-address">4<span class="label"><?php _e("Delivery Address", THEME_NAME); ?></span></li>
+	<li class="circle" data-id="delivery-address">3<span class="label"><?php _e("Delivery Address", THEME_NAME); ?></span></li>
+	<li class="circle" data-id="billing-address">4<span class="label"><?php _e("Billing Address", THEME_NAME); ?></span></li>
 	<li class="circle" data-id="payment">5<span class="label"><?php _e("Payment Details", THEME_NAME); ?></span></li>
 </ul>
 <?php $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', $woocommerce->cart->get_checkout_url() ); ?>
@@ -50,16 +50,16 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 					</div>
 				</li>
 
-				<li data-id="billing-address">
-					<a data-id="billing-address" class="accordion-btn btn"><span class="number circle">3</span> <?php _e("Billing Address", THEME_NAME); ?></a>
-					<div class="accordion-content content">
-						<?php do_action( 'woocommerce_checkout_billing' ); ?>
-					</div>
-				</li>
 				<li data-id="delivery-address">
-					<a data-id="delivery-address" class="accordion-btn btn"><span class="number circle">4</span> <?php _e("Delivery Address", THEME_NAME); ?></a>
+					<a data-id="delivery-address" class="accordion-btn btn"><span class="number circle">3</span> <?php _e("Delivery Address", THEME_NAME); ?></a>
 					<div class="accordion-content content">
 						<?php do_action( 'woocommerce_checkout_shipping' ); ?>
+					</div>
+				</li>
+				<li data-id="billing-address">
+					<a data-id="billing-address" class="accordion-btn btn"><span class="number circle">4</span> <?php _e("Billing Address", THEME_NAME); ?></a>
+					<div class="accordion-content content">
+						<?php do_action( 'woocommerce_checkout_billing' ); ?>
 					</div>
 				</li>
 				<li data-id="payment">

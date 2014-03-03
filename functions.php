@@ -137,6 +137,8 @@ function custom_setup_theme() {
 
 	add_theme_support('editor_style');
 
+	add_post_type_support( 'page', 'excerpt' );
+
 	//add_theme_support( 'post-formats', array( 'gallery' ) );
 
 
@@ -540,7 +542,7 @@ function custom_woocommerce_checkout_fields($fields){
 		'label'     => __('Date', THEME_NAME),
 		'class'		=> array('datepicker span five'),
 		'type'		=> 'date',
-		'required'  => true
+		'required'  => false
 	);
 
 	// $fields['return_date']['return_time'] = array(

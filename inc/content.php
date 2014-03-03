@@ -134,7 +134,7 @@
 						<div class="content span seven push-two">
 							<h4 class="title"><?php the_title(); ?></h4>
 							<div class="excerpt">
-								<p>Based in Orpington, we are perfectly located to serve the areas of South London, North Kent and East Surrey.</p>
+								<?php the_exceprt(); ?>
 							</div>
 						</div>
 						<i class="arrow icon-arrow-right circle"></i>

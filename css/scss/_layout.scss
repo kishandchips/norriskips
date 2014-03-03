@@ -122,7 +122,11 @@ body {
 			@include font-size(30);
 			margin-right: 0.8em;
 			
-			@include device-width(13) {
+			@include device-width(14) {
+				@include font-size(25);
+			}	
+
+			@include device-width(12) {
 				display: block;
 				margin-right: 0;
 				line-height: 1.2;
@@ -143,7 +147,7 @@ body {
 		// 	display: inline-block;
 		// }
 
-		@include device-width(13) {
+		@include device-width(12) {
 			display: inline-block;
 			left: 32em;
 			top: 3.6em;
@@ -196,12 +200,12 @@ body {
 			background: #FFF;
 			border-top: #e0e0e0 1px solid;
 
-			@include device-width(13) {
+			@include device-width(12) {
 				display: none;
 			}
 		}
 
-		@include device-width(13) {
+		@include device-width(12) {
 			border-top: none;
 			border-left: none;
 			right: 0;
@@ -226,7 +230,7 @@ body {
 			padding: 0;
 			list-style: none;
 
-			@include device-width(13) {
+			@include device-width(12) {
 				border-top: 1px solid #CCC;
 			}
 			
@@ -237,7 +241,7 @@ body {
 				zoom: 0;
 				margin: 0 0 0;
 
-				@include device-width(13) {
+				@include device-width(12) {
 					margin: 0;
 					width: 50%;
 					border-bottom: 1px solid #CCC;
@@ -264,14 +268,13 @@ body {
 				 	// 	@include font-size(11);
 				 	// }
 
-				 	@include device-width(13) {
-				 		padding: 1em 3em;
-				 		display: block;
+				 	@include device-width(14) {
+				 		@include font-size(12);
 				 	}
 
 				 	@include device-width(13) {
-				 		padding-left: 2em;
-				 		padding-right: 2em;
+				 		display: block;
+				 		padding: 1em 1.2em;
 				 	}
 			 	}
 
@@ -540,7 +543,7 @@ body {
 	.thumbnail {
 		position: absolute;
 		right: 0;
-		bottom: -5em;
+		top: -1em;
 		@include device-width(9) {
 			display: none;
 		}

@@ -14,7 +14,7 @@ global $woocommerce;
 <div id="shipping-address">
 	<div class="fields">
 		<?php if ( ( $woocommerce->cart->needs_shipping() || get_option('woocommerce_require_shipping_address') == 'yes' ) && ! $woocommerce->cart->ship_to_billing_address_only() ) : ?>
-
+			<!--
 			<?php
 				if ( empty( $_POST ) ) :
 
@@ -31,7 +31,7 @@ global $woocommerce;
 			<p class="form-row" id="shiptobilling">
 				<input id="shiptobilling-checkbox" class="input-checkbox" <?php checked($shiptobilling, 1); ?> type="checkbox" name="shiptobilling" value="1" />
 				<label for="shiptobilling-checkbox" class="checkbox"><?php _e( 'Ship to billing address?', 'woocommerce' ); ?></label>
-			</p>
+			</p-->
 
 			<div class="shipping_address">
 
@@ -70,6 +70,6 @@ global $woocommerce;
 		<?php do_action('woocommerce_after_order_notes', $checkout); ?>
 	</div>
 	<footer class="footer clearfix">
-		<a class="accordion-btn orange-btn right" data-id="payment"><?php _e("Proceed to payment", THEME_NAME); ?></a>
+		<a class="accordion-btn orange-btn right" data-id="billing-address"><?php _e("Proceed to Step 4", THEME_NAME); ?></a>
 	</footer>
 </div>

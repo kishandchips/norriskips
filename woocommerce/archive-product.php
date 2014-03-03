@@ -52,9 +52,9 @@ get_header('shop'); ?>
 
 				<li class="skip-finder product last">
 					<p><img src="<?php echo get_template_directory_uri(); ?>/images/icons/skip_question.png" /></p>
-					<h4><?php _e("Need help choosing the right Skip?", THEME_NAME); ?></h3>
+					<h4><?php _e("Need help finding the right Skip?", THEME_NAME); ?></h3>
 						<?php $skip_finder = get_field('skip_finder', 'options'); ?>
-					<p><a class="orange-btn" href="<?php echo get_permalink($skip_finder->ID); ?>"><?php _e("Use our Skip Finder", THEME_NAME); ?></a></p>
+					<p><a class="orange-btn" href="<?php echo get_permalink($skip_finder->ID); ?>"><?php _e("Use our Skip Chooser", THEME_NAME); ?></a></p>
 				</li>
 			<?php woocommerce_product_loop_end(); ?>
 
