@@ -43,6 +43,10 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
 
+remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_login_form', 10 );
+
+remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+
 //gforms_datepicker
 
 add_action( 'after_setup_theme', 'custom_setup_theme' );
@@ -75,7 +79,13 @@ add_action( 'woocommerce_checkout_return_date', 'custom_woocommerce_checkout_ret
 
 add_action( 'woocommerce_checkout_update_order_review', 'custom_woocommerce_checkout_update_order_review');
 
+add_action( 'woocommerce_checkout_update_order_meta', 'custom_woocommerce_checkout_update_order_meta', 10, 2);
+
 add_action('admin_head', 'custom_admin_head');
+
+add_filter('woocommerce_email_order_meta_keys', 'custom_woocommerce_email_order_meta_keys');
+
+add_action( 'woocommerce_email_after_order_table', 'custom_woocommerce_email_after_order_table');
 
 // Custom Filters
 
@@ -114,6 +124,8 @@ add_filter( 'woocommerce_add_to_cart_validation', 'custom_woocommerce_add_to_car
 add_filter( 'widget_title', 'do_shortcode');
 
 add_filter( 'woocommerce_add_to_cart_message', 'custom_woocommerce_add_to_cart_message');
+
+add_filter( 'woocommerce_get_order_item_totals', 'custom_woocommerce_get_order_item_totals', 10, 2);
 
 //Custom shortcodes
 
@@ -179,8 +191,10 @@ function custom_init(){
 }
 
 function custom_wp(){
-	global $woocommerce;
-	if(is_product() && $woocommerce->customer->get_shipping_postcode()){
+	global $woocommerce, $post;
+
+
+	if(is_product() && get_available_shipping($post->ID) !== false){
 		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 25 );
 
 		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
@@ -344,6 +358,7 @@ function custom_validation_hook_2($validation_result){
 				);
 
 				$zone = woocommerce_get_shipping_zone($package);
+				
 				if($zone->zone_id != 0) {
 					$_POST['input_'.$field['id']] = $postcode;
 				} else {
@@ -409,15 +424,19 @@ function custom_woocommerce_single_product_header() {
 }
 
 function custom_woocommerce_show_postcode_form(){
-	global $woocommerce;
+	global $woocommerce, $post;
 	$postcode = $woocommerce->customer->get_shipping_postcode();
 
-	if($postcode){
+	if(get_available_shipping($post->ID) !== false){
 		echo '<div class="box blue change-postcode hide">';
 		echo '<header class="header"><h5 class="title">'.__("Change your postcode", THEME_NAME).'</h5></header>';
 	} else {
+		
 		echo '<div class="box blue change-postcode">';
 		echo '<header class="header"><h5 class="title">'.__("Please insert your postcode", THEME_NAME).'</h5></header>';
+		if($postcode) {
+			echo '<div class="validation_error">'.__("Unfortunately we do not supply this skip to the post code you have entered.", THEME_NAME).'</div>';
+		}
 	}
 
 	echo '<div class="content">';
@@ -470,20 +489,40 @@ function custom_woocommerce_get_price_html($price, $product){
 
 function get_product_price($product){
 	global $woocommerce;
-	$price = $product->get_price();
-	$package = custom_get_shipping_product_package($product->id);
+	return $product->get_price() + get_product_shipping_price($product->id);
+}
+
+function get_product_shipping_price($id) {
+	global $woocommerce;
+	$package = custom_get_shipping_product_package($id);
+	$price = 0;
 	if($package){
+			
 		$package = $woocommerce->shipping->calculate_shipping_for_package($package);
-		$shipping_cost = 0;
+
+		$shipping_price = 0;
 		if(!empty($package['rates'])){
 			foreach($package['rates'] as $rate){
-				$shipping_cost = $rate->cost;
+				$shipping_price = $rate->cost;
 			}
 		}
-		$price = $price + $shipping_cost;
+		$price = $shipping_price;
 	}
 
 	return $price;
+}
+
+function get_available_shipping($id) {
+	global $woocommerce;
+	$package = custom_get_shipping_product_package($id);
+	$price = 0;
+
+	if($package){
+		$package = $woocommerce->shipping->calculate_shipping_for_package($package);
+		return !empty($package['rates']);
+	}
+
+	return false;
 }
 
 function custom_woocommerce_show_product_capacity(){
@@ -532,7 +571,7 @@ function custom_woocommerce_checkout_fields($fields){
 		'class'		=> array('radio-grid span five'),
 		'type'		=> 'radio',
 		'options'	=> array(
-			'am'			=> __("<b>AM</b> (8:00-12:00)"),
+			'am'		=> __("<b>AM</b> (8:00-12:00)"),
 			'pm'		=> __("<b>PM</b> (12:00-16:00)")
 		),
 		'required'  => true
@@ -560,14 +599,49 @@ function custom_woocommerce_checkout_fields($fields){
 	return $fields;
 }
 
+function custom_woocommerce_checkout_update_order_meta( $post_id, $posted ) {
+	global $woocommerce;
+	$checkout = $woocommerce->checkout();
+	$field_group_keys = array('delivery_date', 'return_date');
 
+	foreach($field_group_keys as $field_group_key) {
+		if(!empty($checkout->checkout_fields[$field_group_key])) {
+			
+			foreach ($checkout->checkout_fields[$field_group_key] as $key => $field) {
+				
+				if(isset($_POST[$key])) {
+					$value = $_POST[$key];
+					update_post_meta( $post_id, $key, $value);
+				} else {
+					update_post_meta( $post_id, $key, '');
+				}
+			}
+		}
+	}
+}
+ 
+function custom_woocommerce_email_order_meta_keys( $keys ) {
+	global $woocommerce;
+	$checkout = $woocommerce->checkout();
+
+	$field_group_keys = array('delivery_date', 'return_date');
+
+	foreach($field_group_keys as $field_group_key) {
+		if(!empty($checkout->checkout_fields[$field_group_key])) {
+			
+			foreach ($checkout->checkout_fields[$field_group_key] as $key => $field) {
+				$keys[] = $key;
+			}
+		}
+	}
+
+	return $keys;
+}
 
 function custom_woocommerce_form_field_date($field, $key, $args, $value ){
 	
-	$checked = '';
-	
 	$field  = '<div class="form-row ' . esc_attr( implode( ' ', $args['class'] ) ) .'" id="field-' . esc_attr( $key ) . '" >';
-	$field .= '<input type="hidden" class="datepicker-input" name="'. esc_attr($key).'" value="" id="input-' . esc_attr( $key ) . '"/>';
+	$field .= '<input type="hidden" class="datepicker-input" name="'. esc_attr($key).'" value="'. esc_attr($value).'" id="input-' . esc_attr( $key ) . '"/>';
 	$field .= '</div>';
 
 	return $field;
@@ -580,15 +654,13 @@ function custom_woocommerce_form_field_radio($field, $key, $args, $value ){
 	} else {
 		$required = '';
 	}
-
-	$checked = '';
 	
 	$field  = '<div class="form-row ' . esc_attr( implode( ' ', $args['class'] ) ) .'" id="' . esc_attr( $key ) . '_field">';
 	$field .= '<label class="field-label large-label" >' . $args['label'] . '</label>';
 	$field .= '<div class="options clearfix" >';
 	foreach($args['options'] as $option_key => $label){
 		$field .= '<div class="radio-field">';
-		$field .= '<input type="' . $args['type'] . '" class="input-radio" name="' . esc_attr( $key ) . '" id="' . esc_attr( $key.'-'.$option_key ) . '" value="'.$option_key.'" '.$checked .' />';
+		$field .= '<input type="' . $args['type'] . '" class="input-radio" name="' . esc_attr( $key ) . '" data-value="'.$value.'" id="' . esc_attr( $key.'-'.$option_key ) . '" value="'.$option_key.'" '.checked( $value, $option_key, false ) .' />';
 		$field .= '<label for="' . esc_attr( $key.'-'.$option_key ) . '" class="radio">' . $label . '</label>';
 		$field .= '</div>';
 
@@ -694,10 +766,19 @@ function custom_upgrade_price_difference(){
 	global $product;
 	if($product){
 		$upgrade_product = get_the_adjacent_fukn_post('next', array('post_type' => 'product'));
-		//print_r($product);
 		$price = get_price_difference($product->id, $upgrade_product->ID);
 		return woocommerce_price($price);
 	}
 
 	return woocommerce_price(0);
+}
+
+function custom_woocommerce_get_order_item_totals($totals, $order){
+	unset($totals['cart_subtotal']);
+	unset($totals['shipping']);
+	return $totals;
+}
+
+function custom_woocommerce_email_after_order_table(){
+	echo '<p style="text-align: right;"><small>The price above includes VAT</small><p>';
 }

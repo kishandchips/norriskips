@@ -13,29 +13,28 @@ global $woocommerce;
 if ( $available_methods ) {
 	// Prepare text labels with price for each shipping method
 	foreach ( $available_methods as $method ) {
-		$method->full_label = $method->label;
-
-		if ( $method->cost > 0 ) {
-			if ( $woocommerce->cart->tax_display_cart == 'excl' ) {
-				$method->full_label .= ': ' . woocommerce_price( $method->cost );
-				if ( $method->get_shipping_tax() > 0 && $woocommerce->cart->prices_include_tax ) {
-					$method->full_label .= ' <small>' . $woocommerce->countries->ex_tax_or_vat() . '</small>';
-				}
-			} else {
-				$method->full_label .= ': ' . woocommerce_price( $method->cost + $method->get_shipping_tax() );
-				if ( $method->get_shipping_tax() > 0 && ! $woocommerce->cart->prices_include_tax ) {
-					$method->full_label .= ' <small>' . $woocommerce->countries->inc_tax_or_vat() . '</small>';
-				}
-			}
-		} elseif ( $method->id !== 'free_shipping' ) {
-			$method->full_label .= ' (' . __( 'Free', 'woocommerce' ) . ')';
-		}
+		$method->full_label = $woocommerce->customer->get_shipping_postcode();
+		// if ( $method->cost > 0 ) {
+		// 	if ( $woocommerce->cart->tax_display_cart == 'excl' ) {
+		// 		$method->full_label .= ': ' . woocommerce_price( $method->cost );
+		// 		if ( $method->get_shipping_tax() > 0 && $woocommerce->cart->prices_include_tax ) {
+		// 			$method->full_label .= ' <small>' . $woocommerce->countries->ex_tax_or_vat() . '</small>';
+		// 		}
+		// 	} else {
+		// 		$method->full_label .= ': ' . woocommerce_price( $method->cost + $method->get_shipping_tax() );
+		// 		if ( $method->get_shipping_tax() > 0 && ! $woocommerce->cart->prices_include_tax ) {
+		// 			$method->full_label .= ' <small>' . $woocommerce->countries->inc_tax_or_vat() . '</small>';
+		// 		}
+		// 	}
+		// } elseif ( $method->id !== 'free_shipping' ) {
+		// 	$method->full_label .= ' (' . __( 'Free', 'woocommerce' ) . ')';
+		// }
 		$method->full_label = apply_filters( 'woocommerce_cart_shipping_method_full_label', $method->full_label, $method );
 	}
 
 	// Print a single available shipping method as plain text
 	if ( 1 === count( $available_methods ) ) {
-		echo wp_kses_post( $method->full_label ) . '<input type="hidden" name="shipping_method" id="shipping_method" value="' . esc_attr( $method->id ) . '" />';
+		echo '<b>'.wp_kses_post( $method->full_label ) . '</b><input type="hidden" name="shipping_method" id="shipping_method" value="' . esc_attr( $method->id ) . '" />';
 
 	// Show select boxes for methods
 	} elseif ( get_option('woocommerce_shipping_method_format') == 'select' ) {

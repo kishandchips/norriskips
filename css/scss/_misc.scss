@@ -732,6 +732,10 @@ hr {
 			margin: 1em 0;
 			@include transition(all 0.3s ease);
 
+			&:nth-child(3n+1) {
+				clear: left;
+			}
+
 			&:nth-child(n+4),
 			&.hide {
 				display: none;
@@ -739,6 +743,14 @@ hr {
 
 			@include device-width(10) {
 				width: 50%;
+
+				&:nth-child(3n+1) {
+					clear: none;
+				}
+
+				&:nth-child(2n+1) {
+					clear: left;
+				}
 
 				&:nth-child(-n+4) {
 					display: block;
@@ -1240,6 +1252,17 @@ hr {
 
 .clickdesk_bubble {
 	display: none !important;
+}
+
+.validation_error {
+	background: #ececec;
+	color: #012c55;
+	padding: 2em 10%;
+	@include font-size(16);
+	@include helvetica-bold;
+	border-top: 1px solid #022d55;
+	border-bottom: 1px solid #022d55;
+	text-align: center;
 }
 
 

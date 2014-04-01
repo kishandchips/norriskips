@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 global $woocommerce;
 
 $available_methods = $woocommerce->shipping->get_available_shipping_methods();
-?>
-<div id="order_review">
+	
+?><div id="order_review">
 	<h3 class="title dark-blue"><?php _e("My Booking Details", THEME_NAME); ?></h3>
 	<table class="shop_table">
 
@@ -86,16 +86,14 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 			</tr>
 			<?php endif; ?>
 		</tbody>
-		<?php if(1 == 2): ?>
 		<tfoot>
-		<?php endif; ?>
-
-			<?php if (1 == 2 && $woocommerce->cart->needs_shipping() && $woocommerce->cart->show_shipping() ) : ?>
+	
+			<?php if ($woocommerce->cart->needs_shipping() && $woocommerce->cart->show_shipping() ) : ?>
 
 				<?php do_action('woocommerce_review_order_before_shipping'); ?>
 
 				<tr class="shipping">
-					<th><?php _e( 'Delivery', 'woocommerce' ); ?></th>
+					<th><?php _e( 'Delivered to', 'woocommerce' ); ?></th>
 					<td><?php woocommerce_get_template( 'cart/shipping-methods.php', array( 'available_methods' => $available_methods ) ); ?></td>
 				</tr>
 
@@ -179,22 +177,7 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 				</tr>
 			<?php endif; ?>
 			<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
-		<?php if(1 == 2): ?>
 		</tfoot>
-		<?php endif; ?>
 		
 	</table>
-
-	<?php 
-
-	if ( $available_methods ) :
-		if ( 1 == count( $available_methods ) ) :
-
-			foreach($available_methods as $method):
-				echo '<input type="hidden" name="shipping_method" id="shipping_method" value="' . esc_attr( $method->id ) . '" />';
-			endforeach;
-		endif;
-	endif
-	?>
-
 </div>

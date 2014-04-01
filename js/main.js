@@ -496,9 +496,14 @@
 							altField = datepicker.find('.datepicker-input');
 						}
 
+						var value = altField.val(),
+							defaultDate = new Date(altField.val());
+						
+
 						datepicker.datepicker({
 							altField: '#'+altField.attr('id'),
 							altFormat: 'yy-mm-dd',
+							defaultDate: defaultDate,
 							minDate: minDate,
 							maxDate: 60,
 							beforeShowDay: function(date){ 
@@ -526,8 +531,9 @@
 								}
 							}
 						});
-
-						main.datepicker.clear(datepicker);
+						if(!value) {
+							main.datepicker.clear(datepicker);
+						}
 					});
 				}
 			},

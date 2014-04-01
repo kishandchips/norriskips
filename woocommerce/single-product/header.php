@@ -6,7 +6,7 @@
 		<div class="span six alpha omega break-on-tablet text-right call-us">
 			<h6 class="no-margin"><img class="valign-middle" src="<?php echo get_template_directory_uri(); ?>/images/icons/skip_question.png" />&nbsp;&nbsp;<?php _e("Need help choosing the right Skip?", THEME_NAME); ?>
 				<?php $skip_finder = get_field('skip_finder', 'options'); ?>
-				&nbsp;&nbsp;&nbsp;&nbsp;<a class="orange-btn" href="<?php echo get_permalink($skip_finder->ID); ?>"><?php _e("Use our Skip Finder", THEME_NAME); ?></a>
+				&nbsp;&nbsp;&nbsp;&nbsp;<a class="orange-btn" href="<?php echo get_permalink($skip_finder->ID); ?>"><?php _e("Use our Skip Chooser", THEME_NAME); ?></a>
 			</h6>
 		</div>
 		<div class="clearfix"></div>

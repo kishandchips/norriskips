@@ -94,7 +94,7 @@ $products_query = new WP_Query(array('post_type' => 'product', 'posts_per_page' 
 										<div class="inner">
 											<p class="text-center">
 												<img src="<?php echo get_template_directory_uri(); ?>/images/icons/bin_bag.png" class="bin-bag-img" /> 
-												<span class="value"><?php //the_field(); ?>x 40 - 45</span>
+												<span class="value">x<?php the_field('bin_bags_text'); ?></span>
 												<br />
 												<span class="label"><?php _e("Large rubbish bags", THEME_NAME); ?></span>
 											</p>
@@ -104,7 +104,7 @@ $products_query = new WP_Query(array('post_type' => 'product', 'posts_per_page' 
 										<div class="inner">
 											<p class="text-center">
 												<img src="<?php echo get_template_directory_uri(); ?>/images/icons/wheel_barrow.png" class="wheel-barrow-img" /> 
-												<span class="value"><?php //the_field(); ?>x 40 - 45</span>
+												<span class="value">x<?php the_field('wheel_barrows_text'); ?></span>
 												<br />
 												<span class="label"><?php _e("Builder's wheelbarrow loads", THEME_NAME); ?></span>
 											</p>

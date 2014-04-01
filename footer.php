@@ -31,9 +31,10 @@
 	</div><!--#wrap -->
 	<?php wp_footer(); ?>
 
+<?php if($clickdesk_key = get_field('clickdesk_key', 'options')): ?>
 <!-- ClickDesk Live Chat Service for websites -->
 <script type='text/javascript'>
-var _glc =_glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyDwsSBXVzZXJzGJbt6JQBDA');
+var _glc =_glc || []; _glc.push('<?php echo $clickdesk_key; ?>');
 var glcpath = (('https:' == document.location.protocol) ? 'https://my.clickdesk.com/clickdesk-ui/browser/' : 
 'http://my.clickdesk.com/clickdesk-ui/browser/');
 var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
@@ -49,17 +50,18 @@ $CLICKDESK = (function() {
 	});
 });
 </script>
+<?php endif; ?>
 
 <script>
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38935030-1']);
-  _gaq.push(['_trackPageview']);
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-49209578-1', 'norriskips.net');
+  ga('send', 'pageview');
+
 </script>
+
 </body>
 </html>

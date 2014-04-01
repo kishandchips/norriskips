@@ -134,7 +134,7 @@
 						<div class="content span seven push-two">
 							<h4 class="title"><?php the_title(); ?></h4>
 							<div class="excerpt">
-								<?php the_exceprt(); ?>
+								<?php the_excerpt(); ?>
 							</div>
 						</div>
 						<i class="arrow icon-arrow-right circle"></i>
