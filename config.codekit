@@ -1,0 +1,2471 @@
+{
+"CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
+"creatorBuild": "16828",
+"files": {
+	"\/404.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/404.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/config.rb": {
+		"fileType": 131072,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/config.rb",
+		"outputAbbreviatedPath": "\/config.rb",
+		"outputPathIsSetByUser": 0
+		},
+	"\/css\/admin.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/admin.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/css\/editor-styles.css": {
+		"fileType": 16,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/editor-styles.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/css\/ie7.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/ie7.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/css\/jquery-ui.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/jquery-ui.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/css\/scss\/_buttons.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_buttons.scss",
+		"outputAbbreviatedPath": "\/css\/_buttons.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/_fonts.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_fonts.scss",
+		"outputAbbreviatedPath": "\/css\/_fonts.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/_forms.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_forms.scss",
+		"outputAbbreviatedPath": "\/css\/_forms.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/_grid.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_grid.scss",
+		"outputAbbreviatedPath": "\/css\/_grid.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/_icons.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_icons.scss",
+		"outputAbbreviatedPath": "\/css\/_icons.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/_layout.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_layout.scss",
+		"outputAbbreviatedPath": "\/css\/_layout.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/_misc.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_misc.scss",
+		"outputAbbreviatedPath": "\/css\/_misc.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/_mixins.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_mixins.scss",
+		"outputAbbreviatedPath": "\/css\/_mixins.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/_normalize.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_normalize.scss",
+		"outputAbbreviatedPath": "\/css\/_normalize.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/_reset.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_reset.scss",
+		"outputAbbreviatedPath": "\/css\/_reset.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/_typography.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_typography.scss",
+		"outputAbbreviatedPath": "\/css\/_typography.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/_woocommerce.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_woocommerce.scss",
+		"outputAbbreviatedPath": "\/css\/_woocommerce.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/editor-styles.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/editor-styles.scss",
+		"outputAbbreviatedPath": "\/css\/editor-styles.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/scss\/style.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/style.scss",
+		"outputAbbreviatedPath": "\/css\/style.css",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/css\/style.css": {
+		"fileType": 16,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/style.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/footer.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/footer.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/functions.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/functions.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/header.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/header.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/images\/backgrounds\/product_dimensions.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 22498,
+		"inputAbbreviatedPath": "\/images\/backgrounds\/product_dimensions.png",
+		"outputAbbreviatedPath": "\/images\/backgrounds\/product_dimensions.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/icons\/bin_bag.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1720,
+		"inputAbbreviatedPath": "\/images\/icons\/bin_bag.png",
+		"outputAbbreviatedPath": "\/images\/icons\/bin_bag.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/icons\/document.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2449,
+		"inputAbbreviatedPath": "\/images\/icons\/document.png",
+		"outputAbbreviatedPath": "\/images\/icons\/document.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/icons\/pile.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1455,
+		"inputAbbreviatedPath": "\/images\/icons\/pile.png",
+		"outputAbbreviatedPath": "\/images\/icons\/pile.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/icons\/skip_question.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2039,
+		"inputAbbreviatedPath": "\/images\/icons\/skip_question.png",
+		"outputAbbreviatedPath": "\/images\/icons\/skip_question.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/icons\/wheel_barrow.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2946,
+		"inputAbbreviatedPath": "\/images\/icons\/wheel_barrow.png",
+		"outputAbbreviatedPath": "\/images\/icons\/wheel_barrow.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/jquery-ui\/ui-icons_326ba1_256x240.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4549,
+		"inputAbbreviatedPath": "\/images\/jquery-ui\/ui-icons_326ba1_256x240.png",
+		"outputAbbreviatedPath": "\/images\/jquery-ui\/ui-icons_326ba1_256x240.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/jquery-ui\/ui-icons_454545_256x240.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6992,
+		"inputAbbreviatedPath": "\/images\/jquery-ui\/ui-icons_454545_256x240.png",
+		"outputAbbreviatedPath": "\/images\/jquery-ui\/ui-icons_454545_256x240.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/jquery-ui\/ui-icons_888888_256x240.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6999,
+		"inputAbbreviatedPath": "\/images\/jquery-ui\/ui-icons_888888_256x240.png",
+		"outputAbbreviatedPath": "\/images\/jquery-ui\/ui-icons_888888_256x240.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/jquery-ui\/ui-icons_cd0a0a_256x240.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4549,
+		"inputAbbreviatedPath": "\/images\/jquery-ui\/ui-icons_cd0a0a_256x240.png",
+		"outputAbbreviatedPath": "\/images\/jquery-ui\/ui-icons_cd0a0a_256x240.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/jquery-ui\/ui-icons_FFF_256x240.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6299,
+		"inputAbbreviatedPath": "\/images\/jquery-ui\/ui-icons_FFF_256x240.png",
+		"outputAbbreviatedPath": "\/images\/jquery-ui\/ui-icons_FFF_256x240.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/logos\/norriskips.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 24817,
+		"inputAbbreviatedPath": "\/images\/logos\/norriskips.jpg",
+		"outputAbbreviatedPath": "\/images\/logos\/norriskips.jpg",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/logos\/norriskips.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 44331,
+		"inputAbbreviatedPath": "\/images\/logos\/norriskips.png",
+		"outputAbbreviatedPath": "\/images\/logos\/norriskips.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/dot.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1114,
+		"inputAbbreviatedPath": "\/images\/misc\/dot.png",
+		"outputAbbreviatedPath": "\/images\/misc\/dot.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/dots.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1179,
+		"inputAbbreviatedPath": "\/images\/misc\/dots.png",
+		"outputAbbreviatedPath": "\/images\/misc\/dots.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/favicon.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3557,
+		"inputAbbreviatedPath": "\/images\/misc\/favicon.png",
+		"outputAbbreviatedPath": "\/images\/misc\/favicon.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/house.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 10158,
+		"inputAbbreviatedPath": "\/images\/misc\/house.jpg",
+		"outputAbbreviatedPath": "\/images\/misc\/house.jpg",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/no_skip_selected.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 13581,
+		"inputAbbreviatedPath": "\/images\/misc\/no_skip_selected.jpg",
+		"outputAbbreviatedPath": "\/images\/misc\/no_skip_selected.jpg",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/person.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4151,
+		"inputAbbreviatedPath": "\/images\/misc\/person.png",
+		"outputAbbreviatedPath": "\/images\/misc\/person.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/truck.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4807,
+		"inputAbbreviatedPath": "\/images\/misc\/truck.png",
+		"outputAbbreviatedPath": "\/images\/misc\/truck.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/trucks.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6116,
+		"inputAbbreviatedPath": "\/images\/misc\/trucks.png",
+		"outputAbbreviatedPath": "\/images\/misc\/trucks.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/trucks_color.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 12352,
+		"inputAbbreviatedPath": "\/images\/misc\/trucks_color.png",
+		"outputAbbreviatedPath": "\/images\/misc\/trucks_color.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/upgrade.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 22274,
+		"inputAbbreviatedPath": "\/images\/misc\/upgrade.png",
+		"outputAbbreviatedPath": "\/images\/misc\/upgrade.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/waste.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 45960,
+		"inputAbbreviatedPath": "\/images\/misc\/waste.jpg",
+		"outputAbbreviatedPath": "\/images\/misc\/waste.jpg",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/misc\/wheel_barrow.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6258,
+		"inputAbbreviatedPath": "\/images\/misc\/wheel_barrow.png",
+		"outputAbbreviatedPath": "\/images\/misc\/wheel_barrow.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/calendar.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 223,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/calendar.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/calendar.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/chosen-sprite.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 278,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/chosen-sprite.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/chosen-sprite.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/chosen-sprite@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 429,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/chosen-sprite@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/chosen-sprite@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/cross.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 207,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/cross.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/cross.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/cross_white.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 135,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/cross_white.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/cross_white.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/edit.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 460,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/edit.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/edit.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/featured-off.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 284,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/featured-off.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/featured-off.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/featured.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 239,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/featured.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/featured.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/gear.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 432,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/gear.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/gear.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/handle.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 113,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/handle.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/handle.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/help.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 310,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/help.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/help.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/cancelled.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 109,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/cancelled.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/cancelled.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/cancelled@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 209,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/cancelled@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/cancelled@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/complete.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 213,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/complete.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/complete.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/completed.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 134,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/completed.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/completed.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/completed@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 256,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/completed@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/completed@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/delete_10.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 129,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/delete_10.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/delete_10.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/edit_variations.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 235,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/edit_variations.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/edit_variations.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/edit_variations@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 355,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/edit_variations@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/edit_variations@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/failed.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 103,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/failed.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/failed.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/failed@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 152,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/failed@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/failed@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/image_10.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 166,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/image_10.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/image_10.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/invalid.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 253,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/invalid.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/invalid.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/invalid@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 299,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/invalid@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/invalid@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/menu_icons-x2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4580,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/menu_icons-x2.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/menu_icons-x2.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/menu_icons.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1210,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/menu_icons.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/menu_icons.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/on-hold.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 145,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/on-hold.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/on-hold.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/on-hold@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 295,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/on-hold@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/on-hold@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/paypal.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 416,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/paypal.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/paypal.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/pending.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 83,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/pending.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/pending.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/pending@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 132,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/pending@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/pending@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/processing.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 188,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/processing.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/processing.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/refunded.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 126,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/refunded.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/refunded.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/refunded@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 198,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/refunded@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/refunded@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/reload.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 193,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/reload.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/reload.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/reload@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 285,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/reload@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/reload@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/st-processing.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 113,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/st-processing.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/st-processing.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/st-processing@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 188,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/st-processing@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/st-processing@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/valid.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 315,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/valid.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/valid.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/valid@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 368,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/valid@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/valid@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/view.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 276,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/view.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/view.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/wc-tab-icons-x2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1953,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/wc-tab-icons-x2.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/wc-tab-icons-x2.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/wc-tab-icons.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 919,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/wc-tab-icons.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/wc-tab-icons.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/wc_icon.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 329,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/wc_icon.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/wc_icon.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/wc_icon@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 407,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/wc_icon@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/wc_icon@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/woocommerce-icons-x2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 11579,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/woocommerce-icons-x2.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/woocommerce-icons-x2.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/icons\/woocommerce-icons.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4757,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/icons\/woocommerce-icons.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/icons\/woocommerce-icons.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/image.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 172,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/image.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/image.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/image_watermark.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 267,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/image_watermark.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/image_watermark.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/message.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6688,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/message.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/message.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/mijireh-logo.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5793,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/mijireh-logo.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/mijireh-logo.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/note-off.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 148,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/note-off.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/note-off.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/note.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 148,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/note.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/note.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/note_head.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 147,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/note_head.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/note_head.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/order-notes_head.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 204,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/order-notes_head.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/order-notes_head.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/placeholder.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2816,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/placeholder.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/placeholder.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/product_type_head.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 245,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/product_type_head.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/product_type_head.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/product_types-x2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1198,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/product_types-x2.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/product_types-x2.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/product_types.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 470,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/product_types.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/product_types.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/star.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1044,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/star.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/star.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/star@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1396,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/star@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/star@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/star_watermark.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 270,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/star_watermark.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/star_watermark.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/success-off.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 410,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/success-off.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/success-off.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/success-off@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 533,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/success-off@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/success-off@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/success.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 683,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/success.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/success.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/success@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 719,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/success@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/success@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/tip.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 346,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/tip.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/tip.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/welcome\/badge-sucuri.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5760,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/welcome\/badge-sucuri.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/welcome\/badge-sucuri.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/welcome\/downloads.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 7800,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/welcome\/downloads.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/welcome\/downloads.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/welcome\/orders.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 15733,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/welcome\/orders.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/welcome\/orders.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/welcome\/pagination.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 894,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/welcome\/pagination.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/welcome\/pagination.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/welcome\/product.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5593,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/welcome\/product.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/welcome\/product.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/welcome\/rating.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2722,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/welcome\/rating.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/welcome\/rating.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/welcome\/sorting.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 8263,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/welcome\/sorting.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/welcome\/sorting.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/welcome\/taxes.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 8830,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/welcome\/taxes.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/welcome\/taxes.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/welcome\/wc-welcome.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5746,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/welcome\/wc-welcome.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/welcome\/wc-welcome.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/woocommerce\/welcome\/wc-welcome@2x.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 13739,
+		"inputAbbreviatedPath": "\/images\/woocommerce\/welcome\/wc-welcome@2x.png",
+		"outputAbbreviatedPath": "\/images\/woocommerce\/welcome\/wc-welcome@2x.png",
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/inc\/classes\/custom-post-type.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/inc\/classes\/custom-post-type.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/inc\/content.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/inc\/content.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/inc\/default\/functions.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/inc\/default\/functions.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/inc\/default\/hooks.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/inc\/default\/hooks.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/inc\/default\/shortcodes.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/inc\/default\/shortcodes.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/inc\/page-header.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/inc\/page-header.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/index.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/index.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/js\/libs\/jquery.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/libs\/jquery.min.js",
+		"outputAbbreviatedPath": "\/js\/libs\/min\/jquery.min-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/libs\/modernizr.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/libs\/modernizr.min.js",
+		"outputAbbreviatedPath": "\/js\/libs\/min\/modernizr.min-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/main.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/main.js",
+		"outputAbbreviatedPath": "\/js\/min\/main-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/plugins\/jquery-ui.custom.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/plugins\/jquery-ui.custom.min.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/jquery-ui.custom.min-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/plugins\/jquery.actual.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/plugins\/jquery.actual.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/jquery.actual-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/plugins\/jquery.easing.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/plugins\/jquery.easing.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/jquery.easing-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/plugins\/jquery.imagesloaded.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/plugins\/jquery.imagesloaded.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/jquery.imagesloaded-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/plugins\/jquery.infinitescroll.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/plugins\/jquery.infinitescroll.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/jquery.infinitescroll-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/plugins\/jquery.isotope.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/plugins\/jquery.isotope.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/jquery.isotope-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/plugins\/jquery.prettyphoto.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/plugins\/jquery.prettyphoto.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/jquery.prettyphoto-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/plugins\/jquery.resizestop.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/plugins\/jquery.resizestop.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/jquery.resizestop-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/plugins\/jquery.scroller.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/plugins\/jquery.scroller.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/jquery.scroller-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/plugins\/swfobject.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/plugins\/swfobject.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/swfobject-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/sidebar.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sidebar.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/style.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/style.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/template-sidebar.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/template-sidebar.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/template-skip-finder.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/template-skip-finder.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/archive-product.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/archive-product.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/cart\/shipping-methods.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/cart\/shipping-methods.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/checkout\/delivery-date.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/checkout\/delivery-date.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/checkout\/form-billing.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/checkout\/form-billing.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/checkout\/form-checkout.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/checkout\/form-checkout.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/checkout\/form-postcode-lookup.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/checkout\/form-postcode-lookup.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/checkout\/form-shipping.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/checkout\/form-shipping.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/checkout\/return-date.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/checkout\/return-date.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/checkout\/review-order.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/checkout\/review-order.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/content-single-product.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/content-single-product.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/emails\/email-order-items.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/emails\/email-order-items.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/shop\/messages.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/shop\/messages.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/shop\/wrapper-start.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/shop\/wrapper-start.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/single-product\/add-to-cart\/quantity.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/single-product\/add-to-cart\/quantity.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/single-product\/capacity.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/single-product\/capacity.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/single-product\/dimensions.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/single-product\/dimensions.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/single-product\/header.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/single-product\/header.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/single-product\/note.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/single-product\/note.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/single-product\/price.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/single-product\/price.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/single-product\/product-image.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/single-product\/product-image.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/single-product\/product-thumbnails.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/single-product\/product-thumbnails.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/single-product\/upgrade.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/single-product\/upgrade.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		},
+	"\/woocommerce\/upgrade-single-product.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/woocommerce\/upgrade-single-product.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsSetByUser": 0
+		}
+	},
+"hooks": [
+	],
+"lastSavedByUser": "DJ Mosca",
+"manualImportLinks": {
+	},
+"projectAttributes": {
+	"bowerAbbreviatedPath": "",
+	"displayValue": "Norri Skips",
+	"displayValueWasSetByUser": 1,
+	"iconImageName": "pencil_yellow"
+	},
+"projectSettings": {
+	"alwaysUseExternalServer": 0,
+	"animateCSSInjections": 1,
+	"autoApplyPSLanguageSettingsStyle": 0,
+	"autoprefixerBrowserString": "> 1%, last 2 versions, ff 17, opera 12.1",
+	"autoSyncProjectSettingsFile": 1,
+	"browserRefreshDelay": 0,
+	"coffeeAutoOutputPathRelativePath": "",
+	"coffeeAutoOutputPathReplace1": "",
+	"coffeeAutoOutputPathReplace2": "",
+	"coffeeAutoOutputPathStyle": 0,
+	"coffeeCreateSourceMap": 0,
+	"coffeeLintFlags2": {
+		"arrow_spacing": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"camel_case_classes": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"colon_assignment_spacing": {
+			"active": 0,
+			"flagValue": 1
+			},
+		"cyclomatic_complexity": {
+			"active": 0,
+			"flagValue": 10
+			},
+		"duplicate_key": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"empty_constructor_needs_parens": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"indentation": {
+			"active": 1,
+			"flagValue": 2
+			},
+		"line_endings": {
+			"active": 0,
+			"flagValue": 0
+			},
+		"max_line_length": {
+			"active": 0,
+			"flagValue": 150
+			},
+		"missing_fat_arrows": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"newlines_after_classes": {
+			"active": 0,
+			"flagValue": 3
+			},
+		"no-unnecessary_fat_arrows": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_backticks": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_empty_param_list": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_implicit_braces": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_implicit_parens": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_plusplus": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_stand_alone_at": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_tabs": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_throwing_strings": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_trailing_semicolons": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_trailing_whitespace": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"non_empty_constructor_needs_parens": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"space_operators": {
+			"active": 0,
+			"flagValue": -1
+			}
+		},
+	"coffeeMinifyOutput": 1,
+	"coffeeOutputStyle": 0,
+	"coffeeSyntaxCheckerStyle": 1,
+	"externalServerAddress": "http:\/\/localhost:8888",
+	"externalServerPreviewPathAddition": "",
+	"genericWebpageFileExtensionsString": "html, htm, shtml, shtm, xhtml, php, jsp, asp, aspx, erb, ctp",
+	"hamlAutoOutputPathRelativePath": "",
+	"hamlAutoOutputPathReplace1": "",
+	"hamlAutoOutputPathReplace2": "",
+	"hamlAutoOutputPathStyle": 0,
+	"hamlEscapeHTMLCharacters": 0,
+	"hamlNoEscapeInAttributes": 0,
+	"hamlOutputFormat": 2,
+	"hamlOutputStyle": 0,
+	"hamlUseCDATA": 0,
+	"hamlUseDoubleQuotes": 0,
+	"hamlUseUnixNewlines": 0,
+	"jadeAutoOutputPathRelativePath": "",
+	"jadeAutoOutputPathReplace1": "",
+	"jadeAutoOutputPathReplace2": "",
+	"jadeAutoOutputPathStyle": 0,
+	"jadeCompileDebug": 1,
+	"jadeOutputStyle": 0,
+	"javascriptAutoOutputPathRelativePath": "\/min",
+	"javascriptAutoOutputPathReplace1": "",
+	"javascriptAutoOutputPathReplace2": "",
+	"javascriptAutoOutputPathStyle": 2,
+	"javascriptCreateSourceMap": 1,
+	"javascriptOutputStyle": 1,
+	"javascriptOutputSuffix": "-ck",
+	"javascriptSyntaxCheckerStyle": 1,
+	"jsCheckerReservedNamesString": "",
+	"jsHintFlags2": {
+		"asi": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"bitwise": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"boss": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"browser": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"camelcase": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"couch": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"curly": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"debug": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"devel": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"dojo": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"eqeqeq": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"eqnull": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"es3": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"esnext": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"evil": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"expr": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"forin": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"freeze": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"funcscope": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"gcl": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"globalstrict": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"immed": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"indent": {
+			"active": 0,
+			"flagValue": 4
+			},
+		"iterator": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"jquery": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"lastsemic": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"latedef": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"laxbreak": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"laxcomma": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"loopfunc": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"maxcomplexity": {
+			"active": 0,
+			"flagValue": 10
+			},
+		"maxdepth": {
+			"active": 0,
+			"flagValue": 3
+			},
+		"maxlen": {
+			"active": 0,
+			"flagValue": 150
+			},
+		"maxparams": {
+			"active": 0,
+			"flagValue": 3
+			},
+		"maxstatements": {
+			"active": 0,
+			"flagValue": 4
+			},
+		"mootools": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"moz": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"multistr": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"newcap": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"noarg": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"node": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"noempty": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"nonbsp": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"nonew": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"nonstandard": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"notypeof": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"noyield": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"onecase": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"onevar": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"phantom": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"plusplus": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"proto": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"prototypejs": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"regexp": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"rhino": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"scripturl": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"shadow": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"shelljs": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"smarttabs": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"strict": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"sub": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"supernew": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"trailing": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"typed": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"undef": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"unused": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"white": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"withstmt": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"worker": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"wsh": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"yui": {
+			"active": 0,
+			"flagValue": -1
+			}
+		},
+	"jsLintFlags2": {
+		"ass": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"bitwise": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"browser": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"closure": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"continue": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"debug": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"devel": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"eqeq": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"evil": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"forin": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"indent": {
+			"active": 0,
+			"flagValue": 4
+			},
+		"maxlen": {
+			"active": 0,
+			"flagValue": 150
+			},
+		"newcap": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"node": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"nomen": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"plusplus": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"properties": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"regexp": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"rhino": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"sloppy": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"stupid": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"sub": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"todo": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unparam": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"vars": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"white": {
+			"active": 0,
+			"flagValue": -1
+			}
+		},
+	"kitAutoOutputPathRelativePath": "",
+	"kitAutoOutputPathReplace1": "",
+	"kitAutoOutputPathReplace2": "",
+	"kitAutoOutputPathStyle": 0,
+	"lessAllowInsecureImports": 0,
+	"lessAutoOutputPathRelativePath": "..\/css",
+	"lessAutoOutputPathReplace1": "less",
+	"lessAutoOutputPathReplace2": "css",
+	"lessAutoOutputPathStyle": 2,
+	"lessCreateSourceMap": 0,
+	"lessDisableJavascript": 0,
+	"lessIeCompatibility": 1,
+	"lessOutputStyle": 0,
+	"lessRelativeURLS": 0,
+	"lessStrictImports": 0,
+	"lessStrictMath": 0,
+	"lessStrictUnits": 0,
+	"markdownAutoOutputPathRelativePath": "",
+	"markdownAutoOutputPathReplace1": "",
+	"markdownAutoOutputPathReplace2": "",
+	"markdownAutoOutputPathStyle": 0,
+	"markdownEnableFootnotes": 0,
+	"markdownEnableSmartyPants": 1,
+	"markdownExpandTabs": 1,
+	"reloadFileURLs": 0,
+	"sassAutoOutputPathRelativePath": "..\/css",
+	"sassAutoOutputPathReplace1": "sass",
+	"sassAutoOutputPathReplace2": "css",
+	"sassAutoOutputPathStyle": 2,
+	"sassCreateSourceMap": 0,
+	"sassDebugStyle": 0,
+	"sassDecimalPrecision": 5,
+	"sassOutputStyle": 0,
+	"sassUseLibsass": 0,
+	"shouldRunAutoprefixer": 0,
+	"shouldRunBless": 0,
+	"skippedItemsString": ".svn, .git, .hg, log, _logs, _cache, cache, logs",
+	"slimAutoOutputPathRelativePath": "",
+	"slimAutoOutputPathReplace1": "",
+	"slimAutoOutputPathReplace2": "",
+	"slimAutoOutputPathStyle": 0,
+	"slimCompileOnly": 0,
+	"slimLogicless": 0,
+	"slimOutputStyle": 1,
+	"slimRailsCompatible": 0,
+	"stylusAutoOutputPathRelativePath": "..\/css",
+	"stylusAutoOutputPathReplace1": "stylus",
+	"stylusAutoOutputPathReplace2": "css",
+	"stylusAutoOutputPathStyle": 2,
+	"stylusDebugStyle": 0,
+	"stylusImportCSS": 0,
+	"stylusOutputStyle": 0,
+	"stylusResolveRelativeURLS": 0,
+	"typescriptAutoOutputPathRelativePath": "\/js",
+	"typescriptAutoOutputPathReplace1": "",
+	"typescriptAutoOutputPathReplace2": "",
+	"typescriptAutoOutputPathStyle": 2,
+	"typescriptCreateDeclarationFile": 0,
+	"typescriptCreateSourceMap": 0,
+	"typescriptMinifyOutput": 0,
+	"typescriptModuleType": 0,
+	"typescriptNoImplicitAny": 0,
+	"typescriptNoResolve": 0,
+	"typescriptRemoveComments": 0,
+	"typescriptTargetECMAVersion": 0,
+	"uglifyDefinesString": "",
+	"uglifyFlags2": {
+		"ascii-only": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"booleans": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"bracketize": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"cascade": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"comments": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"comparisons": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"compress": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"conditionals": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"dead_code": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"drop_debugger": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"eval": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"evaluate": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"hoist_funs": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"hoist_vars": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"if_return": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"indent-level": {
+			"active": 0,
+			"flagValue": 4
+			},
+		"indent-start": {
+			"active": 0,
+			"flagValue": 0
+			},
+		"inline-script": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"join_vars": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"loops": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"mangle": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"max-line-len": {
+			"active": 1,
+			"flagValue": 32000
+			},
+		"properties": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"quote-keys": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"screw-ie8": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"semicolons": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"sequences": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"sort": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"space-colon": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"toplevel": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unsafe": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unused": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"warnings": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"width": {
+			"active": 1,
+			"flagValue": 80
+			}
+		},
+	"uglifyReservedNamesString": "$",
+	"websiteRelativeRoot": ""
+	},
+"settingsFileVersion": "2"
+}

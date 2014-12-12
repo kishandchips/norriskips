@@ -4,24 +4,44 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.0.0
+ * @version     2.1.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 global $woocommerce;
+
+$visible_fields = array();
+$hidden_fields = array();
+foreach($checkout->checkout_fields['billing'] as $key => $field) {
+	if(in_array($key, array('billing_email', 'billing_phone'))) {
+		$visible_fields[$key] = $field;
+	} else {
+		$hidden_fields[$key] = $field;
+	}
+}
 ?>
 <div id="billing-address">
-	<div class="fields">
-		<?php do_action('woocommerce_before_checkout_billing_form', $checkout ); ?>
+	
+	<div class="fields clearfix">
+		<div class="billing_address">
+			<?php do_action('woocommerce_before_checkout_billing_form', $checkout ); ?>
 
-		<?php foreach ($checkout->checkout_fields['billing'] as $key => $field) : ?>
+			<?php foreach ($hidden_fields as $key => $field) : ?>
 
+				<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
+
+			<?php endforeach; ?>
+
+			<?php do_action('woocommerce_after_checkout_billing_form', $checkout ); ?>
+
+		</div>
+
+		<?php foreach ($visible_fields as $key => $field) : ?>
+		
 			<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
 
 		<?php endforeach; ?>
-
-		<?php do_action('woocommerce_after_checkout_billing_form', $checkout ); ?>
 
 		<?php if ( ! is_user_logged_in() && $checkout->enable_signup ) : ?>
 
@@ -52,8 +72,27 @@ global $woocommerce;
 			<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
 
 		<?php endif; ?>
+
 	</div>
 	<footer class="footer clearfix">
+
+		<?php
+			if ( empty( $_POST ) ) :
+
+				$billtoshipping = (get_option('woocommerce_ship_to_same_address')=='yes') ? 1 : 0;
+				$billtoshipping = apply_filters('woocommerce_billtoshipping_default', $billtoshipping);
+
+			else :
+
+				$billtoshipping = $checkout->get_value('billtoshipping');
+
+			endif;
+		?>
+
+		<p class="left" id="billtoshipping">
+			<input id="billtoshipping-checkbox" class="input-checkbox" <?php checked($billtoshipping, 1); ?> type="checkbox" name="billtoshipping" value="1" />
+			<label for="billtoshipping-checkbox" class="checkbox">&nbsp;&nbsp;<?php _e( 'Bill to delivery address?', 'woocommerce' ); ?></label>
+		</p>
 		<a class="accordion-btn orange-btn right" data-id="payment"><?php _e("Proceed to payment", THEME_NAME); ?></a>
 	</footer>
 </div>

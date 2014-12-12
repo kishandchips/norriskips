@@ -1,7 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-global $woocommerce;
-$checkout = $woocommerce->checkout();
+
+$checkout = WC()->checkout();
 ?>
 <div id="delivery-date" class="">
 	<div class="fields clearfix">

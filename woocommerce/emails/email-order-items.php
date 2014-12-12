@@ -4,12 +4,10 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates/Emails
- * @version     2.0.3
+ * @version     2.1.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-global $woocommerce;
 
 foreach ( $items as $item ) :
 

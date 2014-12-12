@@ -4,16 +4,15 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     1.6.4
+ * @version     2.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-global $woocommerce;
 ?>
 <div id="shipping-address">
 	<div class="fields">
-		<?php if ( ( $woocommerce->cart->needs_shipping() || get_option('woocommerce_require_shipping_address') == 'yes' ) && ! $woocommerce->cart->ship_to_billing_address_only() ) : ?>
+		<?php if ( ( WC()->cart->needs_shipping() || get_option('woocommerce_require_shipping_address') == 'yes' ) && ! WC()->cart->ship_to_billing_address_only() ) : ?>
 			<!--
 			<?php
 				if ( empty( $_POST ) ) :
@@ -53,7 +52,7 @@ global $woocommerce;
 
 		<?php if (get_option('woocommerce_enable_order_comments')!='no') : ?>
 
-			<?php if ($woocommerce->cart->ship_to_billing_address_only()) : ?>
+			<?php if (WC()->cart->ship_to_billing_address_only()) : ?>
 
 				<h3><?php _e( 'Additional Information', 'woocommerce' ); ?></h3>
 

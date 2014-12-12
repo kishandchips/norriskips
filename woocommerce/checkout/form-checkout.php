@@ -9,9 +9,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-global $woocommerce;
-
-$woocommerce->show_messages();
+wc_print_notices();
 
 do_action( 'woocommerce_before_checkout_form', $checkout );
 
@@ -28,7 +26,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 	<li class="circle" data-id="billing-address">4<span class="label"><?php _e("Billing Address", THEME_NAME); ?></span></li>
 	<li class="circle" data-id="payment">5<span class="label"><?php _e("Payment Details", THEME_NAME); ?></span></li>
 </ul>
-<?php $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', $woocommerce->cart->get_checkout_url() ); ?>
+<?php $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', WC()->cart->get_checkout_url() ); ?>
 <div class="clearfix">
 	<form name="checkout" method="post" class="checkout clearfix" action="<?php echo esc_url( $get_checkout_url ); ?>">
 		<div class="span three right break-on-tablet">
@@ -66,15 +64,15 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 					<a data-id="payment" class="accordion-btn btn"><span class="number circle">5</span> <?php _e("Payment Details", THEME_NAME); ?></a>
 					<div class="accordion-content content">
 						<div id="payment">
-							<?php if ($woocommerce->cart->needs_payment()) : ?>
+							<?php if (WC()->cart->needs_payment()) : ?>
 							<ul class="payment_methods methods">
 								<?php
-									$available_gateways = $woocommerce->payment_gateways->get_available_payment_gateways();
+									$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
 									if ( ! empty( $available_gateways ) ) {
 
 										// Chosen Method
-										if ( isset( $woocommerce->session->chosen_payment_method ) && isset( $available_gateways[ $woocommerce->session->chosen_payment_method ] ) ) {
-											$available_gateways[ $woocommerce->session->chosen_payment_method ]->set_current();
+										if ( isset( WC()->session->chosen_payment_method ) && isset( $available_gateways[ WC()->session->chosen_payment_method ] ) ) {
+											$available_gateways[ WC()->session->chosen_payment_method ]->set_current();
 										} elseif ( isset( $available_gateways[ get_option( 'woocommerce_default_gateway' ) ] ) ) {
 											$available_gateways[ get_option( 'woocommerce_default_gateway' ) ]->set_current();
 										} else {
@@ -98,7 +96,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 										}
 									} else {
 
-										if ( ! $woocommerce->customer->get_country() )
+										if ( ! WC()->customer->get_country() )
 											echo '<p>' . __( 'Please fill in your details above to see available payment methods.', 'woocommerce' ) . '</p>';
 										else
 											echo '<p>' . __( 'Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements.', 'woocommerce' ) . '</p>';
@@ -112,7 +110,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 
 								<noscript><?php _e( 'Since your browser does not support JavaScript, or it is disabled, please ensure you click the <em>Update Totals</em> button before placing your order. You may be charged more than the amount stated above if you fail to do so.', 'woocommerce' ); ?><br/><input type="submit" class="button alt" name="woocommerce_checkout_update_totals" value="<?php _e( 'Update totals', 'woocommerce' ); ?>" /></noscript>
 
-								<?php $woocommerce->nonce_field('process_checkout')?>
+								<?php wp_nonce_field('woocommerce-process_checkout')?>
 
 								<?php do_action( 'woocommerce_review_order_before_submit' ); ?>
 

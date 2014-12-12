@@ -1419,6 +1419,14 @@ p.demo_store {
 				opacity: 0;
 			}
 
+			input,
+			textarea,
+			select {
+				&:disabled {
+					@include opacity(0.5);
+				}
+			}
+
 			label {
 				display:block;
 			}
@@ -1566,6 +1574,7 @@ p.demo_store {
 					}
 				}
 			}
+
 		}
 		.form-row-first, .form-row-last {
 			float:left;
@@ -1649,7 +1658,7 @@ p.demo_store {
 	#shipping-address {
 
 		> .footer {
-			padding: 1em 4.6em 0.5em 1em;
+			padding: 1em 0 0.5em 1em;
 
 			@include device-width(10) {
 				padding-right: 1em;

@@ -6,7 +6,7 @@
 <header id="page-header" class="header">
 	<div class="container">
 		<h2 class="title"><?php echo get_the_title($parent_page->ID); ?></h2>
-		<?php if(is_page() && has_post_thumbnail($page->ID)): ?>
+		<?php if($page && is_page() && has_post_thumbnail($page->ID)): ?>
 		<div class="thumbnail">
 			<?php echo get_the_post_thumbnail($page->ID); ?>
 		</div>

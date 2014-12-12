@@ -1,4 +1,3 @@
-
 <?php
 
 define('THEME_NAME', 'norriskips');
@@ -97,7 +96,7 @@ add_filter( 'gform_validation_message_2', 'custom_validation_message_book', 10, 
 
 add_filter( 'loop_shop_columns', 'custom_woocommerce_shop_columns');
 
-add_filter( 'single_add_to_cart_text', 'custom_woocommerce_add_to_cart_text');
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'custom_woocommerce_add_to_cart_text');
 
 add_filter( 'woocommerce_get_price_html', 'custom_woocommerce_get_price_html', 10, 2);
 
@@ -105,7 +104,7 @@ add_filter( 'add_to_cart_redirect', 'custom_woocommerce_add_to_cart_redirect');
 
 add_filter( 'woocommerce_checkout_fields' , 'custom_woocommerce_checkout_fields' );
 
-add_filter( 'woocommerce_form_field_radio', 'custom_woocommerce_form_field_radio', 10, 4);
+add_filter( 'woocommerce_form_field_group_radio', 'custom_woocommerce_form_field_group_radio', 10, 4);
 
 add_filter( 'woocommerce_form_field_date', 'custom_woocommerce_form_field_date', 10, 4);
 
@@ -123,9 +122,11 @@ add_filter( 'woocommerce_add_to_cart_validation', 'custom_woocommerce_add_to_car
 
 add_filter( 'widget_title', 'do_shortcode');
 
-add_filter( 'woocommerce_add_to_cart_message', 'custom_woocommerce_add_to_cart_message');
+add_filter( 'wc_add_to_cart_message', '__return_false', 10, 2);
 
 add_filter( 'woocommerce_get_order_item_totals', 'custom_woocommerce_get_order_item_totals', 10, 2);
+
+add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 //Custom shortcodes
 
@@ -270,6 +271,7 @@ function custom_scripts() {
 	wp_enqueue_script('prettyphoto',  $get_template_directory_uri.'/js/plugins/jquery.prettyphoto.js', array( 'jquery' ), '3.1.5', true );
 
 	wp_enqueue_script('jquery-ui');
+
 }
 
 
@@ -331,8 +333,7 @@ function custom_clickdesk_status(){
 }
 
 function custom_validation_hook_2($validation_result){
-	global $woocommerce;
-	$validation = $woocommerce->validation();
+	$validation = new WC_Validation();
 	$form = $validation_result['form'];
 	$validation_result['is_valid'] = ($validation_result['is_valid'] == 1) ? 1 : 0;
 	$country = 'GB';
@@ -341,14 +342,16 @@ function custom_validation_hook_2($validation_result){
 		
 		if($field['id'] == '1' && $validation_result['is_valid']){
 			$postcode   = apply_filters( 'woocommerce_shipping_calculator_enable_postcode', true ) ? woocommerce_clean( $_POST['input_'.$field['id']] ) : '';
-			
+
 			if ( $postcode && ! $validation->is_postcode( $postcode, $country ) ) {
 				$postcode = '';
 				$field['failed_validation'] = true;
 				$validation_result['is_valid'] = 0;
 	            break;
 			} elseif ( $postcode ) {
-				$postcode = $validation->format_postcode( $postcode, $country );
+
+				$postcode = wc_format_postcode( $postcode, $country );
+
 				$package = array(
 					'destination' => array(
 						'country' => $country,
@@ -356,9 +359,9 @@ function custom_validation_hook_2($validation_result){
 						'state' => ''
 					)
 				);
-
-				$zone = woocommerce_get_shipping_zone($package);
 				
+				$zone = woocommerce_get_shipping_zone($package);
+
 				if($zone->zone_id != 0) {
 					$_POST['input_'.$field['id']] = $postcode;
 				} else {
@@ -377,15 +380,17 @@ function custom_validation_hook_2($validation_result){
 		}
 	}
 
-
 	if ( $country && $postcode && $validation_result['is_valid']) {
-		$woocommerce->customer->set_location( $country, '', $postcode, '' );
-		$woocommerce->customer->set_shipping_location( $country, '', $postcode, '' );
+		WC()->customer->set_location( $country, '', $postcode, '' );
+		WC()->customer->set_shipping_location( $country, '', $postcode, '' );
+		WC()->session->set_customer_session_cookie(true);
+		WC()->session->save_data();
 	} else {
-		$woocommerce->customer->set_to_base();
-		$woocommerce->customer->set_shipping_to_base();
+		WC()->customer->set_to_base();
+		WC()->customer->set_shipping_to_base();
 	}
 
+	
 	$validation_result['form'] = $form;
 	return $validation_result;
 }
@@ -400,16 +405,11 @@ function custom_validation_message_book($message, $form){
 		if($field['id'] == '2' && $field['failed_validation']){
 			$message = '<div class="validation_error">We cannot take online orders for on-road skips because this requires a local authority permit.<br />We’d be happy to help you with this, please call us on 01689 821417.</div>';
 			break;
-		}
-
-		
+		}		
 	}
 	return $message;
 }
 
-function custom_woocommerce_before_main_content(){
-
-}
 
 function custom_woocommerce_shop_columns(){
 	return 3;
@@ -569,7 +569,7 @@ function custom_woocommerce_checkout_fields($fields){
 	$fields['delivery_date']['delivery_time'] = array(
 		'label'     => __('Select your delivery time', THEME_NAME),
 		'class'		=> array('radio-grid span five'),
-		'type'		=> 'radio',
+		'type'		=> 'group_radio',
 		'options'	=> array(
 			'am'		=> __("<b>AM</b> (8:00-12:00)"),
 			'pm'		=> __("<b>PM</b> (12:00-16:00)")
@@ -583,6 +583,11 @@ function custom_woocommerce_checkout_fields($fields){
 		'type'		=> 'date',
 		'required'  => false
 	);
+
+	//$fields['shipping']['shipping_postcode']['custom_attributes'] = array('disabled' => true);
+	//$fields['shipping']['shipping_postcode']['class'] = array('disabled');
+	// print_r($fields);
+	// die();
 
 	// $fields['return_date']['return_time'] = array(
 	// 	'label'     => __('Select your delivery time', THEME_NAME),
@@ -618,8 +623,20 @@ function custom_woocommerce_checkout_update_order_meta( $post_id, $posted ) {
 			}
 		}
 	}
+
+
+	// if ( $this->checkout_fields['billing'] && $this->posted['billtoshipping']) {
+	// 	foreach ( $this->checkout_fields['billing'] as $key => $field ) {
+	// 		$postvalue = false;
+	// 		if ( isset( $this->posted[ str_replace( 'billing_', 'shipping_', $key ) ] ) ) {
+	// 			$postvalue = $this->posted[ str_replace( 'billing_', 'shipping_', $key ) ];
+	// 			update_post_meta( $order_id, '_' . $key, $postvalue );
+	// 		}
+	// 	}
+	// }
+
 }
- 
+
 function custom_woocommerce_email_order_meta_keys( $keys ) {
 	global $woocommerce;
 	$checkout = $woocommerce->checkout();
@@ -647,7 +664,7 @@ function custom_woocommerce_form_field_date($field, $key, $args, $value ){
 	return $field;
 }
 
-function custom_woocommerce_form_field_radio($field, $key, $args, $value ){
+function custom_woocommerce_form_field_group_radio($field, $key, $args, $value ){
 
 	if ( $args['required'] ) {
 		$required = ' <abbr class="required" title="' . esc_attr__( 'required', 'woocommerce'  ) . '">*</abbr>';
@@ -660,7 +677,7 @@ function custom_woocommerce_form_field_radio($field, $key, $args, $value ){
 	$field .= '<div class="options clearfix" >';
 	foreach($args['options'] as $option_key => $label){
 		$field .= '<div class="radio-field">';
-		$field .= '<input type="' . $args['type'] . '" class="input-radio" name="' . esc_attr( $key ) . '" data-value="'.$value.'" id="' . esc_attr( $key.'-'.$option_key ) . '" value="'.$option_key.'" '.checked( $value, $option_key, false ) .' />';
+		$field .= '<input type="radio" class="input-radio" name="' . esc_attr( $key ) . '" data-value="'.$value.'" id="' . esc_attr( $key.'-'.$option_key ) . '" value="'.$option_key.'" '.checked( $value, $option_key, false ) .' />';
 		$field .= '<label for="' . esc_attr( $key.'-'.$option_key ) . '" class="radio">' . $label . '</label>';
 		$field .= '</div>';
 

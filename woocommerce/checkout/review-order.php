@@ -4,15 +4,11 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     1.6.4
+ * @version     2.1.8
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-global $woocommerce;
-
-$available_methods = $woocommerce->shipping->get_available_shipping_methods();
-	
 ?><div id="order_review">
 	<h3 class="title dark-blue"><?php _e("My Booking Details", THEME_NAME); ?></h3>
 	<table class="shop_table">
@@ -20,8 +16,8 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 		<tbody>
 			<?php
 				do_action( 'woocommerce_review_order_before_cart_contents' );
-				if (sizeof($woocommerce->cart->get_cart())>0) :
-					foreach ($woocommerce->cart->get_cart() as $cart_item_key => $values) :
+				if (sizeof(WC()->cart->get_cart())>0) :
+					foreach (WC()->cart->get_cart() as $cart_item_key => $values) :
 						$_product = $values['data'];
 						if ($_product->exists() && $values['quantity']>0) :
 							?>
@@ -42,9 +38,9 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 											<?php if($values['quantity'] > 1): ?>
 												<span class="quanity"><?php echo apply_filters( 'woocommerce_checkout_item_quantity', '<strong class="product-quantity">&times; ' . $values['quantity'] . '</strong>', $values, $cart_item_key ); ?>
 											<?php endif; ?>
-											<span class="price bold"><?php echo $_product->get_price_html(); ?><?php //echo apply_filters( 'woocommerce_checkout_item_subtotal', $woocommerce->cart->get_product_subtotal( $_product, $values['quantity'] ), $values, $cart_item_key ); ?></span>
+											<span class="price bold"><?php echo $_product->get_price_html(); ?><?php //echo apply_filters( 'woocommerce_checkout_item_subtotal', WC()->cart->get_product_subtotal( $_product, $values['quantity'] ), $values, $cart_item_key ); ?></span>
 										</p>
-										<p class="no-margin tiny"><?php echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf('<a href="%s" class="remove" title="%s">Remove</a>', esc_url( $woocommerce->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key ); ?></p>
+										<p class="no-margin tiny"><?php echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf('<a href="%s" class="remove" title="%s">Remove</a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key ); ?></p>
 									</td>
 								</tr>
 			<?php		endif;
@@ -53,13 +49,13 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 				do_action( 'woocommerce_review_order_after_cart_contents' );
 			?>
 
-			<?php if($delivery_date = $woocommerce->session->get('delivery_date')): ?>
+			<?php if($delivery_date = WC()->session->get('delivery_date')): ?>
 			<tr class="delivery-date">
 				<th><?php _e("Delivered on", THEME_NAME); ?></th>
 				<td>
 					<h6 class="no-margin">
 						<span class="date"><?php echo date('l d F', strtotime($delivery_date));?></span>
-						<?php if($delivery_time = $woocommerce->session->get('delivery_time')): ?>
+						<?php if($delivery_time = WC()->session->get('delivery_time')): ?>
 						<br /><span class="time normal"><?php echo ($delivery_time == 'am') ? "<b>AM</b> (8:00-12:00)" : "PM (12:00-16:00)"; ?></span>
 						<?php endif; ?>
 						<p class="tiny no-margin">
@@ -69,13 +65,13 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 				</td>
 			</tr>
 			<?php endif; ?>
-			<?php if($return_date = $woocommerce->session->get('return_date')): ?>
+			<?php if($return_date = WC()->session->get('return_date')): ?>
 			<tr class="return-date">
 				<th><?php _e("Collected on", THEME_NAME); ?></th>
 				<td>
 					<h6 class="no-margin">
 						<span class="date"><?php echo date('l d F', strtotime($return_date)); ?></span>
-						<?php if($return_time = $woocommerce->session->get('return_time')): ?>
+						<?php if($return_time = WC()->session->get('return_time')): ?>
 						<br /><span class="time normal"><?php echo ($delivery_time == 'am') ? "<b>AM</b> (8:00-12:00)" : "PM (12:00-16:00)"; ?></span>
 						<?php endif; ?>
 						<p class="tiny no-margin">
@@ -88,42 +84,39 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 		</tbody>
 		<tfoot>
 	
-			<?php if ($woocommerce->cart->needs_shipping() && $woocommerce->cart->show_shipping() ) : ?>
+		<?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
 
-				<?php do_action('woocommerce_review_order_before_shipping'); ?>
+			<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
 
-				<tr class="shipping">
-					<th><?php _e( 'Delivered to', 'woocommerce' ); ?></th>
-					<td><?php woocommerce_get_template( 'cart/shipping-methods.php', array( 'available_methods' => $available_methods ) ); ?></td>
-				</tr>
+			<?php wc_cart_totals_shipping_html(); ?>
 
-				<?php do_action('woocommerce_review_order_after_shipping'); ?>
-
-			<?php endif; ?>
+			<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+	
+		<?php endif; ?>
 
 		<?php if(1 == 2 && $available_methods): ?>
 				<tr class="cart-subtotal">
 					<th><?php _e( 'Cart Subtotal', 'woocommerce' ); ?></th>
-					<td><?php echo $woocommerce->cart->get_cart_subtotal(); ?></td>
+					<td><?php echo WC()->cart->get_cart_subtotal(); ?></td>
 				</tr>
 
-				<?php if ( $woocommerce->cart->get_discounts_before_tax() ) : ?>
+				<?php if ( WC()->cart->get_discounts_before_tax() ) : ?>
 
 				<tr class="discount">
 					<th><?php _e( 'Cart Discount', 'woocommerce' ); ?></th>
-					<td>-<?php echo $woocommerce->cart->get_discounts_before_tax(); ?></td>
+					<td>-<?php echo WC()->cart->get_discounts_before_tax(); ?></td>
 				</tr>
 
 				<?php endif; ?>
 
 				
 
-				<?php foreach ( $woocommerce->cart->get_fees() as $fee ) : ?>
+				<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
 
 					<tr class="fee fee-<?php echo $fee->id ?>">
 						<th><?php echo $fee->name ?></th>
 						<td><?php
-							if ( $woocommerce->cart->tax_display_cart == 'excl' )
+							if ( WC()->cart->tax_display_cart == 'excl' )
 								echo woocommerce_price( $fee->amount );
 							else
 								echo woocommerce_price( $fee->amount + $fee->tax );
@@ -134,8 +127,8 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 
 				<?php
 					// Show the tax row if showing prices exlcusive of tax only
-					if ( $woocommerce->cart->tax_display_cart == 'excl' ) {
-						foreach ( $woocommerce->cart->get_tax_totals() as $code => $tax ) {
+					if ( WC()->cart->tax_display_cart == 'excl' ) {
+						foreach ( WC()->cart->get_tax_totals() as $code => $tax ) {
 							echo '<tr class="tax-rate tax-rate-' . $code . '">
 								<th>' . $tax->label . '</th>
 								<td>' . $tax->formatted_amount . '</td>
@@ -144,11 +137,11 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 					}
 				?>
 
-				<?php if ( $woocommerce->cart->get_discounts_after_tax() ) : ?>
+				<?php if ( WC()->cart->get_discounts_after_tax() ) : ?>
 
 				<tr class="discount">
 					<th><?php _e( 'Order Discount', 'woocommerce' ); ?></th>
-					<td>-<?php echo $woocommerce->cart->get_discounts_after_tax(); ?></td>
+					<td>-<?php echo WC()->cart->get_discounts_after_tax(); ?></td>
 				</tr>
 
 				<?php endif; ?>
@@ -158,13 +151,13 @@ $available_methods = $woocommerce->shipping->get_available_shipping_methods();
 				<tr class="total">
 					<th><strong><?php _e( 'Order Total', 'woocommerce' ); ?></strong></th>
 					<td>
-						<strong><?php echo $woocommerce->cart->get_total(); ?></strong>
+						<strong><?php echo WC()->cart->get_total(); ?></strong>
 						<?php
 							// If prices are tax inclusive, show taxes here
-							if ( $woocommerce->cart->tax_display_cart == 'incl' ) {
+							if ( WC()->cart->tax_display_cart == 'incl' ) {
 								$tax_string_array = array();
 
-								foreach ( $woocommerce->cart->get_tax_totals() as $code => $tax ) {
+								foreach ( WC()->cart->get_tax_totals() as $code => $tax ) {
 									$tax_string_array[] = sprintf( '%s %s', $tax->formatted_amount, $tax->label );
 								}
 

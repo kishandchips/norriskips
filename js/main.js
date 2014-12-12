@@ -483,7 +483,31 @@
 						var datepicker = $(this),
 							gravifyform = (datepicker.is('input')) ? 1 : 0,
 							minDate = 0,
-							today = new Date();
+							today = new Date(),
+							exludeDates = [
+								'17/4/2014',
+								'18/4/2014',
+								'21/4/2014',
+								'5/5/2014',
+								'26/5/2014',
+								'25/8/2014',
+								'20/12/2014',
+								'21/12/2014',
+								'22/12/2014',
+								'23/12/2014',
+								'24/12/2014',
+								'25/12/2014',
+								'26/12/2014',
+								'27/12/2014',
+								'28/12/2014',
+								'29/12/2014',
+								'30/12/2014',
+								'31/12/2014',
+								'1/1/2015',
+								'2/1/2015',
+								'3/1/2015',
+								'4/1/2015'
+							];
 						if(today.getHours() > 12) {
 							minDate = 1;
 						}
@@ -507,8 +531,17 @@
 							minDate: minDate,
 							maxDate: 60,
 							beforeShowDay: function(date){ 
+								var valid = false;
+
 								var day = date.getDay();
-								return [(day > 0), ''];
+								if(day > 0) valid = true;
+
+								if(valid) {
+									var strDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+									valid = !($.inArray(strDate, exludeDates) > -1);
+								}
+
+								return [valid, ''];
 							},
 							onSelect: function(date, instance){
 								var date = new Date(date),
@@ -528,6 +561,13 @@
 
 								if(date.getDay() == 6) {
 									inputs.filter('[value=pm]').prop('disabled', true);
+								}
+
+								if(instance.id == 'field-delivery_date') {
+									var nextDate = date;
+									
+									nextDate.setDate(nextDate.getDate() + 1);
+									$('#field-return_date').datepicker('option', 'minDate', nextDate);									
 								}
 							}
 						});

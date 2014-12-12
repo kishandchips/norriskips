@@ -58,7 +58,12 @@ $CLICKDESK = (function() {
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-49209578-1', 'norriskips.net');
+  ga('create', 'UA-49209578-1', 'auto');
+
+  //ga('create', 'UA-XXXXXXX-Y', 'auto', {'allowLinker': true});
+  //ga('require', 'linker');
+  //ga('linker:autoLink', ['example-2.com'] );
+
   ga('send', 'pageview');
 
 </script>
