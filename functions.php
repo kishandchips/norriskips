@@ -228,6 +228,18 @@ function custom_widgets_init() {
 		'after_title' => '</h6>',
 	) );
 
+	register_sidebar(
+		array(
+			'id' => 'social',
+			'name' => __( 'Social' ),
+			'description' => __( 'Social Widgets' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h4 class="widget-title">',
+			'after_title' => '</h4>'
+		)
+	);
+
 	// 	/********************** Content ***********************/
 
 	// 	register_sidebar( array(
@@ -239,7 +251,7 @@ function custom_widgets_init() {
 	// 		'after_title' => '</h5><div class="inner equal-height">',
 	// 	) );
 
-
+	require(get_template_directory().'/inc/widgets/twitter/feed.php');
 }
 
 function custom_remove_menus () {

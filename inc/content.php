@@ -120,6 +120,18 @@
 			wp_reset_postdata();
 			wp_reset_query();		
 			break;
+
+		case 'twitter':
+		?>
+			<div class="tweets-wrapper">
+				<div class="container">
+					<h3 class="title text-center dark-blue"><?php if (get_sub_field('twitter_text')) { the_sub_field('twitter_text'); } else { _e("Our latest Tweets"); } ?></h3>
+					<?php dynamic_sidebar('social' ); ?>					
+				</div>
+			</div>
+			<?php
+			break;
+
 		case 'sub_pages':
 			$custom_query = new WP_Query(array('post_type' => 'page', 'post_parent' => $id, 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC'));
 			if($custom_query->have_posts()):

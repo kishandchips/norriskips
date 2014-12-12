@@ -785,6 +785,60 @@ hr {
 	}
 }
 
+.tweets-wrapper{
+	padding: 3em 0;
+
+	.tweets{
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+
+		.tweet{
+			float: left;
+			width: 30%;
+			margin-left: 5%;
+			padding: 2em;
+			list-style-type: none;
+			border: 1px solid #d0d0d0;
+			@include box-sizing(border-box);
+
+			&:first-child{
+				margin-left: 0;
+			}
+
+			.text{
+				float: left;
+				width: 100%;
+				min-height: 100px;
+
+				a{
+					color: #eeb111;
+
+					&:hover{
+						color: #002b54;
+					}
+				}
+			}
+
+			.time,.user{
+				float: left;
+				width: 50%;
+			}
+
+			.user{
+				text-align: right;
+			}
+
+			@media screen and (max-width: 600px){
+				width: 100%;
+				margin: 1em 0 0 0;
+			}
+		}
+	}
+	
+}
+
+
 .sub-pages {
 	list-style: none;
 	margin: 0 0 4em 0;

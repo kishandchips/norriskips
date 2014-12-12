@@ -482,7 +482,7 @@
 					$('.datepicker').each(function(){
 						var datepicker = $(this),
 							gravifyform = (datepicker.is('input')) ? 1 : 0,
-							minDate = 0,
+							minDate = 1,
 							today = new Date(),
 							exludeDates = [
 								'17/4/2014',
@@ -491,10 +491,6 @@
 								'5/5/2014',
 								'26/5/2014',
 								'25/8/2014',
-								'20/12/2014',
-								'21/12/2014',
-								'22/12/2014',
-								'23/12/2014',
 								'24/12/2014',
 								'25/12/2014',
 								'26/12/2014',
@@ -506,11 +502,11 @@
 								'1/1/2015',
 								'2/1/2015',
 								'3/1/2015',
-								'4/1/2015'
+								'4/1/2015',
 							];
-						if(today.getHours() > 12) {
-							minDate = 1;
-						}
+						// if(today.getHours() > 12) {
+						// 	minDate = 1;
+						// }
 						
 						if(gravifyform){
 							altField = datepicker;
@@ -555,7 +551,15 @@
 								}
 
 								inputs.prop('disabled', false);
-								if(today.getDate() == date.getDate() && today.getMonth() == date.getMonth()) {
+
+								if(instance.id == 'field-delivery_date') {
+									if( (today.getDate() + 1) == date.getDate() && today.getMonth() == date.getMonth() && today.getHours() > 12){
+										inputs.filter('[value=am]').prop('disabled', true);
+									}
+								}
+
+								//Christmas checker
+								if( date.getDate() == 5 && date.getMonth() == 0) {
 									inputs.filter('[value=am]').prop('disabled', true);
 								}
 
@@ -567,7 +571,7 @@
 									var nextDate = date;
 									
 									nextDate.setDate(nextDate.getDate() + 1);
-									$('#field-return_date').datepicker('option', 'minDate', nextDate);									
+									$('#field-return_date').datepicker('option', 'minDate', nextDate);
 								}
 							}
 						});
