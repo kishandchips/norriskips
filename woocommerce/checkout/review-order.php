@@ -49,6 +49,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 				do_action( 'woocommerce_review_order_after_cart_contents' );
 			?>
 
+			<?php $order_notes = WC()->session->get('order_notes') ?>
+			<tr class="order-notes">
+				<th><?php _e("Type of waste", THEME_NAME); ?></th>
+				<td>
+					<h6 class="no-margin">
+							<?php echo ucfirst($order_notes); ?>
+						<p class="tiny no-margin">
+							<a class="accordion-btn" data-id="order-notes"><?php _e("Change Type", THEME_NAME); ?></a>
+						</p>
+					</h6>
+				</td>
+			</tr>
+
 			<?php if($delivery_date = WC()->session->get('delivery_date')): ?>
 			<tr class="delivery-date">
 				<th><?php _e("Delivered on", THEME_NAME); ?></th>

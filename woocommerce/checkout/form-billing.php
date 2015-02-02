@@ -93,6 +93,6 @@ foreach($checkout->checkout_fields['billing'] as $key => $field) {
 			<input id="billtoshipping-checkbox" class="input-checkbox" <?php checked($billtoshipping, 1); ?> type="checkbox" name="billtoshipping" value="1" />
 			<label for="billtoshipping-checkbox" class="checkbox">&nbsp;&nbsp;<?php _e( 'Bill to delivery address?', 'woocommerce' ); ?></label>
 		</p>
-		<a class="accordion-btn orange-btn right" data-id="payment"><?php _e("Proceed to payment", THEME_NAME); ?></a>
+		<a class="accordion-btn orange-btn right" data-id="order-notes"><?php _e("Proceed to notes", THEME_NAME); ?></a>
 	</footer>
 </div>

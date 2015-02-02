@@ -24,7 +24,8 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 	<li class="circle" data-id="return-date">2<span class="label"><?php _e("Choose Return Date", THEME_NAME); ?></span></li>
 	<li class="circle" data-id="delivery-address">3<span class="label"><?php _e("Delivery Address", THEME_NAME); ?></span></li>
 	<li class="circle" data-id="billing-address">4<span class="label"><?php _e("Billing Address", THEME_NAME); ?></span></li>
-	<li class="circle" data-id="payment">5<span class="label"><?php _e("Payment Details", THEME_NAME); ?></span></li>
+	<li class="circle" data-id="order-notes">5<span class="label"><?php _e("Order Notes", THEME_NAME); ?></span></li>
+	<li class="circle" data-id="payment">6<span class="label"><?php _e("Payment Details", THEME_NAME); ?></span></li>
 </ul>
 <?php $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', WC()->cart->get_checkout_url() ); ?>
 <div class="clearfix">
@@ -60,8 +61,14 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 						<?php do_action( 'woocommerce_checkout_billing' ); ?>
 					</div>
 				</li>
+				<li data-id="order-notes">
+					<a data-id="order-notes" class="accordion-btn btn"><span class="number circle">5</span> <?php _e("Order Notes", THEME_NAME); ?></a>
+					<div class="accordion-content content">
+						<?php do_action( 'woocommerce_checkout_order_notes' ); ?>
+					</div>
+				</li>
 				<li data-id="payment">
-					<a data-id="payment" class="accordion-btn btn"><span class="number circle">5</span> <?php _e("Payment Details", THEME_NAME); ?></a>
+					<a data-id="payment" class="accordion-btn btn"><span class="number circle">6</span> <?php _e("Payment Details", THEME_NAME); ?></a>
 					<div class="accordion-content content">
 						<div id="payment">
 							<?php if (WC()->cart->needs_payment()) : ?>

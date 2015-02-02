@@ -74,6 +74,8 @@ add_action( 'woocommerce_before_single_product_summary', 'custom_woocommerce_sho
 
 add_action( 'woocommerce_checkout_delivery_date', 'custom_woocommerce_checkout_delivery_date');
 
+add_action( 'woocommerce_checkout_order_notes', 'custom_woocommerce_checkout_order_notes');
+
 add_action( 'woocommerce_checkout_return_date', 'custom_woocommerce_checkout_return_date');
 
 add_action( 'woocommerce_checkout_update_order_review', 'custom_woocommerce_checkout_update_order_review');
@@ -565,12 +567,18 @@ function custom_woocommerce_checkout_return_date(){
 	woocommerce_get_template( 'checkout/return-date.php' );
 }
 
+function custom_woocommerce_checkout_order_notes(){
+	woocommerce_get_template( 'checkout/order-notes.php' );
+}
+
 function custom_woocommerce_template_single_note(){
 	woocommerce_get_template( 'single-product/note.php' );	
 }
 
 function custom_woocommerce_checkout_fields($fields){
 	$fields['delivery_date'] = array();
+	$fields['order_notes'] = array();
+
 	$fields['delivery_date']['delivery_date'] = array(
 		'label'     => __('Date', THEME_NAME),
 		'class'		=> array('datepicker span five'),
@@ -596,6 +604,18 @@ function custom_woocommerce_checkout_fields($fields){
 		'required'  => false
 	);
 
+	$fields['order_notes']['order_notes'] = array(
+		'label'     => __('Type of waste to collect', THEME_NAME),
+		'class'		=> array('span five'),
+		'type'		=> 'select',
+		'required'  => false,
+		'options'	=> array(
+			'light'		=> __("Mainly light material, packaging, wood, plastics."),
+			'mixed'		=> __("Mixed material,  garden waste, furniture with some rubble or heavy materials."),
+			'heavy'		=> __("Mainly heavy material, rubble, concrete, soil, metals.")
+		),
+	);
+
 	//$fields['shipping']['shipping_postcode']['custom_attributes'] = array('disabled' => true);
 	//$fields['shipping']['shipping_postcode']['class'] = array('disabled');
 	// print_r($fields);
@@ -619,7 +639,7 @@ function custom_woocommerce_checkout_fields($fields){
 function custom_woocommerce_checkout_update_order_meta( $post_id, $posted ) {
 	global $woocommerce;
 	$checkout = $woocommerce->checkout();
-	$field_group_keys = array('delivery_date', 'return_date');
+	$field_group_keys = array('delivery_date', 'return_date', 'order_notes');
 
 	foreach($field_group_keys as $field_group_key) {
 		if(!empty($checkout->checkout_fields[$field_group_key])) {
@@ -653,7 +673,7 @@ function custom_woocommerce_email_order_meta_keys( $keys ) {
 	global $woocommerce;
 	$checkout = $woocommerce->checkout();
 
-	$field_group_keys = array('delivery_date', 'return_date');
+	$field_group_keys = array('delivery_date', 'return_date', 'order_notes');
 
 	foreach($field_group_keys as $field_group_key) {
 		if(!empty($checkout->checkout_fields[$field_group_key])) {
@@ -719,6 +739,7 @@ function custom_woocommerce_checkout_update_order_review($post_data){
 	global $woocommerce;
 
 	$post_data_ary = explode('&', $post_data);
+
 	$data = array();
 	foreach($post_data_ary as $value){
 		$value_ary = explode('=', $value);
@@ -737,6 +758,14 @@ function custom_woocommerce_checkout_update_order_review($post_data){
 
 		if(!empty($checkout->checkout_fields['return_date'])){
 			foreach($checkout->checkout_fields['return_date'] as $key => $value){
+				if(isset($data[$key])){
+					$woocommerce->session->set($key, $data[$key]);
+				}
+			}
+		}
+
+		if(!empty($checkout->checkout_fields['order_notes'])){
+			foreach($checkout->checkout_fields['order_notes'] as $key => $value){
 				if(isset($data[$key])){
 					$woocommerce->session->set($key, $data[$key]);
 				}
