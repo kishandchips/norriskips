@@ -1651,6 +1651,7 @@ p.demo_store {
 			display: block !important;
 		}
 	}
+	
 
 	#delivery-date,
 	#return-date,
@@ -1717,6 +1718,10 @@ p.demo_store {
 			color: $secondarytext;
 			@include darkorlighttextshadow( $secondarytext );
 
+			table td{
+				text-align: left;
+			}
+
 			p:last-child {
 				margin-bottom: 0;
 			}
@@ -1781,6 +1786,7 @@ p.demo_store {
 				background: #326ba1;
 			}
 
+			.order-notes,
 			.delivery-date,
 			.return-date {
 				td {

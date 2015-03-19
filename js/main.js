@@ -49,8 +49,6 @@
 					
 				});
 			}
-
-			
 			
 			this.lightbox.init();
 			this.ajaxPage.init();
@@ -466,12 +464,6 @@
 						} else {
 							$( 'div.payment_box' ).show();
 						}
-
-						if ( $( this ).data( 'order_button_text' ) ) {
-							$( '#place_order' ).val( $( this ).data( 'order_button_text' ) );
-						} else {
-							$( '#place_order' ).val( $( '#place_order' ).data( 'value' ) );
-						}
 					})
 				}	
 			}
@@ -591,6 +583,12 @@
 									var nextDate = date;
 									
 									nextDate.setDate(nextDate.getDate() + 1);
+
+									if(nextDate.getDay()== 0){
+										nextDate.setDate(nextDate.getDate() + 1);
+									}
+									console.log(nextDate);
+
 									$('#field-return_date').datepicker('option', 'minDate', nextDate);
 								}
 							}
